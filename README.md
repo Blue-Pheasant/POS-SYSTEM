@@ -51,9 +51,9 @@ Cách dùng composer giống với xài npm với NodeJS, đều là package man
 Vào folder project, tạo một file .env rồi bỏ vào config sau:
 
 ```bash
-DB_DSN=mysql:host=localhost;dbname=pos
+DB_DSN=mysql:host=localhost;dbname=thecoffeehouse
 DB_USER=root
-DB_PASSWORD=
+DB_PASSWORD=quan0402
 ```
 
 trong đó, password của bạn là gì thì điền vô, khôn

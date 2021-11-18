@@ -1,233 +1,175 @@
-commit 5a48336f6996f593df84889235450f119d5a3568
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 10 09:52:40 2021 +0700
-
-    Updated
-
-commit 8d5070da8c0bb176c4eeddf3a98489ee3717c49d
-Merge: 5881cb0 c0af568
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 10 09:47:15 2021 +0700
-
-    Merged from long
-
-commit c0af568bdbb7b781ab61b05cc59c09fa25f8ce93
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 10 09:35:05 2021 +0700
-
-    Updated
-
-commit c04e985f2fa13d3e1ac517670b5696cf23473b77
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 10 09:32:45 2021 +0700
-
-    Updated
-
-commit 5881cb03d739902552ceb42f6a44c778cc36805d
-Merge: edc068a 5894828
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 10 09:31:22 2021 +0700
-
-    Merge branch 'master' of https://github.com/Blue-Pheasant/POS-SYSTEM
-
-commit 5894828e387f61090e652c6963eebf1ec9b7e30c
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Sun Nov 7 17:10:26 2021 +0700
-
-    Update views folder
-
-commit 7469f4a7d928de0dfc8db7822fbdf8df86ccaf1c
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Sun Nov 7 16:25:07 2021 +0700
-
-    Add image folder
-
-commit edc068a15d8980b5120d006aa14be6979cab05b4
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 09:11:30 2021 +0700
-
-    Update
-
-commit 1425544031e4662b7b9902d7d127564cb3a99d39
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:55:31 2021 +0700
-
-    Delete admin folder
-
-commit 45ccdd9e75374bacaf23aaf57672c69a4dd713fc
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:54:42 2021 +0700
-
-    Update something about migration
-
-commit 8c546452c67a793f9fcb07f236b659c12279c163
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:42:15 2021 +0700
-
-    Updated
-
-commit 5b9620515001cb75c27468b5f18f43ac9ba68459
-Merge: a8c3e75 d7b7fa2
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:32:15 2021 +0700
-
-    Changed something
-
-commit a8c3e75579a9f0f26de422e629fe8c512f0f138d
-Merge: 95ddf23 d2f7682
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:31:37 2021 +0700
-
-    Merge
-
-commit d2f7682f11d8e23787950bcff3cad6613d4fc0b6
-Merge: d4a075d 3f3e785
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sun Nov 7 08:31:06 2021 +0700
-
-    merge
-
-commit d7b7fa27054f463a6e24537277bc497c33cc51bf
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Sat Nov 6 12:14:18 2021 +0700
-
-    Update views folder
-
-commit ec7845fbbfb2c6da5068ee1018b42a06a073f148
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Sat Nov 6 12:13:18 2021 +0700
-
-    Update js folder
-
-commit 080d4775fb0d6869b75fc6436a10b87dfa2effbd
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Sat Nov 6 12:12:29 2021 +0700
-
-    Update css folder
-
-commit 95ddf23602e6a69765bf31cb50096c89ff6994d6
-Merge: 4daec99 a38f473
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sat Nov 6 10:55:37 2021 +0700
-
-    Merge branch 'long'
-
-commit a38f473c094d69550f41ebd94de0243b1d198d59
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sat Nov 6 10:54:32 2021 +0700
-
-    Update
-
-commit 72e878e6411fd06ab3e4c7262f1f6afab53e7aeb
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Sat Nov 6 10:53:58 2021 +0700
-
-    Update
-
-commit 3f3e78561431b2e4a0dd3c02e71dac3d6925280d
-Author: Nhat Nam <nam0968024068@gmail.com>
-Date:   Fri Nov 5 23:58:56 2021 +0700
-
-    Add views Front_end
-
-commit 4daec99e62ce5dd58f1d0329c736e600924ea2a7
-Merge: e282c62 dc2f9be
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 16:49:34 2021 +0700
-
-    Merge branch 'long'
-
-commit dc2f9bea862a59a6217a95138dcb13b06819ef5c
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 16:49:11 2021 +0700
-
-    Add config.php
-
-commit e282c6285abf68ae86987ca202bc4c797819cb80
-Merge: 3465154 e73ce69
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:28:13 2021 +0700
-
-    Merge branch 'long'
-
-commit e73ce694b11721105d71933e54680488849e6509
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:27:01 2021 +0700
-
-    Move Boostrap and fonts to public
-
-commit 094e0e7256ebde2870ee311533159d457d55b37c
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:23:40 2021 +0700
-
-    Add core
-
-commit 3465154b94cdbafa5118c1407858b81cd32ad58a
-Merge: f18d796 3065478
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:12:19 2021 +0700
-
-    Merge branch 'master' of https://github.com/Blue-Pheasant/POS-SYSTEM
-
-commit f18d79672598001b6ce348246bae76cc2290804b
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:09:45 2021 +0700
-
-    Notthing
-
-commit a3073267e081e71f9b7864da21ff90fc79d8c91c
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Nov 3 15:08:20 2021 +0700
-
-    Add middlewares, exception
-
-commit fa2f11aa75dd2975c13d8682236e3d689384095c
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Tue Nov 2 23:42:55 2021 +0700
-
-    Add some files in controller, models, public and modify config.php in config
-
-commit 16299780ac9cbc015d48d1880be355a30b35c6de
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Fri Oct 29 13:26:50 2021 +0700
-
-    Impleme customer.php customerClass.php
-
-commit 723a34ea3d9936a4ced7c5d58cafeeb41e2bdb1b
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Fri Oct 29 13:12:27 2021 +0700
-
-    impleme config.php
-
-commit 30654780efc962161386e887a5bc4e6a07ebde70
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Oct 27 14:23:44 2021 +0700
-
-    Test
-
-commit d4a075debe90cd0ea7df2c51b414233e1d0cfcf6
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Oct 27 11:16:46 2021 +0700
-
-    Initia a simple template of php mvc
-
-commit 395aabb9c51d7a60a2eace22ec0846373b50c137
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Oct 27 11:06:15 2021 +0700
-
-    Initia a simple template php mvc
-
-commit ca99ae058c3261343754a83b142297ca0ce9f601
-Author: Longvo <long.vo2k1@hcmut.com>
-Date:   Wed Oct 27 10:57:47 2021 +0700
-
-    Initia a simple template of php mvc
-
-commit db37c667372a79229217a6b0dcdd83b7cd24195e
-Author: Blue-Pheasant <BluePheasant@users.noreply.github.com>
-Date:   Wed Oct 20 22:42:00 2021 +0700
-
-    template of asp.net mvc
-
-
-I changed this file
+e6880e3 HEAD@{0}: checkout: moving from long to master
+e6880e3 HEAD@{1}: merge master: Fast-forward
+fadd00d HEAD@{2}: checkout: moving from master to long
+e6880e3 HEAD@{3}: pull: Merge made by the 'recursive' strategy.
+02b13dd HEAD@{4}: commit (merge): Update user model
+1285f64 HEAD@{5}: checkout: moving from long to master
+fadd00d HEAD@{6}: reset: moving to fadd00d
+eee4302 HEAD@{7}: reset: moving to eee4302
+e715730 HEAD@{8}: reset: moving to e715730
+438d7e8 HEAD@{9}: reset: moving to 438d7e8
+1285f64 HEAD@{10}: merge master: Fast-forward
+8ceac20 HEAD@{11}: reset: moving to 8ceac20
+21274d3 HEAD@{12}: reset: moving to 21274d3
+b0c850b HEAD@{13}: reset: moving to b0c850b
+714b152 HEAD@{14}: reset: moving to 714b152
+b0c850b HEAD@{15}: reset: moving to b0c850b
+b0c850b HEAD@{16}: reset: moving to b0c850b
+21274d3 HEAD@{17}: reset: moving to 21274d3
+38f793d HEAD@{18}: reset: moving to 38f793d
+438d7e8 HEAD@{19}: reset: moving to 438d7e8
+cc85b19 HEAD@{20}: reset: moving to cc85b19
+c23a305 HEAD@{21}: reset: moving to c23a305
+714b152 HEAD@{22}: reset: moving to 714b15
+ba6d9f8 HEAD@{23}: reset: moving to ba6d9f8bf9f228bec24332651048b0943f163573
+ba6d9f8 HEAD@{24}: checkout: moving from master to long
+1285f64 HEAD@{25}: checkout: moving from master to master
+1285f64 HEAD@{26}: checkout: moving from long to master
+ba6d9f8 HEAD@{27}: checkout: moving from long to long
+ba6d9f8 HEAD@{28}: checkout: moving from master to long
+1285f64 HEAD@{29}: commit: Update category model
+ff5ec2a HEAD@{30}: commit: Update category model
+257b9cf HEAD@{31}: checkout: moving from long to master
+ba6d9f8 HEAD@{32}: commit: Added store implementation
+3a7997a HEAD@{33}: checkout: moving from long to long
+3a7997a HEAD@{34}: checkout: moving from master to long
+257b9cf HEAD@{35}: commit: Fixing cart
+8795198 HEAD@{36}: checkout: moving from long to master
+3a7997a HEAD@{37}: checkout: moving from master to long
+8795198 HEAD@{38}: checkout: moving from long to master
+3a7997a HEAD@{39}: checkout: moving from master to long
+8795198 HEAD@{40}: merge long: Merge made by the 'recursive' strategy.
+19395f9 HEAD@{41}: checkout: moving from long to master
+3a7997a HEAD@{42}: commit: Update controller
+570306f HEAD@{43}: checkout: moving from master to long
+19395f9 HEAD@{44}: commit (merge): Merge from long
+570306f HEAD@{45}: merge long: Fast-forward
+a62113c HEAD@{46}: checkout: moving from long to master
+570306f HEAD@{47}: commit: Fix cart
+53eeae8 HEAD@{48}: checkout: moving from master to long
+a62113c HEAD@{49}: checkout: moving from long to master
+53eeae8 HEAD@{50}: commit: Fix cart
+019c7da HEAD@{51}: commit: Fix cart
+f444187 HEAD@{52}: commit: Fix cart
+a4e06b5 HEAD@{53}: commit: Changed cart
+6055474 HEAD@{54}: commit: Update role in register, client is default when user register, admin can choose role when creating new user
+b847501 HEAD@{55}: commit: Update create.php in view
+a62113c HEAD@{56}: checkout: moving from master to long
+a62113c HEAD@{57}: merge long: Fast-forward
+8b5a5db HEAD@{58}: checkout: moving from long to master
+a62113c HEAD@{59}: commit: Add role, create() user, cart session, store class
+44dd0ef HEAD@{60}: commit (merge): Merge from master
+9c38317 HEAD@{61}: checkout: moving from master to long
+8b5a5db HEAD@{62}: commit: Update get() and getAll()
+c42817e HEAD@{63}: commit (merge): Update get() and getAll()
+ccb3d5d HEAD@{64}: checkout: moving from long to master
+9c38317 HEAD@{65}: checkout: moving from master to long
+ccb3d5d HEAD@{66}: checkout: moving from long to master
+9c38317 HEAD@{67}: checkout: moving from master to long
+ccb3d5d HEAD@{68}: checkout: moving from long to master
+9c38317 HEAD@{69}: commit: Updated product controller
+c560fae HEAD@{70}: commit: what I changed
+dd8221d HEAD@{71}: commit: Updated get() and getAll()
+ccb3d5d HEAD@{72}: checkout: moving from master to long
+ccb3d5d HEAD@{73}: merge long: Fast-forward
+954e51e HEAD@{74}: checkout: moving from long to master
+ccb3d5d HEAD@{75}: commit: Updated delete() function in Product.php Record.php User.php Feedback.php
+954e51e HEAD@{76}: merge master: Fast-forward
+8ed6b4d HEAD@{77}: checkout: moving from master to long
+954e51e HEAD@{78}: commit: Update cart.php
+0db3f29 HEAD@{79}: commit (merge): Updated getAll()
+d73c56c HEAD@{80}: checkout: moving from long to master
+8ed6b4d HEAD@{81}: commit: Updated getAll()
+b0c850b HEAD@{82}: checkout: moving from master to long
+d73c56c HEAD@{83}: commit: Changed something in ProductController
+9d85038 HEAD@{84}: checkout: moving from long to master
+b0c850b HEAD@{85}: checkout: moving from master to long
+9d85038 HEAD@{86}: commit (merge): Update getObject()
+53a4827 HEAD@{87}: pull: Merge made by the 'recursive' strategy.
+714b152 HEAD@{88}: checkout: moving from long to master
+b0c850b HEAD@{89}: commit: Update getObject() (return an object when find by id)
+714b152 HEAD@{90}: checkout: moving from master to long
+714b152 HEAD@{91}: merge long: Fast-forward
+202b700 HEAD@{92}: checkout: moving from long to master
+714b152 HEAD@{93}: commit: Update product_detail.js
+202b700 HEAD@{94}: checkout: moving from master to long
+202b700 HEAD@{95}: merge long: Fast-forward
+c23a305 HEAD@{96}: checkout: moving from long to master
+202b700 HEAD@{97}: commit: Add two functions in pruct_detail.js to cal price
+c23a305 HEAD@{98}: checkout: moving from master to long
+c23a305 HEAD@{99}: merge long: Fast-forward
+6718151 HEAD@{100}: checkout: moving from long to master
+c23a305 HEAD@{101}: commit: Create addcard.js as prototype
+6875044 HEAD@{102}: merge master: Merge made by the 'recursive' strategy.
+f490d9c HEAD@{103}: checkout: moving from master to long
+6718151 HEAD@{104}: pull: Fast-forward
+fadd00d HEAD@{105}: checkout: moving from long to master
+f490d9c HEAD@{106}: commit: Updated code
+fadd00d HEAD@{107}: merge master: Fast-forward
+21274d3 HEAD@{108}: checkout: moving from master to long
+fadd00d HEAD@{109}: pull: Fast-forward
+21274d3 HEAD@{110}: checkout: moving from long to master
+21274d3 HEAD@{111}: merge master: Fast-forward
+8ceac20 HEAD@{112}: checkout: moving from master to long
+21274d3 HEAD@{113}: commit (merge): Merged from branch Long
+eee4302 HEAD@{114}: pull: Merge made by the 'recursive' strategy.
+d563eaa HEAD@{115}: checkout: moving from long to master
+8ceac20 HEAD@{116}: commit: Updated 9/11/2021
+38f793d HEAD@{117}: commit: Update in afternoon 08/11
+6304667 HEAD@{118}: commit: Update in afternoon 08/11
+ad1180a HEAD@{119}: commit: Processed Category/Customer/Feedback/Product in controllers, models, core
+96962b6 HEAD@{120}: checkout: moving from master to long
+d563eaa HEAD@{121}: pull: Merge made by the 'recursive' strategy.
+e715730 HEAD@{122}: checkout: moving from long to master
+96962b6 HEAD@{123}: commit: Declare necessary funtions what are needed to implement in controllers, Add Input.php in app/core
+0dd2377 HEAD@{124}: commit: Add CustomerController.php
+cc85b19 HEAD@{125}: pull: Merge made by the 'recursive' strategy.
+58362ed HEAD@{126}: checkout: moving from long to long
+58362ed HEAD@{127}: merge master: Merge made by the 'recursive' strategy.
+b0aafe5 HEAD@{128}: checkout: moving from master to long
+e715730 HEAD@{129}: checkout: moving from long to master
+b0aafe5 HEAD@{130}: checkout: moving from master to long
+e715730 HEAD@{131}: pull: Merge made by the 'recursive' strategy.
+a068270 HEAD@{132}: checkout: moving from long to master
+b0aafe5 HEAD@{133}: commit: No change
+c370f78 HEAD@{134}: commit: Changed struct and name Ãin folder controllers
+51db7c5 HEAD@{135}: checkout: moving from master to long
+a068270 HEAD@{136}: merge long: Merge made by the 'recursive' strategy.
+438d7e8 HEAD@{137}: checkout: moving from long to master
+51db7c5 HEAD@{138}: commit: Processed admin/models: category.php feedback.php order.php products.php store.php, now can't solve user.php
+bab75a5 HEAD@{139}: commit: Processed admin order function in admin/controllers/order
+87e525b HEAD@{140}: commit: Add store function in admin/controllers/store
+8122458 HEAD@{141}: commit: Add store function in admin/controllers/store
+aa3980f HEAD@{142}: checkout: moving from master to long
+438d7e8 HEAD@{143}: pull: Merge made by the 'recursive' strategy.
+aa3980f HEAD@{144}: merge long: Fast-forward
+89cd539 HEAD@{145}: checkout: moving from long to master
+aa3980f HEAD@{146}: commit: Changed some folder in project
+89cd539 HEAD@{147}: checkout: moving from master to long
+89cd539 HEAD@{148}: merge long: Fast-forward
+4e42827 HEAD@{149}: checkout: moving from long to master
+89cd539 HEAD@{150}: commit (merge): Notthing
+ed86162 HEAD@{151}: commit: Change something in file and re-placed folder
+b0e31f1 HEAD@{152}: reset: moving to HEAD~1
+419e5db HEAD@{153}: checkout: moving from long to long
+419e5db HEAD@{154}: checkout: moving from long to long
+419e5db HEAD@{155}: checkout: moving from long to long
+419e5db HEAD@{156}: checkout: moving from long to long
+419e5db HEAD@{157}: commit: Process search/store/type function in contents/controllers.
+b0e31f1 HEAD@{158}: commit: Process home/page/post/product function in contents/controllers.
+fbfd8d1 HEAD@{159}: commit: Process feedback function in contents/controllers/feedback with one file: index.php
+dd5eee7 HEAD@{160}: commit: Process comment function in contents/controllers/comment with one file: index.php
+eaf143c HEAD@{161}: commit: Process category function in contents/models/category with one file: index.php
+dfcb4e7 HEAD@{162}: commit: Process cart functions in contents/controllers/cart with six files: add.php, checkout.php, delete.php, destroy.php, index.php, order.php
+1bca42c HEAD@{163}: commit: Process four files in contents/models: cart.php, posts.php, products.php, feedback.php
+9fc2bc6 HEAD@{164}: commit: Process feedback in feedback folder, i devided to many files for each other function
+c3698be HEAD@{165}: commit: Process category and comment, in these folder i devided many files with each orther function
+0be0441 HEAD@{166}: commit: Add checkout.php, index.php, list.php, order.php in contents/views/cart/
+45d5c4c HEAD@{167}: commit: Add cart.php, feedback.php, post.php, product.php in models folder, re-place forlders
+4e42827 HEAD@{168}: checkout: moving from master to long
+4e42827 HEAD@{169}: pull: Fast-forward
+66c14ef HEAD@{170}: pull: Fast-forward
+05dca86 HEAD@{171}: commit: Update tree-folder.txt
+b07b718 HEAD@{172}: commit: Add fonts folder
+da2edc7 HEAD@{173}: commit: Add img migration js folers
+8ef5e90 HEAD@{174}: clone: from https://github.com/quentintheastronaut/thecoffehouse

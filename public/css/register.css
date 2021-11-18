@@ -1,131 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Roboto:wght@100;300&display=swap');
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
-}
-body{
-  font-family: 'Noto Sans JP', sans-serif;
-}
-ul {
-    list-style: none;
-}
-a {
-  text-decoration: none;
-}
 
-.tp {
-    background-color: #FEFBDF ;
-  }
-  .container {
+/* sign in FORM */
+#logreg-forms{
+    width:412px;
+    margin:10vh auto;
+    background-color:#f3f3f3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+#logreg-forms form {
+    width: 100%;
+    max-width: 410px;
+    padding: 15px;
     margin: auto;
-    max-width: 1200px;
-  }
-  .row {
-    display: flex;
-    flex-wrap: wrap;
+}
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+#logreg-forms .form-control:focus { z-index: 2; }
+#logreg-forms .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#logreg-forms .form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#logreg-forms .social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+#logreg-forms .social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+#logreg-forms a{
+    display: block;
+    padding-top:10px;
+    color:lightseagreen;
+}
+
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
+}
+
+
+#logreg-forms button[type="submit"]{ margin-top:10px; }
+
+#logreg-forms .facebook-btn{  background-color:#3C589C; }
+
+#logreg-forms .google-btn{ background-color: #DF4B3B; }
+
+#logreg-forms .form-reset, #logreg-forms .form-signup{ display: none; }
+
+#logreg-forms .form-signup .social-btn{ width:210px; }
+
+#logreg-forms .form-signup input { margin-bottom: 2px;}
+
+.form-signup .social-login{
+    width:210px !important;
+    margin: 0 auto;
+}
+
+/* Mobile */
+
+@media screen and (max-width:500px){
+    #logreg-forms{
+        width:300px;
+    }
     
-  }
-  .row .logo img {
-    width: 80px;
-    display: inline-block;
-  }
+    #logreg-forms  .social-login{
+        width:200px;
+        margin:0 auto;
+        margin-bottom: 10px;
+    }
+    #logreg-forms  .social-btn{
+        font-size: 1.3rem;
+        font-weight: 100;
+        color:white;
+        width:200px;
+        height: 56px;
+        
+    }
+    #logreg-forms .social-btn:nth-child(1){
+        margin-bottom: 5px;
+    }
+    #logreg-forms .social-btn span{
+        display: none;
+    }
+    #logreg-forms  .facebook-btn:after{
+        content:'Facebook';
+    }
   
-  .listmember{
-    display: inline-block;
-    width: 80%;
-    transition: 0.5s ease;
-  }
-  
-  .listmem{
-    display: inline-block;
-    margin:  2px 20px;
-    padding: 10px 30px;
-    color: white;
-    font-weight: 700;
-    font-size: large;
+    #logreg-forms  .google-btn:after{
+        content:'Google+';
+    }
     
-  
-  }
-
-form {
-    border: 3px solid #f1f1f1;
-    padding: 10px 10px 20px 10px;
-    border-radius: 20px;
-    width: 50%;
-    margin: 50px auto;
-    background-color: #FEFBDF;
-}
-h1, label{
-  color: DodgerBlue;
-}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 10px 22px 10px;
-  display: inline-block;
-  border: none;
-  resize: vertical;
-  border-radius:15px;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-}
-
-
-.fnameuser {
-  width: 48%;
-  display: inline-block;
-  margin-right: 15px;
-}
-.lnameuser {
-  width: 48%;
-  display: inline-block;
-}
-
-
-
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-size: large;
-}
-
-button:hover {
-  opacity:1;
-}
-
-
-
-/* Float cancel and signup buttons and add an equal width */
-.signupbtn {
-  float: left;
-  width: 100%;
-  border-radius:15px;
-  border:0;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-}
-
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-}
-
-/* Clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }

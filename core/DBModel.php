@@ -36,16 +36,6 @@ abstract class DBModel extends Model
         return true;
     }
 
-    public function update()
-    {
-    
-    }
-
-    public function delete()
-    {
-        
-    }
-
     public static function prepare($sql)
     {
         return Application::$app->db->pdo->prepare($sql);

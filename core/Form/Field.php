@@ -3,6 +3,7 @@
 namespace app\core\Form;
 
 use app\core\Model;
+use app\models\User;
 
 class Field
 {
@@ -12,7 +13,7 @@ class Field
     public const TYPE_NUMBER = 'number';
 
 
-    public Model $model;
+    public User $model;
     public string $attribute;
     public string $type;
 
@@ -35,7 +36,7 @@ class Field
                 </div>
             </div>
         ',
-            $this->attribute,
+            $this->model->getLabel($this->attribute),
             $this->type,
             $this->attribute,
             $this->model->{$this->attribute},

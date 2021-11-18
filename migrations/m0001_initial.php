@@ -79,6 +79,7 @@ class m0001_initial
             `ward_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `district_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `province_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+            `role` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
             `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;

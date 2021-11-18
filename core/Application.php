@@ -54,7 +54,6 @@ class Application
         $primaryKey = $user->primaryKey();
         $value = $user->{$primaryKey};
         Application::$app->session->set('user', $value);
-
         return true;
     }
 

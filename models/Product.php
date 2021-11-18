@@ -7,9 +7,10 @@ use app\core\Database;
 use app\core\Model;
 use app\core\ProductModel;
 use app\core\Request;
+use app\core\DBModel;
 use PDO;
 
-class Product extends ProductModel
+class Product extends DBModel
 {
     public string $id;
     public string $category_id;
@@ -21,77 +22,49 @@ class Product extends ProductModel
     public string $update_at;
 
     public function __construct(
+        $id = '',
         $category_id = '',
         $name = '',
         $price = 0,
         $description = '',
-        $create_at = '',
-        $quantity = 1
+        $image_url = ''
     ) {
-        $this->category_id = $category_id;
-        $this->name = $name;
-        $this->price = $price;
-        $this->description = $description;
-        $this->quantity = $quantity;
-    }
-
-    public function setId($id)
-    {
         $this->id = $id;
-    }
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setCategoryId($category_id)
-    {
         $this->category_id = $category_id;
-    }
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
-    public function setName($name)
-    {
         $this->name = $name;
-    }
-    public function getname()
-    {
-        return $this->name;
-    }
-
-    public function setPrice($price)
-    {
         $this->price = $price;
-    }
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setDescription($description)
-    {
         $this->description = $description;
-    }
-    public function getDescription()
-    {
-        return $this->description;
+        $this->image_url = $image_url;
     }
 
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-    }
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    public function setId($id) { $this->id = $id; }
+    public function getId() { return $this->id; }
 
+    public function setCategoryId($category_id) { $this->category_id = $category_id; }
+    public function getCategoryId() { return $this->category_id; }
+
+    
+    public function setName($name) { $this->name = $name; }
+    public function getName() { return $this->name; }
+    
+    public function setPrice($price) { $this->price = $price; }
+    public function getPrice() { return $this->price; }
+    
+    public function setDescription($description) { $this->description = $description; }
+    public function getDescription() { return $this->description; }
+
+    public function setImageUrl($image_url) { $this->image_url = $image_url; }
+    public function getImageUrl() { return $this->image_url; }   
+    
+    public function getCategory()
+    {
+        $categoryModel = Category::get($this->category_id);
+        return $categoryModel->getDisplayName();
+    }
+    
     public function getDisplayInfo(): string
     {
-        return $this->id . ' ' . $this->category_id . ' ' . $this->name . ' ' . $this->quantity . ' ' . $this->price . ' ' . $this->description . ' ' . $this->create_at;
+        return $this->id . ' ' . $this->category_id . ' ' . $this->name . ' ' . $this->price . ' ' . $this->description;
     }
 
     public static function tableName(): string
@@ -101,26 +74,32 @@ class Product extends ProductModel
 
     public function attributes(): array
     {
-        return ['id', 'category_id', 'product_id', 'quantity', 'price'];
+        return ['id', 'category_id', 'name', 'price', 'description', 'image_url'];
     }
-
+   
     public function labels(): array
     {
         return [
-            'name' => 'Product name',
-            'price' => 'Price',
-            'quantity' => 'Quanity',
-            'description' => 'Description',
+            'id' => 'Mã sản phẩm',
+            'name' => 'Tên sản phẩm',
+            'price' => 'Giá',
+            'description' => 'Mô tả sản phẩm',
+            'image_url' => 'Hình ảnh sản phẩm',
+            'category_id' => 'Mã mục'
         ];
+    }
+    
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute];
     }
 
     public function rules(): array
     {
         return [
-            'name' => [self::RULE_REQUIRED, [self::RULE_MIN, 'max' <= 50]],
+            'name' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' <= 50]],
             'description' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' >= 20], [self::RULE_MAX, 'max' <= 100]],
             'price' => [self::RULE_REQUIRED],
-            'quantity' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' >= 1]]
         ];
     }
 
@@ -130,22 +109,29 @@ class Product extends ProductModel
         return parent::save();
     }
 
-    public function update()
+    public function update(Product $product)
     {
-
+        $sql = "UPDATE products SET category_id='" . $product->category_id . "',
+                                    name='" . $product->name . "', 
+                                    price='" . $product->price . "', 
+                                    description='" . $product->description . "' 
+                                    WHERE id='" . $product->id . "'";
+        $statement = self::prepare($sql);
+        $statement->execute();
+        return true;  
     }
 
     public function delete()
     {
         $tablename = $this->tableName();
-        $id = $this->id;
-        $sql = "DELETE FROM $tablename WHEHRE ID = :ID";
-        $statement = self::prepare($sql);
-        $statement->bindParam(':ID', $id, PDO::PARAM_INT);
-        $statement->execute();
+        $sql = "DELETE FROM $tablename WHERE id=?";
+        $stmt= self::prepare($sql);
+        $stmt->execute([$this->id]);
+        return true;
     }
 
-    public static function getAll()
+    // Của Quân, đã chạy được, xin đừng xóa
+    public static function getAllProducts()
     {
         $list = [];
         $db = Database::getInstance();
@@ -158,12 +144,12 @@ class Product extends ProductModel
         return $list;
     }
 
-    public static function get($id)
+    public static function getProductDetail($id)
     {
         $db = Database::getInstance();
         $req = $db->query('SELECT * FROM products WHERE id = "' . $id . '"');
         $item = $req->fetchAll()[0];
         $product = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
         return $product;
-    }
+    }  
 }

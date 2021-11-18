@@ -23,7 +23,7 @@
                 <div class="col-md-12 col-lg-6 product-detail-right">
                     <div class="product-detail-name"><?php echo $params['product']->name ?></div>
                     <div class="product-detail-footer">
-                        <div id="product-detail-price"><?php echo $params['product']->price ?>đ</div>
+                        <div><span class="price"><?php echo $params['product']->price ?></span>đ</div>
                         <div class="product-detail-footer-quantity">
                             <button id="decrease-quantity-button" disabled class="item-button-disabled"
                                 onclick="decreaseQuantity()">
@@ -89,10 +89,9 @@
                         </div>
                     </div>
                     <div class="product-detail-button">
-                        <<<<<<< HEAD <button><?php echo $params['product']->price ?> - Thêm vào giỏ hàng</button>
-                            =======
-                            <button id="addCart">Thêm vào giỏ hàng</button>
-                            >>>>>>> 202b70048350d928fe3bd53ca7cd76ffa0e79311
+                        <button id="addCart"><span class="price"><?php echo $params['product']->price ?></span> - Thêm
+                            vào
+                            giỏ hàng</button>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
@@ -104,3 +103,8 @@
         </div>
     </div>
 </div>
+
+<script src="/js/product_detail.js"></script>
+<script>
+numberWithCommas();
+</script>

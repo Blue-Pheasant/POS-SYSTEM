@@ -2,19 +2,21 @@
 
 namespace app\models;
 
+use app\core\Application;
 use app\core\CartModel;
+use app\models\Product;
 
 class Cart extends CartModel 
 {
-    public array $list;
+    public array $records;
     public int $status;
     
     public function __construct(
         $status = 0,
-        $list = []
+        $records = []
     ) {
         $this->status = $status;
-        $this->list = $list;
+        $this->list = $records;
     }
     
     public static function tableName(): string
@@ -30,7 +32,7 @@ class Cart extends CartModel
     public function labels(): array
     {
         return [
-            'list' => 'List',
+            'records' => 'Records',
             'status' => 'Status',
         ];
     }
@@ -47,7 +49,32 @@ class Cart extends CartModel
 
     public function getDisplayInfo(): string
     {
-        return $this->list . ' ' . $this->status;
+        return $this->records . ' ' . $this->status;
     }
 
+    public function insert(Product $product)
+    {
+        
+        $recordModel = new Record(Application::$app->session->get('user'), $product->getId(), 1);
+        $exists = Application::$app->session->exists('cart');
+        if(!$exists) {
+            Application::$app->session->setFlash('cart', 'Initiate cart');
+            $userID = Application::$app->session->get('user');
+            $cart = Application::$app->session->get('cart');
+            Application::$app->session->set('cart', $userID);
+            array_push($cart->records, $recordModel);
+            return;
+        } else {
+            $cart = Application::$app->session->get('cart');
+            $records = $cart->records;
+            foreach($records as $record) {
+                if($record->getProductID() == $product->getId()) {
+                    $record->setQuantity($record->getQuantity() + 1);
+                    return;
+                }
+            }
+            array_push($cart->records, $recordModel);
+        }
+            
+    }
 }

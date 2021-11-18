@@ -1,0 +1,152 @@
+ba6d9f8 HEAD@{0}: reset: moving to ba6d9f8bf9f228bec24332651048b0943f163573
+ba6d9f8 HEAD@{1}: checkout: moving from master to long
+1285f64 HEAD@{2}: checkout: moving from master to master
+1285f64 HEAD@{3}: checkout: moving from long to master
+ba6d9f8 HEAD@{4}: checkout: moving from long to long
+ba6d9f8 HEAD@{5}: checkout: moving from master to long
+1285f64 HEAD@{6}: commit: Update category model
+ff5ec2a HEAD@{7}: commit: Update category model
+257b9cf HEAD@{8}: checkout: moving from long to master
+ba6d9f8 HEAD@{9}: commit: Added store implementation
+3a7997a HEAD@{10}: checkout: moving from long to long
+3a7997a HEAD@{11}: checkout: moving from master to long
+257b9cf HEAD@{12}: commit: Fixing cart
+8795198 HEAD@{13}: checkout: moving from long to master
+3a7997a HEAD@{14}: checkout: moving from master to long
+8795198 HEAD@{15}: checkout: moving from long to master
+3a7997a HEAD@{16}: checkout: moving from master to long
+8795198 HEAD@{17}: merge long: Merge made by the 'recursive' strategy.
+19395f9 HEAD@{18}: checkout: moving from long to master
+3a7997a HEAD@{19}: commit: Update controller
+570306f HEAD@{20}: checkout: moving from master to long
+19395f9 HEAD@{21}: commit (merge): Merge from long
+570306f HEAD@{22}: merge long: Fast-forward
+a62113c HEAD@{23}: checkout: moving from long to master
+570306f HEAD@{24}: commit: Fix cart
+53eeae8 HEAD@{25}: checkout: moving from master to long
+a62113c HEAD@{26}: checkout: moving from long to master
+53eeae8 HEAD@{27}: commit: Fix cart
+019c7da HEAD@{28}: commit: Fix cart
+f444187 HEAD@{29}: commit: Fix cart
+a4e06b5 HEAD@{30}: commit: Changed cart
+6055474 HEAD@{31}: commit: Update role in register, client is default when user register, admin can choose role when creating new user
+b847501 HEAD@{32}: commit: Update create.php in view
+a62113c HEAD@{33}: checkout: moving from master to long
+a62113c HEAD@{34}: merge long: Fast-forward
+8b5a5db HEAD@{35}: checkout: moving from long to master
+a62113c HEAD@{36}: commit: Add role, create() user, cart session, store class
+44dd0ef HEAD@{37}: commit (merge): Merge from master
+9c38317 HEAD@{38}: checkout: moving from master to long
+8b5a5db HEAD@{39}: commit: Update get() and getAll()
+c42817e HEAD@{40}: commit (merge): Update get() and getAll()
+ccb3d5d HEAD@{41}: checkout: moving from long to master
+9c38317 HEAD@{42}: checkout: moving from master to long
+ccb3d5d HEAD@{43}: checkout: moving from long to master
+9c38317 HEAD@{44}: checkout: moving from master to long
+ccb3d5d HEAD@{45}: checkout: moving from long to master
+9c38317 HEAD@{46}: commit: Updated product controller
+c560fae HEAD@{47}: commit: what I changed
+dd8221d HEAD@{48}: commit: Updated get() and getAll()
+ccb3d5d HEAD@{49}: checkout: moving from master to long
+ccb3d5d HEAD@{50}: merge long: Fast-forward
+954e51e HEAD@{51}: checkout: moving from long to master
+ccb3d5d HEAD@{52}: commit: Updated delete() function in Product.php Record.php User.php Feedback.php
+954e51e HEAD@{53}: merge master: Fast-forward
+8ed6b4d HEAD@{54}: checkout: moving from master to long
+954e51e HEAD@{55}: commit: Update cart.php
+0db3f29 HEAD@{56}: commit (merge): Updated getAll()
+d73c56c HEAD@{57}: checkout: moving from long to master
+8ed6b4d HEAD@{58}: commit: Updated getAll()
+b0c850b HEAD@{59}: checkout: moving from master to long
+d73c56c HEAD@{60}: commit: Changed something in ProductController
+9d85038 HEAD@{61}: checkout: moving from long to master
+b0c850b HEAD@{62}: checkout: moving from master to long
+9d85038 HEAD@{63}: commit (merge): Update getObject()
+53a4827 HEAD@{64}: pull: Merge made by the 'recursive' strategy.
+714b152 HEAD@{65}: checkout: moving from long to master
+b0c850b HEAD@{66}: commit: Update getObject() (return an object when find by id)
+714b152 HEAD@{67}: checkout: moving from master to long
+714b152 HEAD@{68}: merge long: Fast-forward
+202b700 HEAD@{69}: checkout: moving from long to master
+714b152 HEAD@{70}: commit: Update product_detail.js
+202b700 HEAD@{71}: checkout: moving from master to long
+202b700 HEAD@{72}: merge long: Fast-forward
+c23a305 HEAD@{73}: checkout: moving from long to master
+202b700 HEAD@{74}: commit: Add two functions in pruct_detail.js to cal price
+c23a305 HEAD@{75}: checkout: moving from master to long
+c23a305 HEAD@{76}: merge long: Fast-forward
+6718151 HEAD@{77}: checkout: moving from long to master
+c23a305 HEAD@{78}: commit: Create addcard.js as prototype
+6875044 HEAD@{79}: merge master: Merge made by the 'recursive' strategy.
+f490d9c HEAD@{80}: checkout: moving from master to long
+6718151 HEAD@{81}: pull: Fast-forward
+fadd00d HEAD@{82}: checkout: moving from long to master
+f490d9c HEAD@{83}: commit: Updated code
+fadd00d HEAD@{84}: merge master: Fast-forward
+21274d3 HEAD@{85}: checkout: moving from master to long
+fadd00d HEAD@{86}: pull: Fast-forward
+21274d3 HEAD@{87}: checkout: moving from long to master
+21274d3 HEAD@{88}: merge master: Fast-forward
+8ceac20 HEAD@{89}: checkout: moving from master to long
+21274d3 HEAD@{90}: commit (merge): Merged from branch Long
+eee4302 HEAD@{91}: pull: Merge made by the 'recursive' strategy.
+d563eaa HEAD@{92}: checkout: moving from long to master
+8ceac20 HEAD@{93}: commit: Updated 9/11/2021
+38f793d HEAD@{94}: commit: Update in afternoon 08/11
+6304667 HEAD@{95}: commit: Update in afternoon 08/11
+ad1180a HEAD@{96}: commit: Processed Category/Customer/Feedback/Product in controllers, models, core
+96962b6 HEAD@{97}: checkout: moving from master to long
+d563eaa HEAD@{98}: pull: Merge made by the 'recursive' strategy.
+e715730 HEAD@{99}: checkout: moving from long to master
+96962b6 HEAD@{100}: commit: Declare necessary funtions what are needed to implement in controllers, Add Input.php in app/core
+0dd2377 HEAD@{101}: commit: Add CustomerController.php
+cc85b19 HEAD@{102}: pull: Merge made by the 'recursive' strategy.
+58362ed HEAD@{103}: checkout: moving from long to long
+58362ed HEAD@{104}: merge master: Merge made by the 'recursive' strategy.
+b0aafe5 HEAD@{105}: checkout: moving from master to long
+e715730 HEAD@{106}: checkout: moving from long to master
+b0aafe5 HEAD@{107}: checkout: moving from master to long
+e715730 HEAD@{108}: pull: Merge made by the 'recursive' strategy.
+a068270 HEAD@{109}: checkout: moving from long to master
+b0aafe5 HEAD@{110}: commit: No change
+c370f78 HEAD@{111}: commit: Changed struct and name Ãin folder controllers
+51db7c5 HEAD@{112}: checkout: moving from master to long
+a068270 HEAD@{113}: merge long: Merge made by the 'recursive' strategy.
+438d7e8 HEAD@{114}: checkout: moving from long to master
+51db7c5 HEAD@{115}: commit: Processed admin/models: category.php feedback.php order.php products.php store.php, now can't solve user.php
+bab75a5 HEAD@{116}: commit: Processed admin order function in admin/controllers/order
+87e525b HEAD@{117}: commit: Add store function in admin/controllers/store
+8122458 HEAD@{118}: commit: Add store function in admin/controllers/store
+aa3980f HEAD@{119}: checkout: moving from master to long
+438d7e8 HEAD@{120}: pull: Merge made by the 'recursive' strategy.
+aa3980f HEAD@{121}: merge long: Fast-forward
+89cd539 HEAD@{122}: checkout: moving from long to master
+aa3980f HEAD@{123}: commit: Changed some folder in project
+89cd539 HEAD@{124}: checkout: moving from master to long
+89cd539 HEAD@{125}: merge long: Fast-forward
+4e42827 HEAD@{126}: checkout: moving from long to master
+89cd539 HEAD@{127}: commit (merge): Notthing
+ed86162 HEAD@{128}: commit: Change something in file and re-placed folder
+b0e31f1 HEAD@{129}: reset: moving to HEAD~1
+419e5db HEAD@{130}: checkout: moving from long to long
+419e5db HEAD@{131}: checkout: moving from long to long
+419e5db HEAD@{132}: checkout: moving from long to long
+419e5db HEAD@{133}: checkout: moving from long to long
+419e5db HEAD@{134}: commit: Process search/store/type function in contents/controllers.
+b0e31f1 HEAD@{135}: commit: Process home/page/post/product function in contents/controllers.
+fbfd8d1 HEAD@{136}: commit: Process feedback function in contents/controllers/feedback with one file: index.php
+dd5eee7 HEAD@{137}: commit: Process comment function in contents/controllers/comment with one file: index.php
+eaf143c HEAD@{138}: commit: Process category function in contents/models/category with one file: index.php
+dfcb4e7 HEAD@{139}: commit: Process cart functions in contents/controllers/cart with six files: add.php, checkout.php, delete.php, destroy.php, index.php, order.php
+1bca42c HEAD@{140}: commit: Process four files in contents/models: cart.php, posts.php, products.php, feedback.php
+9fc2bc6 HEAD@{141}: commit: Process feedback in feedback folder, i devided to many files for each other function
+c3698be HEAD@{142}: commit: Process category and comment, in these folder i devided many files with each orther function
+0be0441 HEAD@{143}: commit: Add checkout.php, index.php, list.php, order.php in contents/views/cart/
+45d5c4c HEAD@{144}: commit: Add cart.php, feedback.php, post.php, product.php in models folder, re-place forlders
+4e42827 HEAD@{145}: checkout: moving from master to long
+4e42827 HEAD@{146}: pull: Fast-forward
+66c14ef HEAD@{147}: pull: Fast-forward
+05dca86 HEAD@{148}: commit: Update tree-folder.txt
+b07b718 HEAD@{149}: commit: Add fonts folder
+da2edc7 HEAD@{150}: commit: Add img migration js folers
+8ef5e90 HEAD@{151}: clone: from https://github.com/quentintheastronaut/thecoffehouse

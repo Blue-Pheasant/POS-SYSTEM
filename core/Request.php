@@ -14,10 +14,10 @@ class Request
         return substr($path, 0, $position);
     }
 
-    public function getParam()
+    public function getParam($param)
     {
-        if (isset($_GET['id'])) {
-            return $_GET['id'];
+        if (isset($_GET[$param])) {
+            return $_GET[$param];
         }
     }
 

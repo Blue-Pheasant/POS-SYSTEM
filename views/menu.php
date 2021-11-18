@@ -19,46 +19,46 @@ use app\core\Application;
     </div>
 
     <div class="menu__options">
-        <div class="option" onclick="">
+        <a class="option" href="/menu?category_id=1">
             <div class="option-image-block">
                 <img src="/images/coffee-cup.png" alt="coffee-cup" class="option-image" />
             </div>
             <h6>
                 Cà phê
             </h6>
-        </div>
-        <div class="option" onclick="">
+        </a>
+        <a class="option" href="/menu?category_id=5">
             <div class="option-image-block">
                 <img src="/images/milk-tea.png" alt="coffee-cup" class="option-image" />
             </div>
             <h6>
                 Trà trái cây - Trà sửa
             </h6>
-        </div>
-        <div class="option" onclick="">
+        </a>
+        <a class="option" href="/menu?category_id=2">
             <div class="option-image-block">
                 <img src="/images/milkshake.png" alt="coffee-cup" class="option-image" />
             </div>
             <h6>
                 Đá xay
             </h6>
-        </div>
-        <div class="option" onclick="">
+        </a>
+        <a class="option" href="/menu?category_id=18">
             <div class="option-image-block">
                 <img src="/images/coffee.png" alt=" coffee-cup" class="option-image" />
             </div>
             <h6>
                 Thưởng thức tại nhà
             </h6>
-        </div>
-        <div class="option" onclick="">
+        </a>
+        <a class="option" href="/menu?category_id=20">
             <div class="option-image-block">
                 <img src="/images/glass.png" alt="coffee-cup" class="option-image" />
             </div>
             <h6>
                 Tumbler collection
             </h6>
-        </div>
+        </a>
     </div>
 
     <div class="menu__listing">

@@ -1,125 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-ul {
-    list-style: none;
-}
-a {
-  text-decoration: none;
-}
 
-.tp {
-  background-color: #FEFBDF ;
+/* sign in FORM */
+/* #logreg-forms{
+    width:412px;
+    margin:10vh auto;
+    background-color:#f3f3f3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.container {
-  margin: auto;
-  max-width: 1200px;
-}
-.container {
-  padding: 16px;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-.row .logo img {
-  width: 80px;
-  display: inline-block;
-}
-
-.listmember{
-  display: inline-block;
-  width: 80%;
-  transition: 0.5s ease;
-}
-
-.listmem{
-  display: inline-block;
-  margin:  2px 20px;
-  padding: 10px 30px;
-  color: white;
-  font-weight: 700;
-  font-size: large;
-  
-
-}
-
-
-form {
-    border: 3px solid #f1f1f1;
-    padding: 10px 10px 20px 10px;
-    border-radius: 20px;
-    width: 50%;
-    margin: 50px auto;
-    background-color: #FEFBDF;
-  }
-  h1, label{
-    color: DodgerBlue;
-  }
-  /* Full-width inputs */
-  input[type=text], input[type=password] {
+#logreg-forms form {
     width: 100%;
+    max-width: 410px;
     padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    resize: vertical;
-    border-radius:15px;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  .login {
-    background-color: #4CAF50;
-    float: left;
-    width: 100%;
-    border-radius:15px;
-    border:0;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-    font-size: large;
-  }
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 1;
-  }
-
-.forgotpw {
-    padding: 15px 10px;
-    display: flex;
-    justify-content: center;
-    font-size: small;
+    margin: auto;
 }
-hr{
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-    height: 2px;
-  }
-.sign_up{
-    text-decoration: none;
-    background-color: #3871B9;
-    border-radius:15px;
-    border:0;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-    margin: 0 auto;
-    width: 50%;
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+#logreg-forms .form-control:focus { z-index: 2; }
+#logreg-forms .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#logreg-forms .form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#logreg-forms .social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+#logreg-forms .social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+#logreg-forms a{
     display: block;
-    opacity: 0.9;
-    
+    padding-top:10px;
+    color:lightseagreen;
+}
+
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
 }
 
 
+#logreg-forms button[type="submit"]{ margin-top:10px; }
+
+#logreg-forms .facebook-btn{  background-color:#3C589C; }
+
+#logreg-forms .google-btn{ background-color: #DF4B3B; }
+
+#logreg-forms .form-reset, #logreg-forms .form-signup{ display: none; }
+
+#logreg-forms .form-signup .social-btn{ width:210px; }
+
+#logreg-forms .form-signup input { margin-bottom: 2px;}
+
+.form-signup .social-login{
+    width:210px !important;
+    margin: 0 auto;
+}
+
+/* Mobile */
+
+/* @media screen and (max-width:500px){
+    #logreg-forms{
+        width:300px;
+    }
+    
+    #logreg-forms  .social-login{
+        width:200px;
+        margin:0 auto;
+        margin-bottom: 10px;
+    }
+    #logreg-forms  .social-btn{
+        font-size: 1.3rem;
+        font-weight: 100;
+        color:white;
+        width:200px;
+        height: 56px;
+        
+    }
+    #logreg-forms .social-btn:nth-child(1){
+        margin-bottom: 5px;
+    }
+    #logreg-forms .social-btn span{
+        display: none;
+    }
+    #logreg-forms  .facebook-btn:after{
+        content:'Facebook';
+    }
+  
+    #logreg-forms  .google-btn:after{
+        content:'Google+';
+    }
+    
+} */
+html,
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 370px;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: transparent;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #ffc312;
+}
+
+.social_icon span:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  color: black;
+}
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+
+.input-group-prepend span {
+  width: 50px;
+  background-color: #ffc312;
+  color: black;
+  border: 0 !important;
+}
+
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+  color: black;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn {
+  color: black;
+  background-color: #ffc312;
+}
+
+.login_btn:hover {
+  color: white;
+  background-color: black;
+}
+
+.links {
+  color: black;
+}
+
+.links a {
+  margin-left: 4px;
+}

@@ -16,20 +16,20 @@ class SaleController extends Controller {
         public function index()
         {
             $records = Record::getAll();
-            $this->setLayout('main');
-            return $this->render('sale', [
-                'model' => $records 
+            $this->setLayout('admin');
+            return $this->render('records', [
+                'records' => $records
             ]);
         }
 
         public function delete(Request $request) {
             if($request->getMethod() === 'post') {
-                $id = $_REQUEST('id');
+                $id = Application::$app->request->getParam('id');
                 $recordModel = Record::get($id);
                 $recordModel->delete();
                 Application::$app->response->redirect('record');
             } else if ($request->getMethod() === 'get') {
-                $id = $_REQUEST('id');
+                $id = Application::$app->request->getParam('id');
                 $recordModel = Record::get($id);
                 $this->setLayout('main');
                 return $this->render('record', [

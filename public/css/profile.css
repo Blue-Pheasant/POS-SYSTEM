@@ -1,0 +1,12 @@
+.profile-avatar-image {
+    width: 150px;
+    height: 150px;
+}
+
+.profile-avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}

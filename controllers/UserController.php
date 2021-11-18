@@ -16,22 +16,41 @@ class UserController extends Controller{
 
     public function index() 
     {
-        return $this->render('user');
+        $users = User::getAll();
+        $this->setLayout('admin');
+        return $this->render('users', [
+            'users' => $users
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+        $userModel = new User;
+        if($request->getMethod() === 'post') {
+            $userModel->loadData($request->getBody());
+            $userModel->save();
+            Application::$app->response->redirect('/admin/users');
+        } else if($request->getMethod() === 'get') {
+            $this->setLayout('admin');
+            return $this->render('createUser',  [
+                'userModel' => $userModel
+            ]);
+        }
     }
 
     public function delete(Request $request)
     {
         if($request->getMethod() === 'post') {
-            $id = $_REQUEST('id');
-            $userModel = User::get($id);
+            $id = Application::$app->request->getParam('id');
+            $userModel = user::get($id);
             $userModel->delete();
-            return Application::$app->response->redirect('users');
+            return Application::$app->response->redirect('/admin/users');
         } else if($request->getMethod() === 'get') {
-            $id = (int)$_REQUEST['id'];
-            $userModel = User::get($id);
-            $this->setLayout('main');
-            return $this->render('user', [
-                'model' => $userModel
+            $id = Application::$app->request->getParam('id');
+            $userModel = user::get($id);
+            $this->setLayout('admin');
+            return $this->render('deleteUser', [
+                'userModel' => $userModel
             ]);
         }        
     }
@@ -39,29 +58,29 @@ class UserController extends Controller{
     public function update(Request $request)
     {
         if($request->getMethod() === 'post') {
-            $id = $_REQUEST('id');
+            $id = Application::$app->request->getParam('id');
             $userModel = User::get($id);
             $userModel->loadData($request->getBody());
-            $userModel->update();
-            Application::$app->response->redirect('products');
-        } else if ($request->getMethod() == 'get') {
-            $id = (int)$_REQUEST['id'];
+            $userModel->update($userModel);
+            Application::$app->response->redirect('/admin/users');
+        } else if ($request->getMethod() === 'get') {
+            $id = Application::$app->request->getParam('id');
             $userModel = User::get($id);
-            $this->setLayout('main');
-            return $this->render('user', [
-                'model' => $userModel
+            $this->setLayout('admin');
+            return $this->render('editUser', [
+                'userModel' => $userModel
             ]);
         }        
     }
 
-    public function view(Request $request)
+    public function details(Request $request)
     {
-        if($request->getMethod() === 'post')
-        $id = (int)$_REQUEST['id'];
+        if($request->getMethod() === 'get')
+        $id = Application::$app->request->getParam('id');
         $userModel = User::get($id);
-        $this->setLayout('main');
-        return $this->render('user', [
-            'model' => $userModel
+        $this->setLayout('admin');
+        return $this->render('detailsUser', [
+            'userModel' => $userModel
         ]);         
     }
 }

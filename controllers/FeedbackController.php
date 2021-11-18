@@ -28,7 +28,7 @@ class FeedbackController extends Controller {
        {
             if($request->getMethod() === 'post') {
                 $id = (int)$_REQUEST['id'];
-                $feedbackModel = Feedback::get($id);
+                $feedbackModel = Feedback::get($id); 
                 $feedbackModel->delete();
                 return Application::$app->response->redirect('feedbacks'); 
             }

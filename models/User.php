@@ -9,39 +9,35 @@ use PDOException;
 
 class User extends UserModel
 {
-    private string $id;
-    private string $firstname;
-    private string $lastname;
-    private string $email;
-    private string $password;
-    private string $passwordConfirm;
-    private string $address;
-    private string $phone_number;
-    private string $role;
+    public string $id = '';
+    public string $firstname = '';
+    public string $lastname = '';
+    public string $email = '';
+    public string $password = '';
+    public string $passwordConfirm = '';
+    public string $address = '';
+    public string $phone_number = '';
+    public string $role = '';
 
-    public function __construct(
-        $id  = '',
-        $firstname = '',
-        $lastname = '',
-        $email = '',
-        $password = '',
-        $passwordConfirm = '',
-        $address= '',
-        $phone_number = '',
-        $role = ''
-    ) {
-        $this->id = $id;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->email = $email;
-        $this->password = $password;
-        $this->passwordConfirm = $passwordConfirm;
-        $this->address = $address;
-        $this->phone_number = $phone_number;
-        $this->role = $role;
+    public function load($params)
+    {
+        $this->id = $params[0];
+        $this->firstname = $params[1];
+        $this->lastname = $params[2];
+        $this->email = $params[3];
+        $this->password = $params[4];
+        $this->phone_number = $params[5];
+        $this->address = $params[6];
+        $this->role = $params[7];
     }
 
+    public function getId() { return $this->id; }
     public function getRole() { return $this->role; }
+    public function setRole($role) { $this->role = $role; }
+    public function getName() { return $this->getDisplayName(); }
+    public function getEmail() { return $this->email; }
+    public function getPhoneNumer() { return $this->phone_number; }
+    public function getAddress() { return $this->address; }
 
     public static function tableName(): string
     {
@@ -56,17 +52,22 @@ class User extends UserModel
     public function labels(): array
     {
         return [
-            'firstname' => 'First name',
-            'lastname' => 'Last name',
+            'firstname' => 'Họ và tên đệm',
+            'lastname' => 'Tên',
             'email' => 'Email',
-            'password' => 'Password',
-            'passwordConfirm' => 'Password Confirm',
-            'phone_number' => 'Phone number',
-            'address' => 'Address',
-            'role' => 'Role'
+            'password' => 'Mật khẩu',
+            'passwordConfirm' => 'Nhập lại mật khẩu',
+            'phone_number' => 'Số điện thoại',
+            'address' => 'Địa chỉ',
+            'role' => 'Vai trò'
         ];
     }
 
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute];
+    }    
+    
     public function rules(): array
     {
         return [
@@ -80,10 +81,20 @@ class User extends UserModel
         ];
     }
 
+    public function saveAdmin()
+    {
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        $this->id = uniqid();
+        $this->role = 'admin';
+        return parent::save();
+    }
+
+    // Save này chỉ dùng lưu user, viết lại save khác cho model khác pls
     public function save()
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         $this->id = uniqid();
+        $this->role = 'client';
         return parent::save();
     }
 
@@ -96,31 +107,87 @@ class User extends UserModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM users');
+        $req = $db->query('SELECT * FROM customers');
 
         foreach ($req->fetchAll() as $item) {
-            $list[] = new User($item['id'], $item['firstname'], $item['lastname'], $item['password'], $item['passwordConfirm'], $item['address'], $item['phone_number'], $item['role']);
+            $userModel = new User;
+            $params = array($item['id'], $item['firstname'], $item['lastname'], $item['email'], $item['password'], $item['phone_number'], $item['address'], $item['role']);
+            $userModel->load($params);
+            array_push($list, $userModel);
         }
 
         return $list;
     }
 
+    public static function getUserInfo($id)
+    {
+        $db = Database::getInstance();
+        $req = $db->query('SELECT * FROM customers WHERE id = "' . $id . '"');
+        $item = $req->fetchAll()[0];
+        $user = new User();
+        $user->id = $item['id'];
+        $user->firstname = $item['firstname'];
+        $user->lastname = $item['lastname'];
+        $user->email = $item['email'];
+        $user->address = $item['address'];
+        $user->phone_number = $item['phone_number'];
+        $user->role = $item['role'];
+        return $user;
+    }
+
     public static function get($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM products WHERE id = "' . $id . '"');
+        $req = $db->query('SELECT * FROM customers WHERE id = "' . $id . '"');
         $item = $req->fetchAll()[0];
-        $product = new User($item['id'], $item['firstname'], $item['lastname'], $item['password'], $item['passwordConfirm'], $item['address'], $item['phone_number'], $item['role']);
-        return $product;
+        $userModel = new User;
+        $params = array($item['id'], $item['firstname'], $item['lastname'], $item['email'], $item['password'], $item['phone_number'], $item['address'], $item['role']);
+        $userModel->load($params);
+        return $userModel;
+
+    }   
+
+    public static function updateProfile($user)
+    {
+        $statement = self::prepare(
+            "UPDATE customers 
+            SET 
+                firstname = '" . $user->firstname . "', 
+                lastname = '" . $user->lastname . "',
+                phone_number = '" . $user->phone_number . "',
+                address = '" . $user->address . "'
+            WHERE id = '" . $user->id . "';
+            "
+        );
+        $statement->execute();
+        return true;
+    }
+
+    public function update(User $user)
+    {
+        $statement = self::prepare(
+            "UPDATE customers 
+            SET 
+                firstname = '" . $user->firstname . "', 
+                lastname = '" . $user->lastname . "',
+                email = '" . $user->email . "',
+                password = '" . password_hash($user->password, PASSWORD_DEFAULT) . "',
+                phone_number = '" . $user->phone_number . "',
+                role = '" . $user->role . "',
+                address = '" . $user->address . "'
+            WHERE id = '" . $user->id . "';
+            "
+        );
+        $statement->execute();
+        return true;
     }
 
     public function delete()
     {
         $tablename = $this->tableName();
-        $id = $this->id;
-        $sql = "DELETE FROM $tablename WHEHRE ID = :ID";
-        $statement = self::prepare($sql);
-        $statement->bindParam(':ID', $id, PDO::PARAM_INT);
-        $statement->execute();        
+        $sql = "DELETE FROM $tablename WHERE id=?";
+        $stmt= self::prepare($sql);
+        $stmt->execute([$this->id]);
+        return true; 
     }
 }

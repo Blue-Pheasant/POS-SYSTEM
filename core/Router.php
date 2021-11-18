@@ -52,6 +52,9 @@ class Router
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderViewContent($view, $params);
+
+        // param = [[],[]]
+
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 

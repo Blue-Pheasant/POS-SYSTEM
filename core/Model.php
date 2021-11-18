@@ -10,6 +10,7 @@ abstract class Model
     public const RULE_MAX = 'max';
     public const RULE_MATCH = 'match';
     public const RULE_UNIQUE = 'unique';
+    public const RULE_NUMBER = 'number';
 
     abstract public function rules(): array;
 
@@ -48,6 +49,9 @@ abstract class Model
                 if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->addError($attribute, self::RULE_MATCH, $rule);
                 }
+                if ($ruleName === self::RULE_REQUIRED && !$value) {
+                    $this->addError($attribute, self::RULE_REQUIRED);
+                }
                 if ($ruleName === self::RULE_UNIQUE) {
                     $className = $rule['class'];
                     $uniqueAttribute = $rule['attribute'] ?? $attribute;
@@ -80,12 +84,13 @@ abstract class Model
     public function errorMessage()
     {
         return [
-            self::RULE_UNIQUE => 'Record with this {field} already exists',
-            self::RULE_REQUIRED => 'This field is required',
-            self::RULE_EMAIL => 'This field must be valid email address',
-            self::RULE_MIN => 'Min length of this field must be {min}',
-            self::RULE_MAX => 'Max length of this field must be {max}',
-            self::RULE_MATCH => 'This field must be the same as {match}',
+            self::RULE_UNIQUE => '{field} đã tồn tại.',
+            self::RULE_REQUIRED => 'Trường dữ liệu này bắt buộc.',
+            self::RULE_EMAIL => 'Trường dữ liệu này phải là email hợp lệ.',
+            self::RULE_MIN => 'Ít nhất {min} ký tự.',
+            self::RULE_MAX => 'Nhiều nhất {max} ký tự.',
+            self::RULE_MATCH => 'Trường dữ liệu này phải trùng với {match}.',
+            self::RULE_NUMBER => 'Trường dữ liệu này phải là dạng số.',
         ];
     }
 

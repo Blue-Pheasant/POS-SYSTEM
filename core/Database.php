@@ -14,11 +14,15 @@ class Database
     private $password;
     private static $instance = NULl;
 
+    // Của Quân, đã chạy được, xin đừng xóa
     public static function getInstance()
     {
+        $dsn = $_ENV['DB_DSN'];
+        $user =  $_ENV['DB_USER'];
+        $password = $_ENV['DB_PASSWORD'];
         if (!isset(self::$instance)) {
             try {
-                self::$instance = new PDO('mysql:host=localhost;dbname=wp211', 'root', 'quan0402');
+                self::$instance = new PDO($dsn, $user, $password);
                 self::$instance->exec("SET NAMES 'utf8'");
             } catch (PDOException $ex) {
                 die($ex->getMessage());
@@ -29,9 +33,10 @@ class Database
 
     public function __construct($config)
     {
-        $this->dsn = $config['dsn'] ?? '';
-        $this->user = $config['user'] ?? '';
-        $this->password = $config['password'] ?? '';
+        // Của Quân, đã chạy được, xin đừng xóa
+        $this->dsn = $config['dsn'] ? $config['dsn'] : $_ENV['DB_DSN'];
+        $this->user = $config['user'] ? $config['user'] : $_ENV['DB_USER'];
+        $this->password = $config['password'] ? $config['password'] : $_ENV['DB_PASSWORD'];
 
         try {
             $this->pdo = new PDO($this->dsn, $this->user, $this->password);
@@ -122,5 +127,10 @@ class Database
             $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description']);
         }
         return $result;
+    }
+
+    public function query($message)
+    {
+        return $this->pdo->query($message);
     }
 }

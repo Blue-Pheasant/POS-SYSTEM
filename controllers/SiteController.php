@@ -32,11 +32,15 @@ class SiteController extends Controller
         return $this->render('cart');
     }
 
+
+
     public function product()
     {
         return $this->render('product_detail');
     }
 
+
+    
     public function menu()
     {
         return $this->render('menu');
@@ -52,18 +56,19 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function stores()
-    {
-        return $this->render('stores');
-    }
-
     public function login(Request $request)
     {
         $loginForm = new LoginForm();
         if ($request->getMethod() === 'post') {
             $loginForm->loadData($request->getBody());
             if ($loginForm->validate() && $loginForm->login()) {
-                Application::$app->response->redirect('/');
+                $userId = Application::$app->session->get('user');
+                $userModel = User::get($userId);
+                if($userModel->getRole() === 'admin') {
+                    Application::$app->response->redirect('/admin');
+                } else {
+                    Application::$app->response->redirect('/');
+                }
                 return;
             }
         }

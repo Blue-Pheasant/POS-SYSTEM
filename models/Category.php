@@ -2,42 +2,59 @@
 
 namespace app\models;
 
-use app\core\CategoryModel;
 use app\core\Database;
+use app\core\DBModel;
 use PDO;
 
-class Category extends CategoryModel
+class Category extends DBModel
 {
     public string $id;
-    public string $category_name;
-    public string $create_at;
+    public string $name;
     
     public function __construct(
-        $category_name = ''
+        $id = '',
+        $name = ''
     ) {
-        $this->category_name = $category_name;
+        $this->name = $name;
+        $this->id = $id;
+    }
+
+    public function getName() 
+    {
+        return $this->name;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getDisplayName(): string
     {
-        return $this->category_name . ' ' . $this->create_at;
+        return $this->name;
     }
 
     public static function tableName(): string
     {
-        return 'categories';
+        return 'category';
     }
 
     public function attributes(): array
     {
-        return ['id', 'name', 'create_at'];
+        return ['id', 'name'];
     }
 
+    
     public function labels(): array
     {
         return [
-            'name' => 'Name',
+            'name' => 'Tên mục',
         ];
+    }
+
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute];
     }
 
     public function rules(): array
@@ -53,45 +70,42 @@ class Category extends CategoryModel
         return parent::save();
     }
 
-    public function create()
-    {
-
-    }
-
     public function delete()
     {
         $tablename = $this->tableName();
-        $id = $this->id;
-        $sql = "DELETE FROM $tablename WHEHRE ID = :ID";
-        $statement = self::prepare($sql);
-        $statement->bindParam(':ID', $id, PDO::PARAM_INT);
-        $statement->execute();
+        $sql = "DELETE FROM $tablename WHERE id=?";
+        $stmt= self::prepare($sql);
+        $stmt->execute([$this->id]);
+        return true;
     }
 
-    public function update()
+    public function update($category)
     {
-        
+        $sql = "UPDATE category SET name='" . $category->name . "' 
+                                    WHERE id='" . $category->id . "'";
+        $statement = self::prepare($sql);
+        $statement->execute();
+        return true;         
     }
 
     public static function getAll()
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM categories');
+        $req = $db->query('SELECT * FROM category');
 
         foreach ($req->fetchAll() as $item) {
             $list[] = new Category($item['id'], $item['name']);
         }
-
         return $list;
     }
 
     public static function get($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM categories WHERE id = "' . $id . '"');
+        $req = $db->query('SELECT * FROM category WHERE id = "' . $id . '"');
         $item = $req->fetchAll()[0];
-        $product = new Category($item['id'], $item['name']);
-        return $product;
-    }
+        $category = new Category($item['id'], $item['name']);
+        return $category;
+    } 
 }
