@@ -9,12 +9,12 @@ use app\core\Application;
 
 class MenuController extends SiteController
 {
-    // public function menu()
-    // {
-    //     $category_id = Application::$app->request->getParam('category_id');
-    //     $products = Product::getProductsByCategory($category_id);
-    //     $categories = Category::getAllCategories();
-    //     $data = array('products' => $products, 'categories' => $categories);
-    //     return $this->render('menu', $data);
-    // }
+    public function menu()
+    {
+        $category_id = Application::$app->request->getParam('category_id');
+        $products = Product::getProductsByCategory($category_id);
+        $categories = Category::getAllCategories();
+        $data = array('products' => $products, 'categories' => $categories);
+        return $this->render('menu', $data);
+    }
 }
