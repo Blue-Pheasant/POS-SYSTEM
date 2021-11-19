@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\core\Controller;
 
-
 class AdminController extends Controller
 {
     public function __construct() {}

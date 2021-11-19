@@ -17,26 +17,26 @@ use app\core\Request;
 class CategoryController extends Controller {
     public function __construct() {}
 
-    public function index() 
-    {
-        $models = Category::getAll();
-        $this->setLayout('admin');
-        return $this->render('categories', [
-            'category' => $models
-        ]);    
-    }
+    // public function index() 
+    // {
+    //     $models = Category::getAll();
+    //     $this->setLayout('admin');
+    //     return $this->render('categories', [
+    //         'category' => $models
+    //     ]);    
+    // }
 
-    public function details(Request $request)
-    {
-        if($request->getMethod() === 'get') {
-            $id = Application::$app->request->getParam('id');
-            $categoryModel = Category::get($id);
-            $this->setLayout('admin');
-            return $this->render('detailsCategory', [
-                'model' => $categoryModel
-            ]);
-        }
-    }
+    // public function details(Request $request)
+    // {
+    //     if($request->getMethod() === 'get') {
+    //         $id = Application::$app->request->getParam('id');
+    //         $categoryModel = Category::get($id);
+    //         $this->setLayout('admin');
+    //         return $this->render('detailsCategory', [
+    //             'model' => $categoryModel
+    //         ]);
+    //     }
+    // }
 
     public function create(Request $request) 
     {
