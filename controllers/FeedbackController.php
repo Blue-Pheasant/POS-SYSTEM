@@ -14,23 +14,26 @@ use app\core\Session;
 class FeedbackController extends Controller {
        public function __construct() {}
 
-    //    public function index()
-    //    {
-    //        return $this->render('feedback');
-    //    }
+    
+       public function index()
+       {
+           return $this->render('feedback');
+       }
 
-    //    public function response()
-    //    {
+       public function response()
+       {
             
-    //    }
+       }
 
-    //    public function delete(Request $request)
-    //    {
-    //         if($request->getMethod() === 'post') {
-    //             $id = (int)$_REQUEST['id'];
-    //             $feedbackModel = Feedback::get($id); 
-    //             $feedbackModel->delete();
-    //             return Application::$app->response->redirect('feedbacks'); 
-    //         }
-    //    }
+       public function delete(Request $request)
+       {
+            if($request->getMethod() === 'post') {
+                $id = (int)$_REQUEST['id'];
+                $feedbackModel = Feedback::get($id); 
+                $feedbackModel->delete();
+                return Application::$app->response->redirect('feedbacks'); 
+            }
+       }
+    
     }
+
