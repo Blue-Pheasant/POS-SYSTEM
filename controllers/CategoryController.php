@@ -68,7 +68,7 @@ use app\core\Request;
                 $id = $_REQUEST('id');
                 $CategoryModel = Category::get($id);
                 $CategoryModel->loadData($request->getBody());
-                $CategoryModel->update();
+                $CategoryModel->update($CategoryModel);
                 Application::$app->response->redirect('categories');
             } else if ($request->getMethod() === 'get') {
                 $id = (int)$_REQUEST['id'];
