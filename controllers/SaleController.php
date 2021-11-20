@@ -13,14 +13,16 @@ use app\models\Record;
 class SaleController extends Controller {
         public function __construct() {}
 
-        // public function index()
-        // {
-        //     $records = Record::getAll();
-        //     $this->setLayout('admin');
-        //     return $this->render('records', [
-        //         'records' => $records
-        //     ]);
-        // }
+    
+        public function index()
+        {
+        
+            $records = Record::getAll();
+            $this->setLayout('admin');
+            return $this->render('records', [
+                'records' => $records
+            ]);
+        }
 
         // public function delete(Request $request) {
         //     if($request->getMethod() === 'post') {
