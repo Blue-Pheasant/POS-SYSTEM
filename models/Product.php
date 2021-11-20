@@ -130,7 +130,6 @@ class Product extends DBModel
         return true;
     }
 
-    // Của Quân, đã chạy được, xin đừng xóa
     public static function getAllProducts()
     {
         $list = [];
@@ -152,4 +151,28 @@ class Product extends DBModel
         $product = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
         return $product;
     }  
+
+    public static function getProductsByCategory($category_id)
+    {
+        $list = [];
+        $db = Database::getInstance();
+        $req = $db->query('SELECT * FROM products WHERE category_id = "' . $category_id . '"');
+
+        foreach ($req->fetchAll() as $item) {
+            $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
+        }
+        return $list;
+    }
+
+    public static function getProductsByKeyword($keyword)
+    {
+        $list = [];
+        $db = Database::getInstance();
+        $req = $db->query("SELECT * FROM products WHERE name LIKE '%" . $keyword . "%';");
+
+        foreach ($req->fetchAll() as $item) {
+            $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
+        }
+        return $list;
+    }
 }

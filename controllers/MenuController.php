@@ -13,7 +13,7 @@ class MenuController extends SiteController
     {
         $category_id = Application::$app->request->getParam('category_id');
         $products = Product::getProductsByCategory($category_id);
-        $categories = Category::getAllCategories();
+        $categories = Category::getAll();
         $data = array('products' => $products, 'categories' => $categories);
         return $this->render('menu', $data);
     }
