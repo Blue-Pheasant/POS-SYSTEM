@@ -105,3 +105,43 @@
     align-items: center;
 }
 
+.cart-page__item-image {
+    width: 75px;
+    border-radius: 10px;
+}
+
+.cart-page-item .container {
+    margin: 0;
+    padding: 15px;
+}
+
+.cart-page-item button {
+    border: none;
+    background-color: transparent;
+}
+
+.cart-page__delete {
+    width: 25px;
+}
+
+.cart-page-item .row {
+    align-items: center;
+}
+
+#cart-page__note {
+    margin-top: 10px;
+}
+
+.cart-page .product-detail-footer {
+    margin: 0;
+}
+
+.cart-page h6 {
+    margin: 0;
+}
+
+@media screen and (max-width: 575px){
+    .cart-page__item-image {
+        display: none;
+    }
+}

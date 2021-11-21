@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\models\Cart;
+
 class Application
 {
     const EVENT_BEFORE_REQUEST = 'beforeRequest';
@@ -21,11 +23,13 @@ class Application
     public Session $session;
     public View $view;
     public ?UserModel $user;
+    public ?Cart $cart;
 
     public function __construct($rootDir, $config)
     {
 
         $this->user = null;
+        $this->cart = null;
         $this->userClass = $config['userClass'];
         self::$ROOT_DIR = $rootDir;
         self::$app = $this;
@@ -40,6 +44,12 @@ class Application
         if ($userId) {
             $key = $this->userClass::primaryKey();
             $this->user = $this->userClass::findOne([$key => $userId]);
+
+            if (!Cart::findCart($userId)) {;
+                Cart::create($userId);
+            }
+            $cart = Cart::getCart($userId)[0];
+            $this->cart = $cart;
         }
     }
 
@@ -50,10 +60,21 @@ class Application
 
     public function login(UserModel $user)
     {
+
+
         $this->user = $user;
         $primaryKey = $user->primaryKey();
         $value = $user->{$primaryKey};
         Application::$app->session->set('user', $value);
+
+        $id = Application::$app->user->id;
+
+        if (!Cart::findCart($id)) {
+            Cart::create($id);
+        }
+        $cart = Cart::getCart($id)[0];
+
+        $this->cart = new Cart($cart->id, $cart->user_id, $cart->status);
         return true;
     }
 

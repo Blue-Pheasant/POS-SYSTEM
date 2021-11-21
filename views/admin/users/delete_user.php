@@ -6,7 +6,7 @@
     <section class="panel">
       <header class="panel-heading">
         <h1>Xóa người dùng</h1>
-        <a href="/admin%c=users">Trở về</a>
+        <a href="/admin/users">Trở về</a>
       </header>
       <div class="panel-body">
         <?php $form = app\core\Form\Form::begin('', "post") ?>

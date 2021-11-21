@@ -2,13 +2,9 @@
 
 namespace app\models;
 
-use app\core\Application;
 use app\core\Database;
-use app\core\Model;
-use app\core\ProductModel;
-use app\core\Request;
 use app\core\DBModel;
-use PDO;
+
 
 class Product extends DBModel
 {
@@ -18,8 +14,6 @@ class Product extends DBModel
     public float $price;
     public string $description;
     public string $image_url;
-    public string $create_at;
-    public string $update_at;
 
     public function __construct(
         $id = '',
@@ -54,8 +48,8 @@ class Product extends DBModel
     public function getDescription() { return $this->description; }
 
     public function setImageUrl($image_url) { $this->image_url = $image_url; }
-    public function getImageUrl() { return $this->image_url; }   
-    
+    public function getImageUrl() { return $this->image_url; } 
+
     public function getCategory()
     {
         $categoryModel = Category::get($this->category_id);
@@ -130,6 +124,7 @@ class Product extends DBModel
         return true;
     }
 
+    // Của Quân, đã chạy được, xin đừng xóa
     public static function getAllProducts()
     {
         $list = [];
@@ -150,7 +145,7 @@ class Product extends DBModel
         $item = $req->fetchAll()[0];
         $product = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
         return $product;
-    }  
+    }
 
     public static function getProductsByCategory($category_id)
     {

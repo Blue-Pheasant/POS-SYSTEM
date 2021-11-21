@@ -1,5 +1,5 @@
 <?php
-  use app\core\Application;
+use app\core\Application;
 use app\models\Product;
 use app\models\Record;
 use app\models\User;
@@ -24,12 +24,12 @@ use app\models\User;
             <div class="numbers">
               <p class="card-category">Thành viên</p>
               <?php
-                  $users = User::getAll();
+                  $users = User::getAllUsers();
                   $count = 0;
                   foreach($users as $user) {
                     if($user->getRole() === 'client') $count++;
                   }
-                  echo '<h4 class="card-title"> ' . $count. '$' .' </h4>';
+                  echo '<h4 class="card-title"> ' . $count .' </h4>';
               ?>
             </div>
           </div>
@@ -49,15 +49,14 @@ use app\models\User;
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
               <p class="card-category">Doanh thu</p>
-              <!-- <?php
-                  // $records = Record::getAll();
-                  // $total = 0;
-                  // foreach($records as $record) {
-                  //   $count += $record->getTotalPrice();
-                  // }
-                  // echo '<h4 class="card-title"> ' . $count . 'VNĐ' .' </h4>';
-              ?> -->
-              <h4 class="card-title">120000 VNĐ</h4>
+              <?php
+                  $records = Record::getAll();
+                  $total = 0;
+                  foreach($records as $record) {
+                    $count += $record->getTotalPrice();
+                  }
+                  echo '<h4 class="card-title"> ' . $count . ' VNĐ' .' </h4>';
+              ?>
             </div>
           </div>
         </div>
@@ -103,13 +102,13 @@ use app\models\User;
             <div class="numbers">
               <p class="card-category">Đã bán</p>
                 <?php
-                      // $count = 0;
-                      // foreach($records as $record) {
-                      //   $count += $record->getQuantity();
-                      // }
-                      // echo '<h4 class="card-title"> ' . $count .' </h4>';
+                      $records = Record::getAll();
+                      $count = 0;
+                      foreach($records as $record) {
+                        $count += (int)$record->getQuantity();
+                      }
+                      echo '<h4 class="card-title"> ' . $count .' </h4>';
                 ?>
-                <h4 class="card-title"> 1000 </h4>
             </div>
           </div>
         </div>

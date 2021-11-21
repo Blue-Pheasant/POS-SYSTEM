@@ -11,14 +11,35 @@ use app\core\Application;
     </div>
 
     <div class="menu__search">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput"
-                placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
-            <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
-        </div>
+        <form class="search-form" method="post" action="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-lg-10">
+                        <div class="form-floating mb-3">
+                            <input type="text" name="keyword" class="form-control" id="floatingInput"
+                                placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm" aria-describedby="button-addon1">
+                            <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-2">
+                        <button class="btn btn-outline-secondary search-button" type="submit"
+                            id="button-addon1">Tìm</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
     </div>
 
     <div class="menu__options">
+        <a class="option" href="/menu">
+            <div class="option-image-block">
+                <img src="/images/grid.png" alt="coffee-cup" class="option-image" />
+            </div>
+            <h6>
+                Tất cả sản phẩm
+            </h6>
+        </a>
         <a class="option" href="/menu?category_id=1">
             <div class="option-image-block">
                 <img src="/images/coffee-cup.png" alt="coffee-cup" class="option-image" />
@@ -63,6 +84,13 @@ use app\core\Application;
 
     <div class="menu__listing">
         <div class="container">
+            <?php if (count($params['products']) == 0)
+                echo '
+                <div class="not-found">
+                    <h3>Không tìm thấy sản phẩm !</h3>
+                </div>
+                '
+            ?>
             <div class="row g-5">
                 <?php
                 foreach ($params['products'] as $param) {

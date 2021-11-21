@@ -6,7 +6,7 @@
     <section class="panel">
       <header class="panel-heading">
         <h1>Thông tin chi tiết mục</h1>
-        <a href="/admin%c=categories">Trở về</a>
+        <a href="/admin/categories">Trở về</a>
       </header>
       <div class="panel-body">
         <dl class="dl-horizontal">

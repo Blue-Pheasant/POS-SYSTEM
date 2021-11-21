@@ -1,9 +1,9 @@
 <?php
+
 use app\core\Application;
 use app\models\User;
-$isGuest = Application::$app->isGuest();
-$userID = Application::$app->session->get('user');
-$userModel = User::get($userID);
+
+$user = User::getUserInfo(Application::$app->user->id);
 ?>
 <script type="text/javascript">
   document.title = 'Quản lý người dùng';
@@ -13,7 +13,7 @@ $userModel = User::get($userID);
     <section class="panel">
       <header class="panel-heading">
         <h1>Quản lý người dùng</h1>
-        <a href="/admin%c=users&a=create" class="btn btn-success">Thêm người dùng</a>
+        <a href="/admin/users/create" class="btn btn-success">Thêm người dùng</a>
       </header>
       <div class="panel-body">
         <table class="table table-striped table-hover dt-datatable">
@@ -40,9 +40,9 @@ $userModel = User::get($userID);
                 <td><?=$userModel->getRole()?></td>
                 <td><?=$userModel->getAddress()?></td>
                 <td>
-                    <a class="fa fa-eye btn btn-info btn-sm" href="/admin%c=users&a=details?id=<?=$userModel->getId()?>"></a>
-                    <a class="fa fa-pencil btn btn-warning btn-sm" href="/admin%c=users&a=edit?id=<?=$userModel->getId()?>"></a>
-                    <a class="fa fa-trash btn btn-danger btn-sm" href="/admin%c=users&a=delete?id=<?=$userModel->getId()?>"></a>
+                  <a class="fa fa-eye btn btn-info btn-sm" href="/admin/users/details?id=<?=$userModel->getId()?>"></a>
+                  <a class="fa fa-pencil btn btn-warning btn-sm" href="/admin/users/edit?id=<?=$userModel->getId()?>"></a>
+                  <a class="fa fa-trash btn btn-danger btn-sm" href="/admin/users/delete?id=<?=$userModel->getId()?>"></a>
                 </td>
               </tr>
             <?php 

@@ -14,7 +14,6 @@ use app\core\Session;
 class FeedbackController extends Controller {
        public function __construct() {}
 
-    
        public function index()
        {
            return $this->render('feedback');
@@ -34,6 +33,4 @@ class FeedbackController extends Controller {
                 return Application::$app->response->redirect('feedbacks'); 
             }
        }
-    
     }
-

@@ -14,7 +14,3 @@ abstract class CartModel extends DBModel
     abstract public function getDisplayInfo(): string;
 }
 
-abstract class RecordModel extends DBModel
-{
-    abstract public function getDisplayInfo(): string;
-}

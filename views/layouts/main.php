@@ -49,7 +49,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                         <a class="nav-link" href="/">Trang chủ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/menu?category_id=5">Thực đơn</a>
+                        <a class="nav-link" href="/menu">Thực đơn</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/collection">Bộ sưu tập</a>
@@ -92,6 +92,13 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                         <a class="nav-link" href="/cart">
                             <div class="header-image">
                                 <img class="header-image-icon" src="/images/cart.png" />
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/orders">
+                            <div class="header-image">
+                                <img class="header-image-icon" src="/images/orders.png" />
                             </div>
                         </a>
                     </li>

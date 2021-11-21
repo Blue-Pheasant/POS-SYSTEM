@@ -1,7 +1,7 @@
 <script type="text/javascript">
   document.title = 'Danh sách cửa hàng';
 </script> 
-<h1>Thăm POS chúng mình</h1>
+<h1>Thăm Kaffee store chúng mình</h1>
 <div class="store__listing">
     <div class="container">
         <div class="row g-5">

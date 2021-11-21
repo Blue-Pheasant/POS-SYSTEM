@@ -8,26 +8,9 @@ class m0001_initial
     {
         $db = Application::$app->db;
         $sql = "
-            CREATE TABLE `admins` (
-            `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `firstname` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `lastname` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `username` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `password` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `position` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-            `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
-            -- --------------------------------------------------------
-
-            --
-            -- Table structure for table `cart`
-            --
-
             CREATE TABLE `cart` (
             `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `customer_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+            `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `status` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
             `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -43,6 +26,7 @@ class m0001_initial
             `product_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `cart_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `quantity` int(11) NOT NULL,
+            `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `note` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
             `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -51,10 +35,10 @@ class m0001_initial
             -- --------------------------------------------------------
 
             --
-            -- Table structure for table `category`
+            -- Table structure for table `categories`
             --
 
-            CREATE TABLE `category` (
+            CREATE TABLE `categories` (
             `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `name` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -64,10 +48,10 @@ class m0001_initial
             -- --------------------------------------------------------
 
             --
-            -- Table structure for table `customers`
+            -- Table structure for table `users`
             --
 
-            CREATE TABLE `customers` (
+            CREATE TABLE `users` (
             `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `firstname` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `lastname` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -87,12 +71,31 @@ class m0001_initial
             -- --------------------------------------------------------
 
             --
+            -- Table structure for table `records`
+            --
+            
+            CREATE TABLE `records` (
+                `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+                `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+                `product_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+                `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+                `quantity` int(11) NOT NULL,
+                `total_price` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+                `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+            -- --------------------------------------------------------
+
+            --
             -- Table structure for table `feedbacks`
             --
 
+            -- --------------------------------------------------------
+
+
             CREATE TABLE `feedbacks` (
             `id` int(11) NOT NULL,
-            `customer_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+            `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `product_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `stars` int(11) NOT NULL,
             `comment` int(11) NOT NULL,
@@ -107,7 +110,7 @@ class m0001_initial
 
             CREATE TABLE `orders` (
             `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-            `customer_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+            `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `payment_method` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `status` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -167,17 +170,11 @@ class m0001_initial
             --
 
             --
-            -- Indexes for table `admins`
-            --
-            ALTER TABLE `admins`
-            ADD PRIMARY KEY (`id`);
-
-            --
             -- Indexes for table `cart`
             --
             ALTER TABLE `cart`
             ADD PRIMARY KEY (`id`),
-            ADD KEY `cart_customer_fk` (`customer_id`);
+            ADD KEY `cart_user_fk` (`user_id`);
 
             --
             -- Indexes for table `cart_detail`
@@ -187,15 +184,21 @@ class m0001_initial
             ADD KEY `product_fk` (`product_id`);
 
             --
-            -- Indexes for table `category`
+            -- Indexes for table `categories`
             --
-            ALTER TABLE `category`
+            ALTER TABLE `categories`
             ADD PRIMARY KEY (`id`);
 
             --
-            -- Indexes for table `customers`
+            -- Indexes for table `users`
             --
-            ALTER TABLE `customers`
+            ALTER TABLE `users`
+            ADD PRIMARY KEY (`id`);
+
+            --
+            -- Indexes for table `records`
+            --
+            ALTER TABLE `records`
             ADD PRIMARY KEY (`id`);
 
             --
@@ -203,7 +206,7 @@ class m0001_initial
             --
             ALTER TABLE `feedbacks`
             ADD PRIMARY KEY (`id`),
-            ADD KEY `feedback_customer_fk` (`customer_id`),
+            ADD KEY `feedback_user_fk` (`user_id`),
             ADD KEY `feedback_product_fk` (`product_id`);
 
             --
@@ -211,7 +214,7 @@ class m0001_initial
             --
             ALTER TABLE `orders`
             ADD PRIMARY KEY (`id`),
-            ADD KEY `order_customer_fk` (`customer_id`);
+            ADD KEY `order_user_fk` (`user_id`);
 
             --
             -- Indexes for table `order_detail`
@@ -241,7 +244,7 @@ class m0001_initial
             -- Constraints for table `cart`
             --
             ALTER TABLE `cart`
-            ADD CONSTRAINT `cart_customer_fk` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`);
+            ADD CONSTRAINT `cart_user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
             --
             -- Constraints for table `cart_detail`
@@ -254,14 +257,14 @@ class m0001_initial
             -- Constraints for table `feedbacks`
             --
             ALTER TABLE `feedbacks`
-            ADD CONSTRAINT `feedback_customer_fk` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
+            ADD CONSTRAINT `feedback_user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
             ADD CONSTRAINT `feedback_product_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
             --
             -- Constraints for table `orders`
             --
             ALTER TABLE `orders`
-            ADD CONSTRAINT `order_customer_fk` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`);
+            ADD CONSTRAINT `order_user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
             --
             -- Constraints for table `order_detail`
@@ -274,7 +277,7 @@ class m0001_initial
             -- Constraints for table `products`
             --
             ALTER TABLE `products`
-            ADD CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+            ADD CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
         ";
         $db->pdo->exec($sql);
     }

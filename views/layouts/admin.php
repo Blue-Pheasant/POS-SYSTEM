@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="/css/admin/dt-gradients.css">
     <link rel="stylesheet" href="/css/admin/dt-theme.css">
     <link rel="stylesheet" href="/css/admin/dt-styles.css">
+    <link rel="stylesheet" href="/css/error.css">
+    <link rel="stylesheet" href="/css/admin/profile.css">
     <link rel="stylesheet" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" href="/css/admin/create_user.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
@@ -21,7 +24,6 @@
     <script src="/js/admin/jquery.dataTables.js"></script>
     <script src="/js/admin/dataTables.bootstrap.js"></script>
     <script src="/js/admin/underscore.js"></script>
-    
 </head>
 <?php
 
@@ -29,8 +31,14 @@ use app\core\Application;
 use app\models\User;
 
 $isGuest = Application::$app->isGuest();
+if($isGuest) {
+  Application::$app->response->redirect('/error');
+}
 $userID = Application::$app->session->get('user');
-$userModel = User::get($userID);
+$userModel = User::getUserInfo($userID);
+if($userModel->getRole() != 'admin') {
+  Application::$app->response->redirect('/error');
+}
 ?>
 <body>
   <div id="wrapper" class="toggled">
@@ -47,32 +55,32 @@ $userModel = User::get($userID);
             </a>
           </li>
           <li>
-            <a href="/admin%c=products"?>
+            <a href="/admin/products"?>
               <i class="fab fa-product-hunt" aria-hidden="true"></i> &nbsp;Quản lý sản phẩm
             </a>
           </li>
           <li>
-            <a href="/admin%c=categories">
+            <a href="/admin/categories">
               <i class="fa fa-building" aria-hidden="true"></i> &nbsp;Quản lý các mục
             </a>
           </li>
           <li>
-            <a href="/admin%c=users">
+            <a href="/admin/users">
               <i class="fa fa-users" aria-hidden="true"></i> &nbsp;Quản lý người dùng
             </a>
           </li>
           <li>
-            <a href="/admin%c=sales">
+            <a href="/admin/sales">
               <i class="fa fa-cash-register" aria-hidden="true"></i>&nbsp;Quản lý bán hàng
             </a>
           </li>
           <li>
-            <a href="/admin%c=manageStores">
+            <a href="/admin/stores">
               <i class="fa fa-store" aria-hidden="true"></i> &nbsp;Quản lý cửa hàng
             </a>
           </li>
           <li>
-            <a href="/admin%c=users&a=details?id=<?=($userModel)->getId()?>">
+            <a href="/admin/profile">
               <i class="fas fa-user-cog" aria-hidden="true"></i>&nbsp;Tài khoản của tôi
             </a>
           </li>
@@ -117,7 +125,7 @@ $userModel = User::get($userID);
 
   <script src="/js/admin/simple-sidebar.js"></script>
   <script src="/js/admin/plugins.js"></script>
-  
+
 </body>
 
 </html>

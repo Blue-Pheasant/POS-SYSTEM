@@ -6,7 +6,7 @@
     <section class="panel">
       <header class="panel-heading">
         <h1>Sửa đổi sản phẩm</h1>
-        <a href="/admin%c=products">Trở về</a>
+        <a href="/admin/products">Trở về</a>
       </header>
       <div class="panel-body">
         <?php $form = app\core\Form\Form::begin('', "post") ?>

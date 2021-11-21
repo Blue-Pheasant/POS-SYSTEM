@@ -6,7 +6,7 @@
     <section class="panel">
       <header class="panel-heading">
         <h1>Thể loại</h1>
-          <a href="/admin%c=categories&a=create" class="btn btn-success">Tạo ra</a>
+          <a href="/admin/categories/create" class="btn btn-success">Tạo ra</a>
       </header>
       <div class="panel-body">
         <table class="table table-striped table-hover dt-datatable">
@@ -25,9 +25,9 @@
                 <td><?=$categoryModel->getId()?></td>
                 <td><?=$categoryModel->getName()?></td>
                 <td>
-                  <a class="fa fa-eye btn btn-info btn-sm" href="/admin%c=categories&a=details?id=<?=$categoryModel->getId()?>"></a>
-                  <a class="fa fa-pencil btn btn-warning btn-sm" href="/admin%c=categories&a=edit?id=<?=$categoryModel->getId()?>"></a>
-                  <a class="fa fa-trash btn btn-danger btn-sm" href="/admin%c=categories&a=delete?id=<?=$categoryModel->getId()?>"></a>
+                  <a class="fa fa-eye btn btn-info btn-sm" href="/admin/categories/details?id=<?=$categoryModel->getId()?>"></a>
+                  <a class="fa fa-pencil btn btn-warning btn-sm" href="/admin/categories/edit?id=<?=$categoryModel->getId()?>"></a>
+                  <a class="fa fa-trash btn btn-danger btn-sm" href="/admin/categories/delete?id=<?=$categoryModel->getId()?>"></a>
                 </td>
               </tr>
             <?php 

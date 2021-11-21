@@ -13,7 +13,7 @@ class Field
     public const TYPE_NUMBER = 'number';
 
 
-    public User $model;
+    public Model $model;
     public string $attribute;
     public string $type;
 

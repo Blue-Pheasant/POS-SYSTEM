@@ -72,6 +72,7 @@
 
 .product-quantity {
     margin: 0 15px;
+    width: 30px;
 }
 
 .item-button-disabled {

@@ -6,20 +6,20 @@
     <section class="panel">
       <header class="panel-heading">
         <h1>Chỉnh sửa thông tin cửa hàng</h1>
-        <a href="/admin%c=manageStores">Trở về</a>
+        <a href="/admin/stores">Trở về</a>
       </header>
       <div class="panel-body">
         <?php $form = app\core\Form\Form::begin('', "post") ?>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <?php echo $form->field($storeModel, 'status') ?>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <?php echo $form->field($storeModel, 'address') ?>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <?php echo $form->field($storeModel, 'phone') ?>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <?php echo $form->field($storeModel, 'open_time') ?>
             </div>
             <div class="form-row">
