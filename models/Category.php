@@ -6,7 +6,7 @@ use app\core\Database;
 use app\core\DBModel;
 
 class Category extends DBModel
-{
+{ 
     public string $id;
     public string $name;
     
