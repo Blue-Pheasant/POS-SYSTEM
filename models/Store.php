@@ -45,7 +45,7 @@ class Store extends DBModel
 
     public function getOpentime() { return $this->open_time; }
     private function setOpentime($open_time) { $this->open_time = $open_time; }
-
+    
     public static function tableName(): string
     {
         return 'stores';

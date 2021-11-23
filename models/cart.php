@@ -12,7 +12,6 @@ class Cart extends DBModel
     public string $id = '';
     public string $user_id = '';
     public string $status = '';
-
     public function __construct($id = '', $user_id = '', $status = '')
     {
         $this->id = $id;
@@ -85,7 +84,6 @@ class Cart extends DBModel
                 $item['status']
             );
         };
-
         return $list;
     }
 }
