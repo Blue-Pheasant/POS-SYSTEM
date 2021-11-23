@@ -110,12 +110,4 @@ class CartItem extends DBModel
         return $list;
     }
 
-    public function destroy()
-    {
-        $tablename = $this->tableName();
-        $sql = "DELETE FROM $tablename WHERE id=?";
-        $stmt= self::prepare($sql);
-        $stmt->execute([$this->id]);
-        return true;
-    }
 }

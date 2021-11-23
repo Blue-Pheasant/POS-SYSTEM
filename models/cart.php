@@ -86,4 +86,22 @@ class Cart extends DBModel
         };
         return $list;
     }
+
+    public static function get($id) 
+    {
+        $db = Database::getInstance();
+        $req = $db->query('SELECT * FROM cart WHERE id = "' . $id . '"');
+        $item = $req->fetchAll()[0];
+        $cart = new Cart($item['id'], $item['user_id'], $item['status']);
+        return $cart;         
+    }
+
+    public function destroy()
+    {
+        $tablename = $this->tableName();
+        $sql = "DELETE FROM $tablename WHERE id=?";
+        $stmt= self::prepare($sql);
+        $stmt->execute([$this->id]);
+        return true;
+    }
 }

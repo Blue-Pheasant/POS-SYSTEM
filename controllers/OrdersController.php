@@ -37,7 +37,8 @@ class OrdersController extends Controller
             );
             $order->save();
         }
-        
+        $cartModel = Cart::get($cart_id);
+        $cartModel->destroy();
         Application::$app->session->setFlash('success', 'Cảm ơn quý khách đã mua hàng');
         Application::$app->response->redirect('/');
         return 'Show success page';
