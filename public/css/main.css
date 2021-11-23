@@ -25,7 +25,28 @@
 }
 
 .logo {
-  width: 150px;
+  float: left;
+  width: 70px;
+}
+
+.thuongHieu {
+  font-size: 30px;
+  color: red;
+  text-align: center;
+  text-shadow: 10px 5px 5px #FFD700;
+  font-family: 'Lobster', cursive;
+  margin-left: 5px;
+  margin-top: 7px;
+  float: left;
+  width: fit-content;
+  transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+}
+
+.navbar-brand {
+  width: 250px;
 }
 
 .main {
@@ -38,7 +59,7 @@
 }
 
 .container {
-  padding-top: 80px;
+  padding: 90px 10px 10px 10px;
   max-width: 1230px;
   width: 100%;
 }
@@ -135,10 +156,6 @@
   justify-content: space-between;
 }
 
-.footer-info-content {
-  
-}
-
 .footer-logo {
   width: 70%;
 }
@@ -157,5 +174,11 @@
 @media screen and (max-width:768px){
     .navbar-collapse {
       background-image: linear-gradient( to right, #f6d365 0%, #fda085 100%);
+    }
+    .logo {
+      width: 57px;
+    }
+    .thuongHieu {
+      margin-top: 2px;
     }
 }

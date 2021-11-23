@@ -3,46 +3,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.menu__header {
-    margin-top: 50px;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    background-image: linear-gradient(to bottom, #FFFCA8, pink);
+    border-radius: 20px;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .menu__search {
-    margin-top: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
     max-width: 800px ;
     width: 100%;
 }
 
-.form-floating {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
-
-.search-form {
-    width: 100%;
-}
-
-.search-button {
-    height: 58px;
-}
-
 .form-control {
     border-radius: 10px;
-    width: 100%;
 }
-
-#button-addon1 {
-    width: 100%;
-}
-
 
 .menu-image {
     width: 35px;
@@ -51,12 +27,11 @@
 
 
 .menu__options {
-    margin-top: 50px;
+    margin-top: 10px;
     max-width: 800px;
     width: 100%;
-    overflow: hidden;
-    overflow-x: scroll;
     display: flex;
+    overflow-x: scroll;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -72,10 +47,8 @@
 }
 
 .option-image-block {
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    background-color: #f2f2f2;
+    width: 50px;
+    height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,19 +57,29 @@
 }
 
 .option-image {
-    width: 50px;
+    width: 40px;
 }
 
 .menu__listing {
     width: 100%;
-    margin-bottom: 50px;
+    overflow: hidden;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.menu__listing .container {
+    padding-top: 20px;
+}
+
+.menu__listing .product {
+    background-color: white;
 }
 
 .item-card {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
 
 .item-image {
@@ -105,7 +88,7 @@
 }
 
 .item-info {
-    padding-top: 12px ;
+    padding-top: 5px ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -152,11 +135,4 @@
 .item-butotn-image {
     width: 16px;
     height: 16px;
-}
-
-.not-found {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
