@@ -89,7 +89,6 @@ class User extends UserModel
         return parent::save();
     }
 
-    // Save này chỉ dùng lưu user, viết lại save khác cho model khác pls
     public function save()
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -172,12 +171,10 @@ class User extends UserModel
 
     public function delete()
     {
-        $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM users WHERE id = "' . $this->id . '"');
-        $item = $req->fetchAll()[0];
-        $userModel = new User;
-        $params = array($item['id'], $item['firstname'], $item['lastname'], $item['email'], $item['password'], $item['address'], $item['phone_number'], $item['role']);
-        $userModel->load($params);
-        return $userModel;
+        $tablename = $this->tableName();
+        $sql = "DELETE FROM $tablename WHERE id=?";
+        $stmt= self::prepare($sql);
+        $stmt->execute([$this->id]);
+        return true;   
     }   
 }

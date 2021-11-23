@@ -9,8 +9,6 @@ use app\core\Application;
 
 class MenuController extends SiteController
 {
-
-    // Của Quân, đã chạy được, xin đừng xóa
     public function menu()
     {
         $category_id = Application::$app->request->getParam('category_id');

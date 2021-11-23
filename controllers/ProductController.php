@@ -91,7 +91,6 @@ class ProductController extends Controller
         }
     }
 
-    // Của Quân, đã chạy được, xin đừng xóa
     public function product(Request $request)
     {
         $id = Application::$app->request->getParam('id');
@@ -114,7 +113,8 @@ class ProductController extends Controller
             // $statement = $this->pdo->prepare("INSERT INTO cart_detail VALUES ();");
             // $statement->execute();
         }
-        return $this->render('product_detail', $data);
+        // return $this->render('product_detail', $data);
+        return Application::$app->response->redirect('menu');
     }
 
 
