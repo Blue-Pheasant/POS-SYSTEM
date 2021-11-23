@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #FFFCA8, pink);
+    background-image: linear-gradient(to bottom, #f6d365 0%, #fda085 100%);
     border-radius: 20px;
     padding-bottom: 10px;
     padding-right: 10px;

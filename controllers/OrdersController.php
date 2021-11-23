@@ -37,6 +37,7 @@ class OrdersController extends Controller
             );
             $order->save();
         }
+        
         Application::$app->session->setFlash('success', 'Cảm ơn quý khách đã mua hàng');
         Application::$app->response->redirect('/');
         return 'Show success page';
