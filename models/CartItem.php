@@ -42,6 +42,8 @@ class CartItem extends DBModel
         $this->size = $size;
     }
 
+    public function getTotalPrice() { return $this->price * $this->quantity; }
+
     public static function tableName(): string
     {
         return 'cart';
