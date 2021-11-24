@@ -3,9 +3,9 @@
 use app\core\Application;
 
 ?>
-
-<div class="menu">
-    <!-- <div class="wrapper"> -->
+<div class="row">
+    <div class="menu col-xl-8 col-md-7">
+        <!-- <div class="wrapper"> -->
         <!-- <div class="menu__header">
         <img class="menu-image" src="/images/menu.png" alt="menu-image" />
         <h3>Thực đơn của chúng mình</h3>
@@ -67,7 +67,7 @@ use app\core\Application;
                     <?php
                     foreach ($params['products'] as $param) {
                         echo '
-                        <div class="col-xl-2 col-md-3 col-sm-4 col-xs-6 wrapper_product">
+                        <div class="col-xl-3 col-md-6 col-xs-12 wrapper_product">
                             <a href="/product?id=' . $param->id . '">
                                 <div class="item-card product">
                                     <img src="' . $param->image_url . '" alt=""
@@ -91,5 +91,94 @@ use app\core\Application;
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+        <!-- </div> -->
+    </div>
+    <div class="cart-page__content col-xl-4 col-md-5">
+        <div class="cart-page__content__header">
+            <div>Các món đã chọn</div>
+            <a class="more-item-button" href="/menu">Thêm món</a>
+        </div>
+        <div class="cart-page-divider"></div>
+
+        <div class="cart-page__content__body">
+            <?php
+            foreach ($params['items'] as $parameter) {
+                echo '<div class="cart-page-item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-3 col-sm-3 col-2">
+                                                <img class="cart-page__item-image"
+                                                    src="' . $parameter->image_url . '" />
+                                            </div>
+                                            <div class="col-lg-6 col-md-5 col-sm-4 col-5 name">
+                                                <div class="name_sp">' . $parameter->name . '</div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-4">
+                                                <div class="product-detail-footer">
+                                                    <div class="product-detail-footer-quantity">
+                                                        <button id="decrease-quantity-button" disabled
+                                                            class="item-button-disabled" onclick="decreaseQuantity()">
+                                                            <img class="item-button-image"
+                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMiIgdmlld0JveD0iMCAwIDE2IDIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+                                                                alt="" />
+                                                        </button>
+                                                        <span id="product-quantity" class="product-quantity">
+                                                            ' . $parameter->quantity . '
+                                                        </span>
+                                                        <button id="increase-quantity-button"
+                                                            onclick="increaseQuantity()">
+                                                            <img class="item-button-image"
+                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuODU3MTQgNi44NTcxNFYwSDkuMTQyODZWNi44NTcxNEgxNlY5LjE0Mjg2SDkuMTQyODZWMTZINi44NTcxNFY5LjE0Mjg2SDBWNi44NTcxNEg2Ljg1NzE0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
+                                                                alt="" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-2 col-1">
+                                                <button>
+                                                    <img src="/images/delete.svg" class="cart-page__delete" />
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-6 col-6">
+                                                ' . $parameter->price . ' đ
+                                            </div>
+                                            <div class="col-lg-4 col-sm-6 col-6">
+                                                Size: ' . $parameter->size . '
+                                            </div>
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" id="cart-page__note" class="form-control"
+                                                        placeholder="Ghi chú" aria-label="note"
+                                                        aria-describedby="basic-addon1" value="' . $parameter->note . '">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
+            }
+            ?>
+        </div>
+
+
+
+        <div class="cart-page__content__header">
+            <div>Tổng cộng</div>
+        </div>
+        <div class="cart-page-divider"></div>
+        <div class="cart-page__content__total">
+            <div>Tạm tính</div>
+            <div>79.000đ</div>
+        </div>
+
+        <div class="cart-page__content__footer">
+            <div>
+                <div>Thành tiền</div>
+                <div class="cart-page-total">79.000đ</div>
+            </div>
+            <button type="submit" class="checkout-button">Đặt hàng</button>
+        </div>
+    </div>
 </div>

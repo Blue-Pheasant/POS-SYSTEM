@@ -4,9 +4,11 @@
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to bottom, #FFFCA8, pink);
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     padding-bottom: 10px;
     padding-right: 10px;
+    height: 800px;
 }
 
 .menu__search {
@@ -63,7 +65,7 @@
 .menu__listing {
     width: 100%;
     overflow: hidden;
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: scroll;
 }
 

@@ -23,7 +23,6 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
 
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/menu.css">
     <link rel="stylesheet" href="/css/product_detail.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/cart.css">
@@ -32,7 +31,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
     <link rel="stylesheet" href="/css/stores.css">
     <link rel="stylesheet" href="/css/profile.css">
 
-    <title>Kaffee store</title>
+    <title>Buy Me</title>
 </head>
 
 <body>

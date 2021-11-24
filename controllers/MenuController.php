@@ -6,6 +6,7 @@ use app\controllers\SiteController;
 use app\models\Category;
 use app\models\Product;
 use app\core\Application;
+use app\models\CartItem;
 
 class MenuController extends SiteController
 {
@@ -14,6 +15,8 @@ class MenuController extends SiteController
     public function menu()
     {
         $category_id = Application::$app->request->getParam('category_id');
+        $cart_id = Application::$app->cart->id;
+        $items = CartItem::getCartItem($cart_id);
         if ($category_id == '') {
             $products = Product::getAllProducts();
         } else {
@@ -21,8 +24,11 @@ class MenuController extends SiteController
         }
 
         $categories = Category::getAllCategories();
-        $data = array('products' => $products, 'categories' => $categories);
-        return $this->render('menu', $data);
+        return $this->render('menu', [
+            'products' => $products, 
+            'categories' => $categories,
+            'items' => $items 
+        ]);
     }
 
     public function search()
