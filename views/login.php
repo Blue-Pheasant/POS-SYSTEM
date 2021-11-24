@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="/css/login.css">
 <div class="container">
     <form method="post" action="">
         <div class="d-flex justify-content-center h-100">
