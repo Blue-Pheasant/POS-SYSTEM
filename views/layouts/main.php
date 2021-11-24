@@ -39,8 +39,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
 
         <nav class="navbar navbar-expand-lg ">
             <a class="navbar-brand" href="/">
-                <img class="logo" alt="logo" src='/images/logo/dish.PNG'>
-                <div class="thuongHieu">Buy Me</div>
+                <img class="logo" alt="logo" src='/images/logo.PNG'>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -128,73 +127,12 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
             {{content}}
         </div>
     </div>
-    <div class="footer info">
-        <div class="footer-container">
-            <div class="footer-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-lg-4">
-                            <div class="footer-info-logo">
-                                <img class="footer-logo" src="/images/logo/logo-3.png" />
-                            </div>
-                        </div>
-                        <div class="col-md-9 col-lg-8">
-                            <div class="footer-info-content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-5 col-lg-4">
-                                            <h6>Thông tin website</h6>
-                                            <ul>
-                                                <li><a href="#">Trang chủ</a></li>
-                                                <li><a href="#">Thực đơn</a></li>
-                                                <li><a href="#">Cửa hàng</a></li>
-                                                <li><a href="#">Về chúng tôi</a></li>
-                                                <li><a href="#">Liên hệ</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-5 col-lg-4">
-                                            <h6>Điều khoản sử dụng</h6>
-                                            <ul>
-                                                <li><a href="#">Quy chế website</a></li>
-                                                <li><a href="#">Bảo mật thông tin</a></li>
 
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-12 col-lg-4">
-                                            <h6>Liên hệ</h6>
-                                            <ul>
-                                                <li>Head Office 1: 86 - 88 Cao Thang, Ward 4, District 3, Ho Chi Minh,
-                                                    Vietnam. Head Office 2: Floor 3 & 4 The Hub Building - 195/10E Dien
-                                                    Bien
-                                                    Phu, Ward 15, Binh Thanh District, Ho Chi Minh, Vietnam.</li>
-                                                <li>
-                                                    Head Office 2: Floor 3 & 4 The Hub Building - 195/10E Dien Bien Phu,
-                                                    Ward 15, Binh Thanh District, Ho Chi Minh, Vietnam.
-                                                </li>
-                                                <li>
-                                                    (+84)778 812 3456
-                                                </li>
-                                                <li>
-                                                    <a href="https://kaffeestore.herokuapp.com">
-                                                        https://kaffeestore.herokuapp.com
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="footer">
         <div class="footer__inner">
-            <h6>Copyright @ 2021 KAFFEE STORE. All rights reversed.</h6>
+            <h6>Copyright @ 2021 BUY ME RETAIL. All rights reversed.</h6>
         </div>
     </div>
 

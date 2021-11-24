@@ -91,7 +91,6 @@ class ProductController extends Controller
         }
     }
 
-    // Của Quân, đã chạy được, xin đừng xóa
     public function product(Request $request)
     {
         $id = Application::$app->request->getParam('id');

@@ -2,8 +2,12 @@
     "name": "quan0402/thecoffehouse",
     "authors": [
         {
-            "name": "Nhat Quan",
-            "email": "quan260402@gmail.com"
+            "name": "VO QUY LONG",
+            "email": "long.vo2k1@hcmut.edu.vn"
+        },
+        {
+            "name": "VU NHAT NAM",
+            "email": "nhatnam@hcmut.edu.vn"
         }
     ],
     "require": {

@@ -10,7 +10,7 @@ class Record extends DBModel
 {
     public string $id = '';
     public string $user_id = '';
-    public string $product_id = '';
+    public string $product_name= '';
     public string $quantity = '';
     public string $total_price = '';
     public string $paymentMethod = '';
@@ -20,14 +20,14 @@ class Record extends DBModel
     
     public function __construct(
         $user_id = '',
-        $product_id ='',
+        $product_name='',
         $size = '',
         $quantity = '',
         $id = '',
         $total_price = '',
         ) {
             $this->user_id = $user_id;
-            $this->product_id = $product_id;
+            $this->product_name= $product_name;
             $this->size = $size;
             $this->quantity = $quantity;
             $this->id = $id;
@@ -40,28 +40,12 @@ class Record extends DBModel
         return $userModel->getDisplayName();
     }
     
-    public function getProductName()
-    {
-        $productModel = Product::getProductDetail($this->product_id);
-        return $productModel->getName();
-    }
     public function getId () { return $this->id; }
-    private function setId ($id) { $this->id = $id; }
-
     public function getSize() { return $this->size; }
-    public function setSize($size) { $this->size = $size; }
-
     public function getTotalPrice() { return $this->total_price; }
-    public function setTotalPrice($total_price) { $this->total_price = $total_price; }
-
     public function getQuantity() { return $this->quantity; }
-    public function setQuantity($quantity) { $this->quantity = $quantity; }
-
-    public function getProductID() { return $this->product_id; }
-    public function setProductID ($product_id) { $this->product_id = $product_id; }
-
+    public function getProductName() { return $this->product_name; }
     public function getUserId () { return $this->user_id; }
-    public function setUserIid ($user_id) { $this->user_id = $user_id; }
 
     public static function tableName(): string
     {
@@ -70,7 +54,7 @@ class Record extends DBModel
 
     public function attributes(): array
     {
-        return ['id', 'user_id', 'product_id', 'size', 'quantity', 'total_price'];
+        return ['id', 'user_id', 'product_name', 'size', 'quantity', 'total_price'];
     }
 
     public function labels(): array
@@ -78,7 +62,7 @@ class Record extends DBModel
         return [
             'id' => 'Mã giao dịch',
             'user_id' => 'Mã khách hàng',
-            'product_id' => 'Mã sản phẩm',
+            'product_name' => 'Tên sản phẩm',
             'size' => 'Kích thước',
             'quantity' => 'Số lượng',
             'total_price' => 'Tổng số tiền'
@@ -97,7 +81,8 @@ class Record extends DBModel
 
     public function save()
     {
-        $productModel = Product::getProductDetail($this->product_id);
+        $productModel = Product::getProductDetail($this->product_name);
+        $this->product_name = $productModel->getName();
         $this->id = uniqid();
         $this->total_price = (int)$productModel->getPrice() * (int)$this->quantity;
         return parent::save();
@@ -124,7 +109,7 @@ class Record extends DBModel
         $req = $db->query('SELECT * FROM records');
 
         foreach ($req->fetchAll() as $item) {
-            $list[] = new Record($item['user_id'], $item['product_id'], $item['size'], $item['quantity'],  $item['id'], $item['total_price']);
+            $list[] = new Record($item['user_id'], $item['product_name'], $item['size'], $item['quantity'],  $item['id'], $item['total_price']);
         }
 
         return $list;
@@ -135,7 +120,7 @@ class Record extends DBModel
         $db = Database::getInstance();
         $req = $db->query('SELECT * FROM records WHERE id = "' . $id . '"');
         $item = $req->fetchAll()[0];
-        $record = new Record($item['user_id'], $item['product_id'], $item['size'], $item['quantity'],  $item['id'], $item['total_price']);
+        $record = new Record($item['user_id'], $item['product_name'], $item['size'], $item['quantity'],  $item['id'], $item['total_price']);
         return $record; 
     }
 }

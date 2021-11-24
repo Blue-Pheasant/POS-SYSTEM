@@ -12,6 +12,7 @@ use app\core\Session;
 use app\core\Application;
 use app\core\CartSession;
 use app\core\Database;
+use app\core\Request;
 use app\models\Cart;
 use app\models\CartDetail;
 use app\models\CartItem;
@@ -45,5 +46,10 @@ class CartController extends Controller
             'items' => $items,
             'user' => $user
         ]);
+    }
+
+    public function remove(Request $request)
+    {
+        
     }
 }

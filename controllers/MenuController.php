@@ -6,12 +6,14 @@ use app\controllers\SiteController;
 use app\models\Category;
 use app\models\Product;
 use app\core\Application;
+<<<<<<< HEAD
+=======
+use app\models\Cart;
+>>>>>>> 782fe4cc2c17d52604eae022669a26e7cd91dcd8
 use app\models\CartItem;
 
 class MenuController extends SiteController
 {
-
-    // Của Quân, đã chạy được, xin đừng xóa
     public function menu()
     {
         $category_id = Application::$app->request->getParam('category_id');
@@ -22,7 +24,7 @@ class MenuController extends SiteController
         } else {
             $products = Product::getProductsByCategory($category_id);
         }
-
+        
         $categories = Category::getAllCategories();
         return $this->render('menu', [
             'products' => $products, 

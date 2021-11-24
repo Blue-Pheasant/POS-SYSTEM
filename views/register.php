@@ -1,17 +1,51 @@
- <h1>Create an account</h1>
- <?php $form = app\core\Form\Form::begin('', "post") ?>
- <div class="row">
-     <div class="col">
-         <?php echo $form->field($model, 'firstname') ?>
-     </div>
-     <div class="col">
-         <?php echo $form->field($model, 'lastname') ?>
-     </div>
- </div>
- <?php echo $form->field($model, 'email') ?>
- <?php echo $form->field($model, 'phone_number') ?>
- <?php echo $form->field($model, 'address') ?>
- <?php echo $form->field($model, 'password')->passwordField() ?>
- <?php echo $form->field($model, 'passwordConfirm')->passwordField() ?>
- <button type="submit" class="btn btn-primary">Submit</button>
- <?php app\core\form\Form::end() ?>
+<div class="card-regester">
+    <div class="card-header">
+        <h1>Đăng ký</h1>
+    </div>
+    <div class="card-body">
+        <?php $form = app\core\Form\Form::begin('', "post") ?>
+            <div class="row">
+                <div class="col">
+                    <?php echo $form->field($model, 'firstname') ?>
+                </div>
+                <div class="col">
+                    <?php echo $form->field($model, 'lastname') ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <?php echo $form->field($model, 'email') ?>
+                </div>    
+                <div class="col">
+                    <?php echo $form->field($model, 'phone_number') ?>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <?php echo $form->field($model, 'address') ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <?php echo $form->field($model, 'password')->passwordField() ?>
+                </div>   
+                <div class="col">
+                    <?php echo $form->field($model, 'passwordConfirm')->passwordField() ?>
+                </div>  
+            </div>
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #000000">I accept Terms of Service</span>
+            </div>
+            <div class="btn">
+                <button type="submit" class="button">Đăng ký</button>
+            </div>
+        <?php app\core\form\Form::end() ?>
+    </div>
+    <div class="card-footer">
+        <div class="login">
+            Bạn đã có tài khoản chưa ?
+            <a href="/login"><button id="login-link">Đăng nhập</button></a>
+        </div>
+    </div>
+</div>
