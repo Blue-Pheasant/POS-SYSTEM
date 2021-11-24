@@ -6,10 +6,7 @@ use app\controllers\SiteController;
 use app\models\Category;
 use app\models\Product;
 use app\core\Application;
-<<<<<<< HEAD
-=======
 use app\models\Cart;
->>>>>>> 782fe4cc2c17d52604eae022669a26e7cd91dcd8
 use app\models\CartItem;
 
 class MenuController extends SiteController
