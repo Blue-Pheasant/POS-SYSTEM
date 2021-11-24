@@ -124,7 +124,6 @@ class Product extends DBModel
         return true;
     }
 
-    // Của Quân, đã chạy được, xin đừng xóa
     public static function getAllProducts()
     {
         $list = [];

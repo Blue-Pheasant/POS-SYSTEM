@@ -41,22 +41,11 @@ class Record extends DBModel
     }
     
     public function getId () { return $this->id; }
-    private function setId ($id) { $this->id = $id; }
-
     public function getSize() { return $this->size; }
-    public function setSize($size) { $this->size = $size; }
-
     public function getTotalPrice() { return $this->total_price; }
-    public function setTotalPrice($total_price) { $this->total_price = $total_price; }
-
     public function getQuantity() { return $this->quantity; }
-    public function setQuantity($quantity) { $this->quantity = $quantity; }
-
     public function getProductName() { return $this->product_name; }
-    public function setProductName ($product_name) { $this->product_name= $product_name; }
-
     public function getUserId () { return $this->user_id; }
-    public function setUserIid ($user_id) { $this->user_id = $user_id; }
 
     public static function tableName(): string
     {
