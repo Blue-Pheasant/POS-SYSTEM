@@ -4,6 +4,12 @@ use app\core\Application;
 use app\models\CartItem;
 
 ?>
+
+<?php
+    if(Application::isGuest()) {
+        Application::$app->response->redirect('/login');
+    }
+?>
 <div class="row">
     <div class="menu col-xl-8 col-md-7">
         <div class="menu__search">
