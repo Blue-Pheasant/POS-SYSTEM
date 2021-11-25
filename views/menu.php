@@ -1,16 +1,11 @@
 <?php
 
 use app\core\Application;
+use app\models\CartItem;
 
 ?>
 <div class="row">
     <div class="menu col-xl-8 col-md-7">
-        <!-- <div class="wrapper"> -->
-        <!-- <div class="menu__header">
-        <img class="menu-image" src="/images/menu.png" alt="menu-image" />
-        <h3>Thực đơn của chúng mình</h3>
-    </div> -->
-
         <div class="menu__search">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
@@ -167,18 +162,33 @@ use app\core\Application;
         <div class="cart-page__content__header">
             <div>Tổng cộng</div>
         </div>
+        <?php
+            $cart_id = Application::$app->cart->id;
+            $cartItem = CartItem::getCartItem($cart_id);
+            $totalPrice = 0;
+            foreach($cartItem as $item) {
+                $totalPrice += $item->getTotalPrice();
+            }
+        ?>
         <div class="cart-page-divider"></div>
         <div class="cart-page__content__total">
             <div>Tạm tính</div>
-            <div>79.000đ</div>
+            <?php
+                if(empty($cartItem)) {
+                    echo '<div>0đ</div>';
+                } else echo '<div> ' . number_format($totalPrice) . 'đ' . ' </div>';
+            ?> 
         </div>
-
         <div class="cart-page__content__footer">
             <div>
                 <div>Thành tiền</div>
-                <div class="cart-page-total">79.000đ</div>
+                <?php
+                    echo '<div class="cart-page-total">' . number_format($totalPrice) . 'đ' . '</div>'
+                ?>
             </div>
-            <button type="submit" class="checkout-button">Đặt hàng</button>
+            <?php $form = app\core\Form\Form::begin('/cart', "") ?>    
+                <button type="submit" class="checkout-button">Đặt hàng</button>
+            <?php app\core\form\Form::end() ?>
         </div>
     </div>
 </div>

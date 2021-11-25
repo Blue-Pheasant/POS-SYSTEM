@@ -109,9 +109,7 @@ class ProductController extends Controller
                 $size
             );
             $cartDetail->save();
-
-            // $statement = $this->pdo->prepare("INSERT INTO cart_detail VALUES ();");
-            // $statement->execute();
+            Application::$app->response->redirect('/menu');
         }
         return $this->render('product_detail', $data);
     }
