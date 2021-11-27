@@ -101,10 +101,8 @@
                                 giỏ hàng</button>
                         </div>
                     </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="product-detail-description">
-                            <?php echo $params['product']->description ?>
-                        </div>
+                    <div class="col-md-12 col-lg-6 product-detail-description">
+                        <?php echo $params['product']->description ?>
                     </div>
                 </div>
             </div>

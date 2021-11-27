@@ -250,20 +250,9 @@ CREATE TABLE `records` (
   `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `quantity` int(11) NOT NULL,
   `total_price` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `image_url` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `records`
---
-
-INSERT INTO `records` (`id`, `user_id`, `product_name`, `size`, `quantity`, `total_price`, `created_at`) VALUES
-('619caf769f939', '6191e42fe4e3f', '5b03966a1acd4d5bbd672375', 'medium', 8, '472000', '2021-11-23 09:08:06'),
-('619caf76a0173', '6191e42fe4e3f', '5b03966a1acd4d5bbd672378', 'medium', 3, '150000', '2021-11-23 09:08:06'),
-('619cb09927d99', '6191e42fe4e3f', '5b03966a1acd4d5bbd672375', 'medium', 8, '472000', '2021-11-23 09:12:57'),
-('619cb0992975d', '6191e42fe4e3f', '5b03966a1acd4d5bbd672378', 'medium', 3, '150000', '2021-11-23 09:12:57'),
-('619cb15b41320', '6191e42fe4e3f', 'Sinh Tố Việt Quất', 'medium', 8, '472000', '2021-11-23 09:16:11'),
-('619cb15b41cf2', '6191e42fe4e3f', 'Cappuccino Đá', 'medium', 3, '150000', '2021-11-23 09:16:11');
 
 -- --------------------------------------------------------
 

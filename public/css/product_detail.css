@@ -145,10 +145,114 @@
     border-radius: 0 0 8px 8px;
 }
 
+.img {
+    height: auto;
+}
+@media screen and (max-width: 1200px){
+    .col-md-12.col-lg-6, .col-md-12.col-lg-6.product-detail-right {
+        max-width: 580px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    
+    .col-md-12.col-lg-6.product-detail-description {
+        text-align: left;
+        max-width: 500px;
+        min-width: 500px;
+        height: auto;
+    }
+
+    .main-image, .image-list{
+        max-width: 580px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .col-md-12.col-lg-6{
+        max-width: 460px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .col-md-12.col-lg-6.product-detail-description {
+        max-width: 500px;
+        min-width: 460px;
+        height: auto;
+    }
+
+    .main-image, .image-list{
+        max-width: 460px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .col-md-12.col-lg-6, .col-md-12.col-lg-6.product-detail-right {
+        max-width: 600px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .col-md-12.col-lg-6.product-detail-description {
+        max-width: 650px;
+        min-width: 550px;
+        height: auto;
+    }
+
+    .main-image, .image-list {
+        max-width: 350px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
 @media screen and (max-width: 575px){
-    .menu {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        margin-bottom: 20px;
+    .col-md-12.col-lg-6, .col-md-12.col-lg-6.product-detail-right {
+        max-width: 450px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .main-image, .image-list {
+        max-width: 400px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .col-md-12.col-lg-6.product-detail-description {
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .col-md-12.col-lg-6, .col-md-12.col-lg-6.product-detail-right {
+        max-width: 250px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .main-image, .image-list {
+        max-width: 250px;
+        height: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .col-md-12.col-lg-6.product-detail-description {
+        max-width: 250px;
+        height: auto;
     }
 }

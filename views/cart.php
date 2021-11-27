@@ -101,7 +101,6 @@ use app\models\CartItem;
                                 } else echo '<div> ' . number_format($totalPrice) . 'đ' . ' </div>';
                             ?> 
                         </div>
-                        <?php $form = app\core\Form\Form::begin('', "post") ?>
                         <div class="cart-page__content__footer">
                             <div>
                                 <div>Thành tiền</div>
@@ -109,9 +108,16 @@ use app\models\CartItem;
                                     echo '<div class="cart-page-total">' . number_format($totalPrice) . 'đ' . '</div>'
                                 ?>
                             </div>
-                            <button type="submit" class="checkout-button">Đặt hàng</button>
-                        </div>
-                        <?php app\core\form\Form::end() ?>
+                        <?php
+                            if($totalPrice === 0) {
+                                echo '<button type="submit" class="checkout-button">Đặt hàng</button>';
+                            } else {
+                                $form = app\core\Form\Form::begin("", "post");
+                                echo '<button type="submit" class="checkout-button">Đặt hàng</button>';
+                                app\core\form\Form::end();
+                            }
+                        ?>
+                        </div> 
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">

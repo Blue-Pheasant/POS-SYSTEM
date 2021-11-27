@@ -28,8 +28,9 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
     <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/menu.css">
     <link rel="stylesheet" href="/css/stores.css">
-    <link rel="stylesheet" href="/css/profile.css">
+    
 
     <title>Buy Me</title>
 </head>
@@ -81,7 +82,6 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                     </ul>
                 <?php else : ?>
                     <ul class="navbar-nav ml-auto">
-
                         <li class="nav-item active">
                             <a class="nav-link" href="/profile">
                                 <div class="header-image header-image-user">
@@ -90,7 +90,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                                 Chào <?php echo Application::$app->user->getDisplayName() ?>
                             </a>
                         </li>
-                        <li class="nav-item active div_cart">
+                        <li class="nav-item active">
                             <a class="nav-link" href="/cart">
                                 <div class="header-image">
                                     <img class="header-image-icon" src="/images/cart.png" />

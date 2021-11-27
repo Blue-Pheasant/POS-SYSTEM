@@ -95,9 +95,9 @@ use app\models\CartItem;
                 </div>
             </div>
         </div>
-        <!-- </div> -->
+        
     </div>
-    <div class="cart-page__content col-xl-4 col-md-5">
+    <div class="cart-page__content col-xl-4 col-md-5" id="cart-content">
         <div class="cart-page__content__header">
             <div>Các món đã chọn</div>
             <a class="more-item-button" href="/menu">Thêm món</a>

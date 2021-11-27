@@ -11,7 +11,7 @@
         <table class="table table-striped table-hover dt-datatable">
           <thead>
             <tr>
-              <th>Mã giao dịch</th>
+              <th>Ngày giao dịch</th>
               <th>Tên khách hàng</th>
               <th>Tên sản phẩm</th>
               <th>Kích thước</th>
@@ -25,7 +25,7 @@
               foreach ($params['records'] as $recordtModel) { 
             ?>
               <tr>
-                <td><?=$recordtModel->getId()?></td>
+                <td><?=$recordtModel->getDateTime()?></td>
                 <td><?=$recordtModel->getUserName()?></td>
                 <td><?=$recordtModel->getProductName()?></td>
                 <td><?=$recordtModel->getSize()?></td>

@@ -55,12 +55,13 @@ $app->router->post('/product', [ProductController::class, 'product']);
 $app->router->get('/cart', [CartController::class, 'cart']);
 $app->router->post('/cart', [OrdersController::class, 'checkoutConfirm']);
 
-$app->router->get('/orders', [OrdersController::class, 'orders']);
+$app->router->get('/orders', [OrdersController::class, 'bought']);
+$app->router->post('/orders', [OrdersController::class, 'bought']);
 
 $app->router->get('/order', [OrderDetailController::class, 'orderDetail']);
 
+$app->router->get('/payment', [OrdersController::class, 'payment']);
 
-// Admin nè Long, bắt trước rồi làm theo, mà nhớ xem kỹ giùm anh nha em
 // admin general
 $app->router->get('/admin', [AdminController::class, 'index']);
 $app->router->get('/admin/sales', [SaleController::class, 'index']);
