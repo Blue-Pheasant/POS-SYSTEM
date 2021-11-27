@@ -13,7 +13,6 @@ use app\models\CartItem;
 <script type="text/javascript">
   document.title = 'Menu';
 </script> 
-<div class="row">
 <div class="row menu_sp">
     <div class="menu col-xl-8 col-md-7">
         <div class="menu__search">
