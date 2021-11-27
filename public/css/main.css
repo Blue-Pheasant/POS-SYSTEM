@@ -131,6 +131,10 @@ h1 {
   justify-content: center;
 }
 
+.div_cart {
+  display: none;
+}
+
 .header-image-icon {
   width: 23px;
   height: 23px;
@@ -175,7 +179,7 @@ h1 {
   justify-content: center;
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px){
     .navbar-collapse {
       background-image: linear-gradient( to right, #f6d365 0%, #fda085 100%);
     }
@@ -185,4 +189,14 @@ h1 {
     .thuongHieu {
       margin-top: 2px;
     }
+}
+
+@media screen and (max-width: 576px){
+  .div_cart {
+    display: unset;
+  }
+
+  .cart-page__body .container {
+    padding-top: 20px;
+  }
 }

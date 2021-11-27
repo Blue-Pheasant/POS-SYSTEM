@@ -18,6 +18,14 @@
     width: 100%;
 }
 
+.menu_sp .cart-page__content__footer {
+    padding: 0 15px;
+}
+
+.menu_sp .checkout-button {
+    margin-top: 20px;
+}
+
 .form-control {
     border-radius: 10px;
 }
@@ -134,7 +142,14 @@
     cursor: pointer;
 }
 
-.item-butotn-image {
+.item-button-image {
     width: 16px;
     height: 16px;
 }
+
+@media screen and (max-width:575px){
+    .menu_sp .cart-page__content {
+        display: none;
+    }
+}
+

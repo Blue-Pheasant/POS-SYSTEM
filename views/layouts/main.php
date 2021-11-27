@@ -90,7 +90,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                                 Chào <?php echo Application::$app->user->getDisplayName() ?>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item active div_cart">
                             <a class="nav-link" href="/cart">
                                 <div class="header-image">
                                     <img class="header-image-icon" src="/images/cart.png" />

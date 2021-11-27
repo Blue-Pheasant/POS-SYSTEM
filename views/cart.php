@@ -27,14 +27,14 @@ use app\models\CartItem;
                                 echo '<div class="cart-page-item">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-lg-2 col-md-2 col-sm-3 col-0">
+                                        <div class="col-lg-2 col-md-2 col-sm-3 col-3">
                                             <img class="cart-page__item-image"
                                                 src="' . $param->image_url . '" />
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-4 col-5">
+                                        <div class="col-lg-6 col-md-6 col-sm-4 col-9">
                                             <h6>' . $param->name . '</h6>
                                         </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-5">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-10">
                                             <div class="product-detail-footer">
                                                 <div class="product-detail-footer-quantity">
                                                     <button id="decrease-quantity-button" disabled
@@ -55,7 +55,7 @@ use app\models\CartItem;
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1 col-md-1 col-sm-2 col-1">
+                                        <div class="col-lg-1 col-md-1 col-sm-2 col-2">
                                             <button>
                                                 <img src="/images/delete.svg" class="cart-page__delete" />
                                             </button>
