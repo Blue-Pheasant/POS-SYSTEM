@@ -56,6 +56,17 @@
     overflow-y: scroll;
 }
 
+.cart-page-item .change_SL {
+    padding: 0;
+    width: fit-content;
+}
+
+.cart-page-item .img_sp {
+    width: fit-content;
+    padding: 0;
+    padding-right: 3px;
+}
+ 
 .cart-page__content__total {
     display: flex;
     flex-direction: row;
@@ -138,6 +149,10 @@
     margin: 0;
 }
 
+.cart-page .product-detail-footer-quantity {
+    margin: auto;
+}
+
 .cart-page h6 {
     margin: 0;
 }
@@ -157,4 +172,8 @@
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
+
+    /* .cart-page__item-image {
+        display: none;
+    } */
 }

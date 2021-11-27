@@ -10,7 +10,7 @@ use app\models\CartItem;
         Application::$app->response->redirect('/login');
     }
 ?>
-<div class="row">
+<div class="row menu_sp">
     <div class="menu col-xl-8 col-md-7">
         <div class="menu__search">
             <div class="form-floating mb-3">
@@ -107,14 +107,14 @@ use app\models\CartItem;
                 echo '<div class="cart-page-item">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-lg-2 col-md-3 col-sm-3 col-2">
+                                            <div class="col-lg-2 col-md-3 col-sm-3 col-2 img_sp">
                                                 <img class="cart-page__item-image"
                                                     src="' . $parameter->image_url . '" />
                                             </div>
                                             <div class="col-lg-6 col-md-5 col-sm-4 col-5 name">
                                                 <div class="name_sp">' . $parameter->name . '</div>
                                             </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-4">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-4 change_SL">
                                                 <div class="product-detail-footer">
                                                     <div class="product-detail-footer-quantity">
                                                         <button id="decrease-quantity-button" disabled
