@@ -6,6 +6,7 @@ use app\controllers\SiteController;
 use app\models\Category;
 use app\models\Product;
 use app\core\Application;
+use app\core\Request;
 use app\models\Cart;
 use app\models\CartItem;
 
@@ -30,13 +31,15 @@ class MenuController extends SiteController
         ]);
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        $body = Application::$app->request->getBody();
-        $keyword = $body['keyword'];
-        $products = Product::getProductsByKeyword($keyword);
-        $categories = Category::getAllCategories();
-        $data = array('products' => $products, 'categories' => $categories);
-        return $this->render('menu', $data);
+        if($request->getMethod() === 'post') {
+            $body = Application::$app->request->getBody();
+            $keyword = $body['keyword'];
+            $products = Product::getProductsByKeyword($keyword);
+            $categories = Category::getAllCategories();
+            $data = array('products' => $products, 'categories' => $categories);
+            return $this->render('menu', $data);
+        }
     }
 }

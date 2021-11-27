@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  document.title = 'Liên hệ';
+</script> 
 <div class="contact">
     <section id="contact-info">
         <div class="info-detail">

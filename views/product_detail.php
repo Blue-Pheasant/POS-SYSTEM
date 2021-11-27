@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  document.title = 'Thông tin sản phẩm';
+</script> 
 <div class="page-container">
     <form action="" method="post">
         <div class="product-detail">

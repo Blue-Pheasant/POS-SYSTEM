@@ -1,9 +1,6 @@
-<!-- <div class="home-promote">
-    <div class="home-text">
-        <img src="/images/kv-text.png" class="img-responsive" alt="Our story">
-    </div>
-    
-</div> -->
+<script type="text/javascript">
+  document.title = 'Home';
+</script> 
 
 <div class="home-page">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

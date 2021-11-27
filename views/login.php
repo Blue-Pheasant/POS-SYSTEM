@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  document.title = 'Đăng nhập';
+</script> 
 <div class="container">
     <form method="post" action="">
         <div class="d-flex justify-content-center h-100">

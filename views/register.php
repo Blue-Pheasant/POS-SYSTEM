@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  document.title = 'Đăng ký';
+</script> 
 <div class="card-regester">
     <div class="card-header">
         <h1>Đăng ký</h1>

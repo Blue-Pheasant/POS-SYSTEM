@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  document.title = 'Về chúng tôi';
+</script> 
 <div class="about">
     <div class="page-heading">
         <img class="page-banner" src="/images/page-banner.jpg" alt="page-banner" />

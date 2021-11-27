@@ -27,4 +27,21 @@ class ProfileController extends Controller
             'user' => $user
         ]);
     }
+
+    
+    public function password(Request $request)
+    {
+        $id = Application::$app->user->id;
+        $userModel = User::getUserInfo($id);
+        if($request->getMethod() === 'post') {
+            $userModel->loadData($request->getBody());
+            $userModel->update($userModel);
+            Application::$app->response->redirect('/');
+        } else if ($request->getMethod() === 'get') {
+            $this->setLayout('auth');
+            return $this->render('change_password', [
+                'userModel' => $userModel
+            ]);
+        }
+    }
 }

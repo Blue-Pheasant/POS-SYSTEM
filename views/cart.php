@@ -3,6 +3,9 @@ use app\core\Application;
 use app\models\CartItem;
 
 ?>
+<script type="text/javascript">
+  document.title = 'Giỏ hàng';
+</script> 
 <div class="cart-page">
     <div class="cart-page__header">
         <h3>Giỏ hàng của bạn</h3>

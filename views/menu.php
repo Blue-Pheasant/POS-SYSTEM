@@ -10,11 +10,14 @@ use app\models\CartItem;
         Application::$app->response->redirect('/login');
     }
 ?>
+<script type="text/javascript">
+  document.title = 'Menu';
+</script> 
 <div class="row">
     <div class="menu col-xl-8 col-md-7">
         <div class="menu__search">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
+                <input type="keyword" name="keyword" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
                 <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
             </div>
         </div>
