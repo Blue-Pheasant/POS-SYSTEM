@@ -7,7 +7,7 @@
         <p style="text-align:center">
             <span style="font-size:25px">
                 <span style="color:#804000">
-                    <br><strong>KAFFEE STORE</strong>
+                    <br><strong>Buy Me</strong>
                 </span>
             </span>
         </p>

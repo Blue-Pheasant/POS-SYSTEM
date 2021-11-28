@@ -17,7 +17,7 @@ class User extends UserModel
     public string $address = '';
     public string $phone_number = '';
     public string $role = '';
-    public string $image_url = '';
+    public string $image_url = 'NA';
 
     public function getId() { return $this->id; }
     public function getRole() { return $this->role; }
@@ -37,7 +37,6 @@ class User extends UserModel
         $this->phone_number = $params[5];
         $this->address = $params[6];
         $this->role = $params[7];
-        $this->image_url = $params[8];
     }
 
     public static function tableName(): string
@@ -47,7 +46,7 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['id', 'firstname', 'lastname', 'email', 'password', 'phone_number', 'address', 'role', 'image_url'];
+        return ['id', 'firstname', 'lastname', 'email', 'password', 'phone_number', 'address', 'role'];
     }
 
     public function labels(): array
@@ -61,7 +60,6 @@ class User extends UserModel
             'phone_number' => 'Số điện thoại',
             'address' => 'Địa chỉ',
             'role' => 'Vai trò',
-            'image_url' => 'Ảnh đại diện'
         ];
     }
 
@@ -112,7 +110,7 @@ class User extends UserModel
 
         foreach ($req->fetchAll() as $item) {
             $userModel = new User;
-            $params = array($item['id'], $item['firstname'], $item['lastname'], $item['email'], $item['password'], $item['phone_number'], $item['address'], $item['role'], $item['image_url']);
+            $params = array($item['id'], $item['firstname'], $item['lastname'], $item['email'], $item['password'], $item['phone_number'], $item['address'], $item['role']);
             $userModel->load($params);
             array_push($list, $userModel);
         }
@@ -133,7 +131,6 @@ class User extends UserModel
         $user->address = $item['address'];
         $user->phone_number = $item['phone_number'];
         $user->role = $item['role'];
-        $user->image_url = $item['image_url'];
         return $user;
     }
 
@@ -145,7 +142,6 @@ class User extends UserModel
                 firstname = '" . $user->firstname . "', 
                 lastname = '" . $user->lastname . "',
                 phone_number = '" . $user->phone_number . "',
-                image_url = '" . $user->image_url . "',
                 address = '" . $user->address . "'
             WHERE id = '" . $user->id . "';
             "

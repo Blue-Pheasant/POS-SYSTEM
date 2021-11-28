@@ -7,15 +7,9 @@
     <button type="back" class="password-button">Thay đổi mật khẩu</button>
 <?php app\core\form\Form::end() ?>
 <?php
-    if(!$user->image_url) {
-        echo '<div class="profile-avatar">
-                <img class="profile-avatar-image" alt="profile-avatar-image" src="/images/avatar.png">
-              </div>';
-    } else {
-         echo '<div class="profile-avatar">
-                <img class="profile-avatar-image" alt="profile-avatar-image" src="' . $user->image_url . '">
-              </div>';
-    }   
+    echo '<div class="profile-avatar">
+            <img class="profile-avatar-image" alt="profile-avatar-image" src="/images/avatar.png">
+        </div>';  
 ?>
 <?php $form = app\core\Form\Form::begin('', "post") ?>
 <div class="row">
@@ -37,9 +31,6 @@
 <div class="row">
     <div class="col">
         <?php echo $form->field($user, 'address') ?>
-    </div>
-    <div class="col">
-        <?php echo $form->field($user, 'image_url') ?>
     </div>
 </div>
 <button type="submit" class="password-button">Cập nhật</button>
