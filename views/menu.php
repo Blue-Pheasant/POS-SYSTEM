@@ -16,10 +16,16 @@ use app\models\CartItem;
 <div class="row menu_sp">
     <div class="menu col-xl-8 col-md-7">
         <div class="menu__search">
-            <div class="form-floating mb-3">
-                <input type="keyword" name="keyword" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
-                <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
-            </div>
+            <?php $form = app\core\Form\Form::begin('', "post") ?>
+                <div class="form-floating mb-3">
+                    <input type="keyword" name="keyword" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
+                    <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
+                </div>
+                <div class="col-md-3 col-lg-2">
+                        <button class="btn btn-outline-secondary search-button" type="submit"
+                            id="button-addon1">Tìm</button>
+                </div>
+            <?php app\core\form\Form::end() ?>
         </div>
 
         <div class="menu__options">
@@ -66,6 +72,13 @@ use app\models\CartItem;
         </div>
 
         <div class="menu__listing">
+                <?php if (count($params['products']) == 0)
+                    echo '
+                    <div class="not-found">
+                        <h3>Không tìm thấy sản phẩm !</h3>
+                    </div>
+                    '
+                ?>
             <div class="container">
                 <div class="row g-5">
                     <?php

@@ -53,7 +53,7 @@ Vào folder project, tạo một file .env rồi bỏ vào config sau:
 ```bash
 DB_DSN=mysql:host=localhost;dbname=thecoffeehouse
 DB_USER=root
-DB_PASSWORD=quan0402
+DB_PASSWORD=
 ```
 
 trong đó, password của bạn là gì thì điền vô, khôn

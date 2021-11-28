@@ -92,8 +92,14 @@ class Record extends DBModel
     {
         $productModel = Product::getProductDetail($this->product_name);
         $this->product_name = $productModel->getName();
+        $unitPrice = (int)$productModel->getPrice();
+        if($this->size === 'medium') {
+            $unitPrice += 3000;
+        } else if($this->size === 'large') {
+            $unitPrice += 6000;
+        }
         $this->id = uniqid();
-        $this->total_price = (int)$productModel->getPrice() * (int)$this->quantity;
+        $this->total_price = $unitPrice * (int)$this->quantity;
         return parent::save();
     }
 

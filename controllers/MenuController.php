@@ -23,6 +23,14 @@ class MenuController extends SiteController
             $products = Product::getProductsByCategory($category_id);
         }
         
+        foreach($items as $item) {
+            if($item->size === 'medium') {
+                $item->price += 3000;
+            } else if($item->getSize() === 'large') {
+                $item->price += 6000;
+            }
+        }
+
         $categories = Category::getAllCategories();
         return $this->render('menu', [
             'products' => $products, 
@@ -33,13 +41,25 @@ class MenuController extends SiteController
 
     public function search(Request $request)
     {
+        $cart_id = Application::$app->cart->id;
+        $items = CartItem::getCartItem($cart_id);
+        foreach($items as $item) {
+            if($item->size === 'medium') {
+                $item->price += 3000;
+            } else if($item->getSize() === 'large') {
+                $item->price += 6000;
+            }
+        }
         if($request->getMethod() === 'post') {
             $body = Application::$app->request->getBody();
             $keyword = $body['keyword'];
             $products = Product::getProductsByKeyword($keyword);
             $categories = Category::getAllCategories();
-            $data = array('products' => $products, 'categories' => $categories);
-            return $this->render('menu', $data);
+            return $this->render('menu', [
+                'products' => $products, 
+                'categories' => $categories,
+                'items' => $items 
+            ]);
         }
     }
 }

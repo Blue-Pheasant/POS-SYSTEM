@@ -62,7 +62,7 @@
                             </div>
                             <div class="product-detail-size-body">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="size" id="exampleRadios2"
+                                    <input class="form-check-input" type="radio" name="size" id="exampleRadios1"
                                         value="small" checked>
                                     <div class="form-check-label" for="size">
                                         Nhỏ

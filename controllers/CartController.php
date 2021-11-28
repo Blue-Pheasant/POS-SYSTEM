@@ -25,6 +25,14 @@ class CartController extends Controller
         $cart_id = Application::$app->cart->id;
         $items = CartItem::getCartItem($cart_id);
 
+        foreach($items as $item) {
+            if($item->size === 'medium') {
+                $item->price += 3000;
+            } else if($item->getSize() === 'large') {
+                $item->price += 6000;
+            }
+        }
+
         return $this->render('cart', [
             'items' => $items,
             'user' => $user

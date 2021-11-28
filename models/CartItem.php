@@ -14,9 +14,10 @@ class CartItem extends DBModel
     public string $note = '';
     public string $category_id = '';
     public string $name = '';
-    public float $price = 0;
+    public int $price = 0;
     public string $description = '';
     public string $image_url = '';
+    public string $size = '';
 
     public function __construct(
         $product_id,
@@ -41,6 +42,8 @@ class CartItem extends DBModel
         $this->image_url = $image_url;
         $this->size = $size;
     }
+
+    public function getSize() { return $this->size; }
 
     public function getTotalPrice() { return $this->price * $this->quantity; }
 
