@@ -61,7 +61,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                         <a class="nav-link" href="/stores">Store</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Về KAFFEE STORE</a>
+                        <a class="nav-link" href="/about">Về Buy Me</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Liên hệ</a>

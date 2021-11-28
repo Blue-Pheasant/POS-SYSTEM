@@ -17,7 +17,6 @@ class User extends UserModel
     public string $address = '';
     public string $phone_number = '';
     public string $role = '';
-    public string $image_url = 'NA';
 
     public function getId() { return $this->id; }
     public function getRole() { return $this->role; }
