@@ -5,7 +5,7 @@
 <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
 <div class="cart-page">
     <?php
-        if(isset($params['records'])) {
+        if(!isset($params['records'])) {
             echo '<div class="cart-page__header">
                     <h3>Lịch sử mua hàng trống</h3>
                   </div><br>';
