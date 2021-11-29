@@ -63,6 +63,11 @@ class   CartController extends Controller
         if($request->getMethod() === 'get') {
             CartItem::delete($itemId);   
         }
-        Application::$app->response->redirect('/cart');
+        $path = Application::$app->request->getPath();
+        if(strpos($path, 'menu')) {
+            Application::$app->response->redirect('/menu');
+        } else {
+            Application::$app->response->redirect('/cart');
+        }
     }
 }

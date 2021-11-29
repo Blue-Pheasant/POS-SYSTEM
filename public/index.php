@@ -57,6 +57,8 @@ $app->router->post('/cart', [OrdersController::class, 'checkoutConfirm']);
 
 $app->router->get('/cart/delete', [CartController::class, 'remove']);
 
+$app->router->get('/menu/cart/delete', [CartController::class, 'remove']);
+
 $app->router->get('/orders', [OrdersController::class, 'bought']);
 $app->router->post('/orders', [OrdersController::class, 'bought']);
 

@@ -152,9 +152,11 @@ use app\models\CartItem;
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-md-1 col-sm-2 col-1">
-                                                <button>
-                                                    <img src="/images/delete.svg" class="cart-page__delete" />
-                                                </button>
+                                                <a href="/menu/cart/delete?id=' . $parameter->product_id . '">
+                                                    <button>
+                                                        <img src="/images/delete.svg" class="cart-page__delete" />
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="row">
