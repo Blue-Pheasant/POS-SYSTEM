@@ -123,33 +123,4 @@ class CartItem extends DBModel
         return $list;
     }
 
-    // public static function getItem($cart_id, $itemId)
-    // {
-    //     $db = Database::getInstance();
-    //     $req = $db->query(
-    //         "SELECT *
-    //         FROM cart_detail JOIN products ON cart_detail.product_id = products.id 
-    //         WHERE cart_detail.cart_id = '" . $cart_id . "';"
-    //     );
-
-    //     foreach ($req->fetchAll() as $item) {
-    //         if($item['product_id'] === $itemId) {
-    //             $itemCart = new
-    //                 CartItem(
-    //                     $item['product_id'],
-    //                     $item['cart_id'],
-    //                     $item['quantity'],
-    //                     $item['note'],
-    //                     $item['category_id'],
-    //                     $item['name'],
-    //                     $item['price'],
-    //                     $item['description'],
-    //                     $item['image_url'],
-    //                     $item['size']
-    //                 );
-    //         }
-    //     }
-    //     return $itemCart;
-    // }
-
 }
