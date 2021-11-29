@@ -17,7 +17,7 @@ use app\models\Cart;
 use app\models\CartDetail;
 use app\models\CartItem;
 
-class CartController extends Controller
+class   CartController extends Controller
 {
     public function cart()
     {
@@ -58,6 +58,11 @@ class CartController extends Controller
 
     public function remove(Request $request)
     {
-        
+        $itemId = Application::$app->request->getParam('id');
+        $cart_id = Application::$app->cart->id;
+        if($request->getMethod() === 'get') {
+            CartItem::delete($itemId);   
+        }
+        Application::$app->response->redirect('/cart');
     }
 }

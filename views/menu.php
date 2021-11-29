@@ -155,7 +155,6 @@ use app\models\CartItem;
                                                 <button>
                                                     <img src="/images/delete.svg" class="cart-page__delete" />
                                                 </button>
-
                                             </div>
                                         </div>
                                         <div class="row">
