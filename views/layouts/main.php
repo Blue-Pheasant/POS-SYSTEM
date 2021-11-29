@@ -55,9 +55,6 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
                         <a class="nav-link" href="/menu">Thực đơn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/collection">Bộ sưu tập</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/stores">Store</a>
                     </li>
                     <li class="nav-item">

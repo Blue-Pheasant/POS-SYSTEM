@@ -199,3 +199,6 @@ use app\models\CartItem;
 </div>
 
 <script src="/js/product_detail.js"></script>
+<script>
+numberWithCommas();
+</script>
