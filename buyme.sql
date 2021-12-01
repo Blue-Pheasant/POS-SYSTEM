@@ -35,13 +35,6 @@ CREATE TABLE `cart` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
--- Đang đổ dữ liệu cho bảng `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
-('619cac959f35f', '6191e42fe4e3f', 'processing', '2021-11-23 08:55:49', '2021-11-23 08:55:49');
-
 -- --------------------------------------------------------
 
 --
@@ -54,17 +47,10 @@ CREATE TABLE `cart_detail` (
   `quantity` int(11) NOT NULL,
   `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `note` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `order_detail_id` varchar(100) COLLATE,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `cart_detail`
---
-
-INSERT INTO `cart_detail` (`product_id`, `cart_id`, `quantity`, `size`, `note`, `created_at`, `updated_at`) VALUES
-('5b03966a1acd4d5bbd672375', '619cac959f35f', 8, 'medium', '', '2021-11-23 08:56:35', '2021-11-23 08:56:35'),
-('5b03966a1acd4d5bbd672378', '619cac959f35f', 3, 'medium', '', '2021-11-23 08:56:40', '2021-11-23 08:56:40');
 
 -- --------------------------------------------------------
 
@@ -89,21 +75,6 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 ('2', 'Đá Xay - Choco - Matcha', '2021-10-29 19:31:28', '2021-10-29 19:31:28'),
 ('20', 'Bộ sưu tập quà tặng', '2021-10-29 19:31:28', '2021-10-29 19:31:28'),
 ('5', 'Trà Trái Cây - Trà Sữa', '2021-10-29 19:31:28', '2021-10-29 19:31:28');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `feedbacks`
---
-
-CREATE TABLE `feedbacks` (
-  `id` int(11) NOT NULL,
-  `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `product_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `stars` int(11) NOT NULL,
-  `comment` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
 
@@ -136,6 +107,9 @@ CREATE TABLE `orders` (
   `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `payment_method` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `status` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `delivery_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `delivery_phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `delivery_address` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
@@ -150,6 +124,9 @@ CREATE TABLE `order_detail` (
   `product_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `order_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `quantity` int(11) NOT NULL,
+  `size` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `note` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
@@ -236,23 +213,6 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `image_url`, `price`, `desc
 ('61224f81ef16be001293cccd', '18', 'Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan', '/images/products/61224f81ef16be001293cccd.png', 119000, 'Thật dễ dàng để bắt đầu ngày mới với tách cà phê sữa đá sóng sánh, thơm ngon như cà phê pha phin. Vị đắng thanh của cà phê hoà quyện với vị ngọt béo của sữa, giúp bạn luôn tỉnh táo và hứng khởi cho ngày làm việc thật hiệu quả.\r\n        ', '2021-10-29 19:31:49', '2021-10-29 19:31:49'),
 ('61534bde26ae260012abe218', '5', 'Trà Đào Cam Sả Chai Fresh 500ML', '/images/products/61534bde26ae260012abe218.png', 109000, 'Với phiên bản chai fresh 500ml, thức uống best seller đỉnh cao mang một diện mạo tươi mới, tiện lợi, phù hợp với bình thường mới và vẫn giữ nguyên vị thanh ngọt của đào, vị chua dịu của cam vàng nguyên vỏ và vị trà đen thơm lừng ly Trà đào cam sả nguyên bản.\r\n        *Sản phẩm dùng ngon nhất trong ngày.\r\n        *Sản phẩm mặc định mức đường và không đá.', '2021-10-29 19:31:49', '2021-10-29 19:31:49'),
 ('61534bde26ae260012abe219', '1', 'Cà Phê Sữa Đá Chai Fresh 250ML', '/images/products/61534bde26ae260012abe219.png', 79000, 'Vẫn là hương vị cà phê sữa đậm đà quen thuộc của Kaffee store nhưng khoác lên mình một chiếc áo mới tiện lợi hơn, tiết kiệm hơn phù hợp với bình thường mới, giúp bạn tận hưởng một ngày dài trọn vẹn.\r\n        *Sản phẩm dùng ngon nhất trong ngày.\r\n        *Sản phẩm mặc định mức đường và không đá.', '2021-10-29 19:31:49', '2021-10-29 19:31:49');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `records`
---
-
-CREATE TABLE `records` (
-  `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `product_name` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_price` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `image_url` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
 
