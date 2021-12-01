@@ -51,7 +51,9 @@ $app->router->get('/product', [ProductController::class, 'product']);
 $app->router->post('/product', [ProductController::class, 'product']);
 
 $app->router->get('/cart', [CartController::class, 'cart']);
+$app->router->post('/update', [CartController::class, 'update']);
 $app->router->post('/cart', [CartController::class, 'placeOrder']);
+
 
 $app->router->get('/orders', [OrdersController::class, 'orders']);
 

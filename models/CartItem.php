@@ -133,4 +133,12 @@ class CartItem extends DBModel
         $stmt->execute();
         return true;
     }
+
+    public static function update($id, $newNote, $newQuantity)
+    {
+        $sql = "UPDATE cart_detail SET note = '" . $newNote . "' , quantity = '" . $newQuantity . "' WHERE order_detail_id ='" . $id . "'";
+        $stmt = self::prepare($sql);
+        $stmt->execute();
+        return true;
+    }
 }

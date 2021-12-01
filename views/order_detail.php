@@ -75,7 +75,7 @@ function total($params)
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-9 col-9">
                                                 <h6>' . $param->name . '</h6>
-                                                <div>Giá đơn vị: ' . $param->price . ' đ</div>
+                                                <div>Giá đơn vị: ' . number_format($param->price, 0, ',', '.') . ' đ</div>
                                                 <div>Size: ' . sizeContent($param->size) . '</div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -105,13 +105,14 @@ function total($params)
                         <div class="cart-page-divider"></div>
                         <div class="cart-page__content__total">
                             <div>Tạm tính</div>
-                            <div><?php echo total($params['items']) ?>đ</div>
+                            <div><?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</div>
                         </div>
 
                         <div class="cart-page__content__footer">
                             <div>
                                 <div>Thành tiền</div>
-                                <div class="cart-page-total"><?php echo total($params['items']) ?>đ</div>
+                                <div class="cart-page-total">
+                                    <?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</div>
                             </div>
                         </div>
                     </div>

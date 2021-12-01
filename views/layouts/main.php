@@ -72,7 +72,7 @@ header("Content-type: text/html; charset=utf-8");
                         <a class="nav-link" href="/menu">Thực đơn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/stores">Store</a>
+                        <a class="nav-link" href="/stores">Cửa hàng</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">Về KAFFEE STORE</a>

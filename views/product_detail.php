@@ -1,3 +1,12 @@
+<?php
+
+use app\core\Application;
+
+if (Application::isGuest()) {
+    Application::$app->response->redirect('/login');
+}
+?>
+
 <div class="page-container">
     <form accept-charset="utf-8" action="" method="post">
         <div class="product-detail">
@@ -24,7 +33,9 @@
                     <div class="col-md-12 col-lg-6 product-detail-right">
                         <div class="product-detail-name"><?php echo $params['product']->name ?></div>
                         <div class="product-detail-footer">
-                            <div><span class="price"><?php echo $params['product']->price ?></span>đ</div>
+                            <div><span
+                                    class="price"><?php echo number_format($params['product']->price, 0, ',', '.') ?></span>đ
+                            </div>
                             <div class="product-detail-footer-quantity">
                                 <button type="button" id="decrease-quantity-button" disabled
                                     class="item-button-disabled" onclick="decreaseQuantity()">
@@ -91,7 +102,8 @@
                         </div>
                         <div class="product-detail-button">
                             <button type="submit" id="liveToastBtn"><span
-                                    class="price"><?php echo $params['product']->price ?></span> -
+                                    class="price"><?php echo number_format($params['product']->price, 0, ',', '.') ?>đ</span>
+                                -
                                 Thêm
                                 vào
                                 giỏ hàng</button>

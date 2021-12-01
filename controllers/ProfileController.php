@@ -12,19 +12,24 @@ class ProfileController extends Controller
 {
     public function profile(Request $request)
     {
+        $updateSuccess = false;
         $id = Application::$app->user->id;
         $user = User::getUserInfo($id);
         if ($request->getMethod() === 'post') {
             $user->loadData($request->getBody());
             if ($user->validateUpdateProfile() && true) {
                 if ($user->updateProfile($user)) {
-                    Application::$app->response->redirect('/profile');
-                    return 'Show success page';
+                    $updateSuccess = true;
                 }
             }
         }
+
+        $user = User::getUserInfo($id);
+        Application::$app->user = $user;
+
         return $this->render('profile', [
-            'user' => $user
+            'user' => $user,
+            'updateSuccess' => $updateSuccess,
         ]);
     }
 }

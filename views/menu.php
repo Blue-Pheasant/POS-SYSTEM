@@ -1,12 +1,3 @@
-<?php
-
-use app\core\Application;
-
-if (Application::isGuest()) {
-    Application::$app->response->redirect('/login');
-}
-?>
-
 <div class="menu">
     <div class="menu__header">
         <img class="menu-image" src="/images/menu.png" alt="menu-image" />
@@ -106,7 +97,7 @@ if (Application::isGuest()) {
                                     <div class="item-info">
                                         <p class="item-name">' . $param->name . '</p>
                                         <div class="item-footer">
-                                            <p>' . $param->price . '</p>
+                                            <p>' . number_format($param->price, 0, ',', '.') . 'đ</p>
                                             <div class="item-button">
                                                 <img class="item-button-image"
                                                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuODU3MTQgNi44NTcxNFYwSDkuMTQyODZWNi44NTcxNEgxNlY5LjE0Mjg2SDkuMTQyODZWMTZINi44NTcxNFY5LjE0Mjg2SDBWNi44NTcxNEg2Ljg1NzE0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="

@@ -1,32 +1,32 @@
 <script type="text/javascript">
-  document.title = 'Quản lý đặt hàng';
-</script> 
+document.title = 'Quản lý đặt hàng';
+</script>
 <div class="row">
-  <div class="col-lg-12">
-    <section class="panel">
-      <header class="panel-heading">
-        <h1>Quản lý đặt hàng</h1>
-        <a href="/admin/orders/accepted" class="btn btn-success">Đơn hàng đã duyệt</a>
-        <a href="/admin/orders/rejected" class="btn btn-success">Đơn hàng đã huỷ</a>
-      </header>
-      <div class="panel-body">
-        <table class="table table-striped table-hover dt-datatable">
-          <thead>
-            <tr>
-              <th>Mã giao dịch</th>
-              <th>Mã khách hàng</th>
-              <th>Thanh toán</th>
-              <th>Trạng thái</th>
-              <th>Người nhận</th>
-              <th>Địa chỉ giao hàng</th>
-              <th>Số điện thoại</th>
-              <th>Ngày đặt hàng</th>
-              <th class="no-sort">Tuỳ chọn</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-              foreach ($params['orders'] as $orderModel) { 
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h1>Quản lý đặt hàng</h1>
+                <a href="/admin/orders/accepted" class="btn btn-success">Đơn hàng đã duyệt</a>
+                <a href="/admin/orders/rejected" class="btn btn-success">Đơn hàng đã huỷ</a>
+            </header>
+            <div class="panel-body">
+                <table class="table table-striped table-hover dt-datatable">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã khách hàng</th>
+                            <th>Thanh toán</th>
+                            <th>Trạng thái</th>
+                            <th>Người nhận</th>
+                            <th>Địa chỉ giao hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày đặt hàng</th>
+                            <th class="no-sort">Tuỳ chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+            foreach ($params['orders'] as $orderModel) {
             ?>
               <tr>
                 <td><?=$orderModel->getId()?></td>
@@ -46,9 +46,9 @@
             <?php 
               }
             ?>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </div>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 </div>

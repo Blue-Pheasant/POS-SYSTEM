@@ -32,12 +32,13 @@ class CartController extends Controller
     {
         $cart_id = Application::$app->cart->id;
         $deletedItem = false;
+        $updatedItem = false;
 
         if (isset($_GET['action'])) {
+            $id = Application::$app->request->getParam('id');
             if ($_GET['action'] == 'delete') {
-                $id = Application::$app->request->getParam('id');
                 $this->deleteItem($cart_id, $id);
-            } else if ($_GET['action'] == 'update') {
+                $deletedItem = true;
             }
         }
 
@@ -48,13 +49,36 @@ class CartController extends Controller
         return $this->render('cart', [
             'items' => $items,
             'user' => $user,
-            'deletedItem' => $deletedItem
+            'deletedItem' => $deletedItem,
+            'updatedItem' => $updatedItem
+        ]);
+    }
+
+    public function update()
+    {
+        $cart_id = Application::$app->cart->id;
+        $user = Application::$app->user;
+
+        $id = Application::$app->request->getParam('order_detail_id');
+        $newNote = Application::$app->request->getBody()['note'];
+        $newQuantity = Application::$app->request->getBody()['quantity'];
+
+
+        CartItem::update($id, $newNote, $newQuantity);
+
+        $items = CartItem::getCartItem($cart_id);
+
+        return $this->render('cart', [
+            'items' => $items,
+            'user' => $user,
         ]);
     }
 
     public function placeOrder()
     {
         $placedOrder = false;
+        $updatedItem = false;
+
         $cart_id = Application::$app->cart->id;
         $items = CartItem::getCartItem($cart_id);
 
