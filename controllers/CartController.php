@@ -31,9 +31,9 @@ class CartController extends Controller
             if ($_GET['action'] == 'delete') {
                 $this->deleteItem($cart_id, $id);
                 $deletedItem = true;
-            }
-
-            if($path && strpos($path, 'menu')) {
+            } else if($_GET['action'] == 'deletemenu') {
+                $this->deleteItem($cart_id, $id);
+                $deletedItem = true;
                 Application::$app->response->redirect('menu');
             }
         }

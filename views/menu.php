@@ -143,7 +143,7 @@ use app\models\CartItem;
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-2 col-1">
-                                    <a href="/cart?action=delete&id=' . $parameter->order_detail_id . '">
+                                    <a href="/cart?action=deletemenu&id=' . $parameter->order_detail_id . '">
                                         <img src="/images/delete.svg" class="cart-page__delete" />
                                     </a>
                                 </div>
