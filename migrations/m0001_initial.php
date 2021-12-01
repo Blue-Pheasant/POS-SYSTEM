@@ -71,23 +71,6 @@ class m0001_initial
             -- --------------------------------------------------------
 
             --
-            -- Table structure for table `records`
-            --
-            
-            CREATE TABLE `records` (
-                `id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `user_id` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `product_name` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `size` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `quantity` int(11) NOT NULL,
-                `total_price` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `image_url` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-                `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
-            -- --------------------------------------------------------
-
-            --
             -- Table structure for table `feedbacks`
             --
 
@@ -194,12 +177,6 @@ class m0001_initial
             -- Indexes for table `users`
             --
             ALTER TABLE `users`
-            ADD PRIMARY KEY (`id`);
-
-            --
-            -- Indexes for table `records`
-            --
-            ALTER TABLE `records`
             ADD PRIMARY KEY (`id`);
 
             --

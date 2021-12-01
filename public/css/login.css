@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -77,4 +76,8 @@ input:focus {
 
 .links {
   color: black;
+}
+
+.links a {
+  margin-left: 4px;
 }

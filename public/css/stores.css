@@ -3,27 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #FFFCA8, pink);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    height: 800px;
+}
+
+.menu__header {
+    margin-top: 50px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .menu__search {
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 50px;
     max-width: 800px ;
     width: 100%;
-}
-
-.menu_sp .cart-page__content__footer {
-    padding: 0 15px;
-}
-
-.menu_sp .checkout-button {
-    margin-top: 20px;
 }
 
 .form-control {
@@ -37,11 +31,12 @@
 
 
 .menu__options {
-    margin-top: 10px;
+    margin-top: 50px;
     max-width: 800px;
     width: 100%;
-    display: flex;
+    overflow: hidden;
     overflow-x: scroll;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -57,8 +52,10 @@
 }
 
 .option-image-block {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,29 +64,19 @@
 }
 
 .option-image {
-    width: 40px;
+    width: 50px;
 }
 
 .menu__listing {
     width: 100%;
-    overflow: hidden;
-    max-height: 600px;
-    overflow-y: scroll;
-}
-
-.menu__listing .container {
-    padding-top: 20px;
-}
-
-.menu__listing .product {
-    background-color: white;
+    margin-bottom: 50px;
 }
 
 .item-card {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 .item-image {
@@ -98,7 +85,7 @@
 }
 
 .item-info {
-    padding-top: 5px ;
+    padding-top: 12px ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,17 +93,8 @@
 }
 
 .item-name {
-    display: block; /* Fallback for non-webkit */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    height: 50px;
-    width: 137px;
-    margin: 0;
     font-size: 16px;
     font-weight: 600;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    
 }
 
 .item-footer {
@@ -142,14 +120,17 @@
     cursor: pointer;
 }
 
-.item-button-image {
+.item-butotn-image {
     width: 16px;
     height: 16px;
 }
 
-@media screen and (max-width:575px){
-    .menu_sp .cart-page__content {
-        display: none;
-    }
+.item-store-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
+.item-phone {
+    margin-bottom: 0px;
+}

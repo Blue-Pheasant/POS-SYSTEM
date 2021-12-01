@@ -41,7 +41,7 @@ class SiteController extends Controller
     }
 
 
-    
+
     public function menu()
     {
         return $this->render('menu');
@@ -74,7 +74,7 @@ class SiteController extends Controller
             if ($loginForm->validate() && $loginForm->login()) {
                 $userId = Application::$app->session->get('user');
                 $userModel = User::getUserInfo($userId);
-                if($userModel->getRole() === 'admin') {
+                if ($userModel->getRole() === 'admin') {
                     Application::$app->response->redirect('/admin');
                 } else {
                     Application::$app->response->redirect('/');

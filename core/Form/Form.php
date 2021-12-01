@@ -8,7 +8,7 @@ class Form
 {
     public static function begin($action, $method)
     {
-        echo sprintf('<form action="%s" method="%s">', $action, $method);
+        echo sprintf('<form accept-charset="utf-8" action="%s" method="%s">', $action, $method);
         return new Form();
     }
 

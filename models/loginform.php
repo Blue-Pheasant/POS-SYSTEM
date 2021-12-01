@@ -21,8 +21,8 @@ class LoginForm extends Model
     public function labels()
     {
         return [
-            'email' => 'Your Email address',
-            'password' => 'Password'
+            'email' => 'Địa chỉ email',
+            'password' => 'Mật khẩu'
         ];
     }
 
@@ -30,14 +30,19 @@ class LoginForm extends Model
     {
         $user = User::findOne(['email' => $this->email]);
         if (!$user) {
-            $this->addError('email', 'User does not exist with this email address');
+            $this->addError('email', self::RULE_INVALID_EMAIL);
             return false;
         }
         if (!password_verify($this->password, $user->password)) {
-            $this->addError('password', 'Password is incorrect');
+            $this->addError('password', self::RULE_WRONG_PASSWORD);
             return false;
         }
 
         return Application::$app->login($user);
+    }
+
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute];
     }
 }

@@ -17,12 +17,11 @@ function decreaseQuantity() {
 };
 
 function numberWithCommas() {
-    // var initPrice = document.getElementsById("price").innerHTML;
-    // var price =  initPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    // document.getElementsById("price").innerHTML = price;
-    var x = document.getElementsByClassName("price").innerHTML;
-    console.log(x);
+    var price = document.getElementsByClassName("price").innerHTML;
+    console.log(price)
+    document.getElementsByClassName("price").innerHTML = price.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+
 
 function getSize() {
     var radios = document.getElementsByName('exampleRadios');

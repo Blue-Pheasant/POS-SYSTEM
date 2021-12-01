@@ -18,6 +18,7 @@ class User extends UserModel
     public string $phone_number = '';
     public string $role = '';
 
+
     public function getId() { return $this->id; }
     public function getRole() { return $this->role; }
     public function setRole($role) { $this->role = $role; }
@@ -58,7 +59,7 @@ class User extends UserModel
             'passwordConfirm' => 'Nhập lại mật khẩu',
             'phone_number' => 'Số điện thoại',
             'address' => 'Địa chỉ',
-            'role' => 'Vai trò',
+            'role' => 'Vai trò'
         ];
     }
 
@@ -88,6 +89,7 @@ class User extends UserModel
         return parent::save();
     }
 
+    // Save này chỉ dùng lưu user, viết lại save khác cho model khác pls
     public function save()
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -174,6 +176,6 @@ class User extends UserModel
         $sql = "DELETE FROM $tablename WHERE id=?";
         $stmt= self::prepare($sql);
         $stmt->execute([$this->id]);
-        return true;   
+        return true;     
     }   
 }

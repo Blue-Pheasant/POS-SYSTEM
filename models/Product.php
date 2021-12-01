@@ -50,6 +50,12 @@ class Product extends DBModel
     public function setImageUrl($image_url) { $this->image_url = $image_url; }
     public function getImageUrl() { return $this->image_url; } 
 
+    public static function getNameById($id) 
+    {
+        $productModel = Product::getProductDetail($id);
+        return $productModel->getName();
+    }
+
     public function getCategory()
     {
         $categoryModel = Category::get($this->category_id);
@@ -124,6 +130,7 @@ class Product extends DBModel
         return true;
     }
 
+    // Của Quân, đã chạy được, xin đừng xóa
     public static function getAllProducts()
     {
         $list = [];

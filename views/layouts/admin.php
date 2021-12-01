@@ -70,8 +70,8 @@ if($userModel->getRole() != 'admin') {
             </a>
           </li>
           <li>
-            <a href="/admin/sales">
-              <i class="fa fa-cash-register" aria-hidden="true"></i>&nbsp;Quản lý bán hàng
+            <a href="/admin/orders">
+              <i class="fas fa-hand-pointer" aria-hidden="true"></i>&nbsp; Xử lý đơn hàng
             </a>
           </li>
           <li>

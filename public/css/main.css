@@ -10,10 +10,6 @@
   z-index: 100;
 }
 
-h1 {
-  text-align: center;
-}
-
 .navbar {
   max-width: 1230px;
   height: 80px;
@@ -29,28 +25,7 @@ h1 {
 }
 
 .logo {
-  float: left;
-  width: 70px;
-}
-
-.thuongHieu {
-  font-size: 30px;
-  color: red;
-  text-align: center;
-  text-shadow: 10px 5px 5px #FFD700;
-  font-family: 'Lobster', cursive;
-  margin-left: 5px;
-  margin-top: 7px;
-  float: left;
-  width: fit-content;
-  transform: rotate(-10deg);
-  -webkit-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-}
-
-.navbar-brand {
-  max-width: 250px;
+  width: 150px;
 }
 
 .main {
@@ -63,7 +38,7 @@ h1 {
 }
 
 .container {
-  padding: 90px 10px 10px 10px;
+  padding-top: 80px;
   max-width: 1230px;
   width: 100%;
 }
@@ -160,6 +135,10 @@ h1 {
   justify-content: space-between;
 }
 
+.footer-info-content {
+  
+}
+
 .footer-logo {
   width: 70%;
 }
@@ -175,25 +154,8 @@ h1 {
   justify-content: center;
 }
 
-.navbar-collapse {
-  background-image: linear-gradient( to right, #f6d365 0%, #fda085 100%);
-}
-
-@media screen and (max-width: 768px){
+@media screen and (max-width:768px){
     .navbar-collapse {
       background-image: linear-gradient( to right, #f6d365 0%, #fda085 100%);
     }
-    .logo {
-      width: 57px;
-    }
-    .thuongHieu {
-      margin-top: 2px;
-    }
-    
-}
-
-@media screen and (max-width: 576px){
-  .cart-page__body .container {
-    padding-top: 20px;
-  }
 }

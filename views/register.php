@@ -1,6 +1,3 @@
-<script type="text/javascript">
-  document.title = 'Đăng ký';
-</script> 
 <div class="card-regester">
     <div class="card-header">
         <h1>Đăng ký</h1>
@@ -37,8 +34,8 @@
                 </div>  
             </div>
             <div class="remember-me">
-                <input type="checkbox">
-                <span style="color: #000000">I accept Terms of Service</span>
+                <input type="checkbox" required>
+                <span style="color: #000000">Tôi chấp nhận các điều khoản của dịch vụ</span>
             </div>
             <div class="btn">
                 <button type="submit" class="button">Đăng ký</button>

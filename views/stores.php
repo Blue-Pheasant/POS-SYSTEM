@@ -1,6 +1,6 @@
 <script type="text/javascript">
-  document.title = 'Danh sách cửa hàng';
-</script> 
+document.title = 'Danh sách cửa hàng';
+</script>
 <h1>Thăm Kaffee store chúng mình</h1>
 <div class="store__listing">
     <div class="container">
@@ -13,21 +13,19 @@
                             <img src="' . $param->image_url . '" alt=""
                                 class="item-image" />
                             <div class="item-info">
-                                <p class="item-status">' . $param->status . '</p>
-                                <p class="item-open_time">' . $param->open_time . '</p>
-                                <p class="item-phone">' . $param->phone . '</p>
+                                <div class="item-store-info">
+                                    <p class="item-status">' . ($param->status ? "Đang hoạt động" : "Tạm đóng cửa") . '</p>
+                                    <p class="item-open_time">Giờ mở cửa: ' . $param->open_time . '</p>
+                                </div>
+                                <p class="item-phone"> Số điện thoại: ' . $param->phone . '</p>
                                 <div class="item-footer">
-                                    <p>' . $param->address . '</p>
+                                    <p>Địa chỉ: ' . $param->address . '</p>
                                 </div>
                             </div>
                         </div>
                     </div><br><br><br>';
-                }
+            }
             ?>
         </div>
     </div>
 </div><br><br><br>
-
-
-
-

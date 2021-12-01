@@ -1,8 +1,5 @@
-<script type="text/javascript">
-  document.title = 'Thông tin sản phẩm';
-</script> 
 <div class="page-container">
-    <form action="" method="post">
+    <form accept-charset="utf-8" action="" method="post">
         <div class="product-detail">
             <div class="container">
                 <div class="row gx-5">
@@ -35,9 +32,8 @@
                                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMiIgdmlld0JveD0iMCAwIDE2IDIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
                                         alt="" />
                                 </button>
-                                <input name="quantity" id="product-quantity" class="product-quantity" value="1"
-                                    type="number" />
-
+                                <input type="text" name="quantity" class="form-control quantity-input"
+                                    id="product-quantity" value="1">
                                 <button type="button" id="increase-quantity-button" onclick="increaseQuantity()">
                                     <img class="item-button-image"
                                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuODU3MTQgNi44NTcxNFYwSDkuMTQyODZWNi44NTcxNEgxNlY5LjE0Mjg2SDkuMTQyODZWMTZINi44NTcxNFY5LjE0Mjg2SDBWNi44NTcxNEg2Ljg1NzE0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
@@ -62,8 +58,8 @@
                             </div>
                             <div class="product-detail-size-body">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="size" id="exampleRadios1"
-                                        value="small" checked>
+                                    <input class="form-check-input" type="radio" name="size" id="exampleRadios2"
+                                        value="Small" checked>
                                     <div class="form-check-label" for="size">
                                         Nhỏ
                                     </div>
@@ -73,7 +69,7 @@
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="size" id="exampleRadios2"
-                                        value="medium" checked>
+                                        value="Medium" checked>
                                     <div class="form-check-label" for="size">
                                         Vừa
                                     </div>
@@ -83,7 +79,7 @@
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="size" id="exampleRadios3"
-                                        value="large">
+                                        value="Large">
                                     <div class="form-check-label" for="size">
                                         Lớn
                                     </div>
@@ -94,23 +90,46 @@
                             </div>
                         </div>
                         <div class="product-detail-button">
-                            <button type="submit" id="addCart"><span
+                            <button type="submit" id="liveToastBtn"><span
                                     class="price"><?php echo $params['product']->price ?></span> -
                                 Thêm
                                 vào
                                 giỏ hàng</button>
                         </div>
                     </div>
-                    <div class="col-md-12 col-lg-6 product-detail-description">
-                        <?php echo $params['product']->description ?>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="product-detail-description">
+                            <?php echo $params['product']->description ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="/images/logo/logo-2.png" width="30px" class="rounded me-2" alt="logo-2">
+                <strong class="me-auto">Kaffee store</strong>
+                <small>Bây giờ</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Thêm vào giỏ hàng thành công.
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="/js/product_detail.js"></script>
 <script>
-numberWithCommas();
+<?php
+    if ($params['addToCart']) {
+        echo "var toastTrigger = document.getElementById('liveToastBtn')
+            var toastLiveExample = document.getElementById('liveToast')
+            var toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()";
+    }
+    ?>
 </script>

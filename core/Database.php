@@ -14,6 +14,7 @@ class Database
     private $password;
     private static $instance = NULl;
 
+    // Của Quân, đã chạy được, xin đừng xóa
     public static function getInstance()
     {
         $dsn = $_ENV['DB_DSN'];
@@ -22,7 +23,8 @@ class Database
         if (!isset(self::$instance)) {
             try {
                 self::$instance = new PDO($dsn, $user, $password);
-                self::$instance->exec("SET NAMES 'utf8'");
+                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$instance->exec("SET NAMES utf8");
             } catch (PDOException $ex) {
                 die($ex->getMessage());
             }
@@ -32,6 +34,7 @@ class Database
 
     public function __construct($config)
     {
+        // Của Quân, đã chạy được, xin đừng xóa
         $this->dsn = $config['dsn'] ? $config['dsn'] : $_ENV['DB_DSN'];
         $this->user = $config['user'] ? $config['user'] : $_ENV['DB_USER'];
         $this->password = $config['password'] ? $config['password'] : $_ENV['DB_PASSWORD'];
@@ -39,6 +42,7 @@ class Database
         try {
             $this->pdo = new PDO($this->dsn, $this->user, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->exec("SET NAMES utf8");
         } catch (PDOException $exp) {
             echo "Connection to database failed: " . $exp->getMessage();
         }

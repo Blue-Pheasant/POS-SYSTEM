@@ -1,59 +1,74 @@
-<script type="text/javascript">
-  document.title = 'Lịch sử mua hàng';
-</script>
-<link rel="stylesheet" href="/css/orders.css">
-<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-<div class="cart-page">
-    <?php
-        if(count($params['records']) === 0) {
-            echo '<div class="cart-page__header">
-                    <h3>Lịch sử mua hàng trống</h3>
-                  </div><br>';
-        } else {
-    ?>
-                    <div class="cart-page__header">
-                        <h3>Lịch sử mua hàng</h3>
-                    </div><br>
-                    <div class="cart-page__body">
-                        <table class="table-fill">
-                            <thead>
-                                <tr>
-                                    <th class="text-left"><h5>Tên sản phẩm</h5></th>
-                                    <th class="text-left"><h5>Hình ảnh</h5></th>
-                                    <th class="text-left"><h5>Kích thước</h5></th>
-                                    <th class="text-left"><h5>Số lượng</h5></th>
-                                    <th class="text-left"><h5>Giá tiền</h5></th>
-                                    <th class="text-left"><h5>Ngày mua</h5></th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-hover">
-                                <?php
-                                    foreach($params['records'] as $param) {
-                                ?>
-                                <tr>
-                                    <td class="text-left"><h6><?=$param->getProductName()?></h6></td>
-                                    <td>
-                                        <?php
-                                            echo '<img width="60" height="60"src="' . $param->getImage() . '">';
-                                        ?>
-                                    </td>
-                                    <td class="text-left"><h6><?=$param->getSize()?></h6></td>
-                                    <td class="text-left"><h6><?=$param->getQuantity()?></h6></td>
-                                    <td class="text-left"><h6><?=$param->getTotalPrice()?></h6></td>
-                                    <td class="text-left"><h6><?=$param->getDateTime()?></h6></td>
-                                </tr>
-                                <?php 
-                                    } 
-                                ?>
-                            </tbody>
-                        </table><br><br>
-                                <?php
-                                    if(isset($params['records'])) {
-                                        $form = app\core\Form\Form::begin("", "post");
-                                        echo '<button type="submit" class="delete-button"><h6>Xoá lịch sử</h6></button>';
-                                        app\core\form\Form::end();
-                                    }
-                                ?>
+<?php
+
+function orderStatus($status)
+{
+    $statusStr = '';
+    switch ($status) {
+        case 'processing':
+            $statusStr = 'Đang xử lý';
+            break;
+        case 'done':
+            $statusStr = 'Đã hoàn thành';
+            break;
+        case 'cancel':
+            $statusStr = 'Đã hủy';
+            break;
+        default:
+            break;
+    }
+    return $statusStr;
+}
+
+?>
+
+<div class="order-page">
+    <div class="menu__header">
+        <img class="menu-image" src="/images/orders.png" alt="menu-image" />
+        <h3>Đơn hàng của bạn</h3>
+    </div>
+    <div class="order-page__list">
+        <div class="container">
+            <div class="order-page__header">
+                <div class="row">
+                    <div class="col">
+                        Số thứ tự
                     </div>
-        <?php   } ?>
+                    <div class="col">
+                        Mã đơn hàng
+                    </div>
+                    <div class="col">
+                        Tình trạng đơn hàng
+                    </div>
+                    <div class="col">
+                        Ngày đặt hàng
+                    </div>
+                </div>
+            </div>
+            <?php
+            $count = 0;
+            foreach ($params['orders'] as $param) {
+                $count += 1;
+                echo '<div class="order-page__item">
+                <a href="/order?id=' . $param->id . '">
+                    <div class="row">
+                        <div class="col">
+                            ' . $count . '
+                        </div>
+                        <div class="col">
+                            ' . $param->id . '
+                        </div>
+                        <div class="col">
+                            ' . orderStatus($param->status) . '
+                        </div>
+                        <div class="col">
+                            ' . $param->created_at . '
+                        </div>
+                    </div>
+                </a>
+            </div>';
+            }
+            ?>
+
+        </div>
+    </div>
 </div>

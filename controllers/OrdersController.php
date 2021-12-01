@@ -15,63 +15,95 @@ use app\core\Database;
 use app\core\Request;
 use app\models\Cart;
 use app\models\CartItem;
+use app\models\Product;
+use app\models\Order;
 use app\models\Record;
 
 class OrdersController extends Controller
 {
     public function orders()
     {
-        return $this->render('orders');
-    }
-
-    public function checkoutConfirm()
-    {
         $userId = Application::$app->user->id;
-        $cart_id = Application::$app->cart->id;
-        $cartItem = CartItem::getCartItem($cart_id);
-        foreach($cartItem as $item) {
-            $order = new Record(
-                $userId,
-                $item->product_id,
-                $item->size,
-                $item->quantity,
-                $item->image_url,
-            );
-            $order->save();
-        }
-        $cartModel = Cart::get($cart_id);
-        $cartModel->destroy();
-        Application::$app->session->setFlash('success', 'Cảm ơn quý khách đã mua hàng');
-        Application::$app->response->redirect('/payment');
-        return 'Show success page';
-    }
+        $orders = Order::getOrders($userId);
 
-    
-    public function payment()
-    {
-        $this->setLayout('auth');
-        return $this->render('payment_success', [
-            'name' => 'Payment'
+        return $this->render('orders', [
+            'orders' => $orders,
         ]);
     }
 
-    public function bought(Request $request)
+    public function index()
     {
-        $records = Record::getAll();
-        $userId = Application::$app->user->id;
-        foreach($records as $key => $record) {
-            if($record->getUserId() !== $userId) {
-                unset($records[$key]);
-            }
+        $orders = Order::getAllOrders('processing');
+
+        $this->setLayout('admin');
+        return $this->render('/admin/orders/orders',[
+            'orders' => $orders
+        ]);
+    }
+
+    public function accept(Request $request)
+    {   
+        $orderId = Application::$app->request->getParam('id');
+        $orderModel = Order::getOrderById($orderId);
+        if($request->getMethod() === 'get') {
+            $orderModel->setStatus('done');
+            $orderModel->update($orderModel);
+            Application::$app->response->redirect('/admin/orders');
+        } 
+    }
+
+    public function reject(Request $request)
+    {
+        $orderId = Application::$app->request->getParam('id');
+        $orderModel = Order::getOrderById($orderId);
+        if($request->getMethod() === 'get') {
+            $orderModel->setStatus('cancel');
+            $orderModel->update($orderModel);
+            Application::$app->response->redirect('/admin/orders');
         }
-        if($request->getMethod() === 'post') {
-            foreach($records as $record) {
-                $record->delete();
-            }
+    }
+
+    public function accepted()
+    {   
+        $orders = Order::getAllOrders('done');
+        
+        $this->setLayout('admin');
+        return $this->render('/admin/orders/accept_orders',[
+            'orders' => $orders
+        ]);
+    }
+
+    public function rejected()
+    {
+        $orders = Order::getAllOrders('cancel');
+
+        $this->setLayout('admin');
+        return $this->render('/admin/orders/reject_orders',[
+            'orders' => $orders
+        ]);
+    }
+
+    public function delete(Request $request)
+    {
+        $path = Application::$app->request->getPath();
+        $orderId = Application::$app->request->getParam('id');
+        $orderModel = Order::getOrderById($orderId);
+        if($request->getMethod() === 'get') {
+            $orderModel->delete();
+            if (strpos($path, 'reject')) {
+                Application::$app->response->redirect('/admin/orders/rejected');
+            } else Application::$app->response->redirect('/admin/orders/accepted');
         }
-        $this->setLayout('main');
-        return $this->render('orders', [
-            'records' => $records
+    }
+
+    public function details()
+    {
+        $orderId = Application::$app->request->getParam('id');
+        $orderModel = Order::getOrderById($orderId);
+
+        $this->setLayout('admin');
+        return $this->render('/admin/orders/details_order',[
+            'orders' => $orderModel
         ]);
     }
 }

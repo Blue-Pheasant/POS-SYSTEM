@@ -15,7 +15,9 @@ use app\models\Record;
 
 class ProductController extends Controller
 {
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     public function index()
     {
@@ -25,7 +27,7 @@ class ProductController extends Controller
             'products' => $products
         ]);
     }
-    
+
     public function create(Request $request)
     {
         $productModel = new Product();
@@ -33,7 +35,7 @@ class ProductController extends Controller
             $productModel->loadData($request->getBody());
             $productModel->save();
             Application::$app->response->redirect('/admin/products');
-        } else if ($request->getMethod() ==='get') {
+        } else if ($request->getMethod() === 'get') {
             $products = Product::getAllProducts();
             $this->setLayout('admin');
             return $this->render('/admin/products/create_product', [
@@ -57,7 +59,7 @@ class ProductController extends Controller
             return $this->render('/admin/products/delete_product', [
                 'productModel' => $productModel
             ]);
-        } 
+        }
     }
 
 
@@ -81,7 +83,7 @@ class ProductController extends Controller
 
     public function details(Request $request)
     {
-        if($request->getMethod() === 'get') {
+        if ($request->getMethod() === 'get') {
             $id = Application::$app->request->getParam('id');
             $productModel = Product::getProductDetail($id);
             $this->setLayout('admin');
@@ -91,29 +93,34 @@ class ProductController extends Controller
         }
     }
 
+    // Của Quân, đã chạy được, xin đừng xóa
     public function product(Request $request)
     {
-        $id = Application::$app->request->getParam('id');
-        $product = Product::getProductDetail($id);
-        $data = array('product' => $product);
+        $product_id = Application::$app->request->getParam('id');
+        $product = Product::getProductDetail($product_id);
+
+
+        $addToCart = false;
+
         if ($request->getMethod() === 'post') {
             $size = $request->getBody()['size'];
             $note = $request->getBody()['note'];
             $quantity = $request->getBody()['quantity'];
             $cart_id = Application::$app->cart->id;
             $cartDetail = new CartDetail(
-                $id,
+                uniqid(),
+                $product_id,
                 $cart_id,
                 $quantity,
                 $note,
                 $size
             );
             $cartDetail->save();
-            Application::$app->response->redirect('/menu');
+
+            $addToCart = true;
         }
+
+        $data = array('product' => $product, 'addToCart' => $addToCart);
         return $this->render('product_detail', $data);
     }
-
-
-    
 }

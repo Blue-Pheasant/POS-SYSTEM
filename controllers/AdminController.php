@@ -5,6 +5,9 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\models\Order;
+use app\models\OrderItem;
+use app\models\Product;
 use app\models\User;
 
 
@@ -14,8 +17,18 @@ class AdminController extends Controller
 
     public function index()
     {
+        $orders = Order::getAllOrders('done');
+        $products = Product::getAllProducts();
+        $users = User::getAllUsers();
+        $list = Order::getTotalPrice();
+
         $this->setLayout('admin');
-        return $this->render('/admin/dashboard');
+        return $this->render('/admin/dashboard', [
+            'orders' => $orders,
+            'products' => $products,
+            'users' => $users,
+            'list' => $list 
+        ]);
     }
 
     public function profile(Request $request)

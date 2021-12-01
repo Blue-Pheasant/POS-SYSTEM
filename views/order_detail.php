@@ -1,3 +1,53 @@
+<?php
+
+function extraPrice($size, $price)
+{
+    $extraPrice = $price;
+    switch ($size) {
+        case 'Small':
+            $extraPrice += 0;
+            break;
+        case 'Medium':
+            $extraPrice += 3000;
+            break;
+        case 'Large':
+            $extraPrice += 6000;
+            break;
+        default:
+            break;
+    }
+    return $extraPrice;
+}
+
+function sizeContent($size)
+{
+    $str = '';
+    switch ($size) {
+        case 'Small':
+            $str = 'Small';
+            break;
+        case 'Medium':
+            $str = 'Meidum (+3.000đ)';
+            break;
+        case 'Large':
+            $str = 'Large (+6.000đ)';
+            break;
+        default:
+            break;
+    }
+    return $str;
+}
+
+function total($params)
+{
+    $total = 0;
+    foreach ($params as $param) {
+        $total += extraPrice($param->size, $param->price) * $param->quantity;
+    }
+    return $total;
+}
+
+?>
 
 <div class="cart-page">
     <div class="cart-page__header">
@@ -14,37 +64,38 @@
                         <div class="cart-page-divider"></div>
 
                         <div class="cart-page__content__body">
-                            <div class="cart-page-item">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-0">
-                                            <img class="cart-page__item-image"
-                                                src="https://minio.thecoffeehouse.com/image/admin/tra-den-matchiato_430281.jpg" />
+                            <?php
+                            foreach ($params['items'] as $param) {
+                                echo '<div class="cart-page-item">
+                                    <div class="container">
+                                        <div class="row gy-2">
+                                            <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+                                                <img class="order-page__item-image"
+                                                    src="' . $param->image_url . '" />
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-9 col-9">
+                                                <h6>' . $param->name . '</h6>
+                                                <div>Giá đơn vị: ' . $param->price . ' đ</div>
+                                                <div>Size: ' . sizeContent($param->size) . '</div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                <div>Số lượng: ' . $param->quantity . '</div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-4 col-6">
-                                            <h6>Trà Đào Cam Sả - Đá</h6>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-4 col-6">
-                                            <h6>Số lượng : 2</h6>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-6 col-6">
-                                            Giá đơn vị: 79000đ
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-6">
-                                            Tạm tính: 158000đ
-                                        </div>
-                                        <div class="col-lg-4 col-sm-12">
-                                            <div class="input-group mb-3">
-                                                <input type="text" id="cart-page__note" class="form-control"
-                                                    placeholder="Ghi chú cho sản phẩm này" aria-label="note"
-                                                    aria-describedby="basic-addon1">
+                                        <div class="row">
+                                            
+                                            <div class="col-lg-6 col-sm-8">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" id="cart-page__note" class="form-control"
+                                                        placeholder="Ghi chú cho sản phẩm này" aria-label="note"
+                                                        aria-describedby="basic-addon1" value="' . $param->note . '">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div>';
+                            }
+                            ?>
                         </div>
 
 
@@ -54,13 +105,13 @@
                         <div class="cart-page-divider"></div>
                         <div class="cart-page__content__total">
                             <div>Tạm tính</div>
-                            <div>79.000đ</div>
+                            <div><?php echo total($params['items']) ?>đ</div>
                         </div>
 
                         <div class="cart-page__content__footer">
                             <div>
                                 <div>Thành tiền</div>
-                                <div class="cart-page-total">79.000đ</div>
+                                <div class="cart-page-total"><?php echo total($params['items']) ?>đ</div>
                             </div>
                         </div>
                     </div>
@@ -72,7 +123,7 @@
                         </div>
                         <div class="cart-page-divider"></div>
                         <div class="cart-page__content__header">
-                            <?php echo $params['user']->address ?>
+                            <?php echo $params['order']->delivery_address ?>
                         </div>
 
                         <div class="cart-page__content__header">
@@ -81,10 +132,10 @@
                         <div class="cart-page-divider"></div>
                         <div class="cart-page__content__header">
                             Tên người nhận:
-                            <?php echo $params['user']->firstname . ' ' . $params['user']->lastname ?>
+                            <?php echo $params['order']->delivery_name ?>
                         </div>
                         <div class="cart-page__content__header">
-                            Số điện thoại: <?php echo $params['user']->phone_number ?>
+                            Số điện thoại: <?php echo $params['order']->delivery_phone ?>
                         </div>
                         <!-- <div class="cart-page__content__header">
                                 <input type="text" class="form-control" id="delivery-note"
@@ -95,46 +146,57 @@
                         </div>
                         <div class="cart-page-divider"></div>
 
-                        <div class="cart-page__content__header__checkbox">
-                            <input value="cash" class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                <img class="image-payment" src="/images/payment/cash.jpeg">
-                                Thanh toán khi nhận hàng (tiền mặt)
-                            </label>
-                        </div>
-                        <div class="cart-page__content__header__checkbox">
-                            <input value="momo-pay" class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                <img class="image-payment" src="/images/payment/momo.png">
-                                Momo
-                            </label>
-                        </div>
-                        <div class="cart-page__content__header__checkbox">
-                            <input value="zalo-pay" class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                <img class="image-payment" src="/images/payment/zalo.png">
-                                ZaloPay
-                            </label>
-                        </div>
-                        <div class="cart-page__content__header__checkbox">
-                            <input value="shopee-pay" class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                <img class="image-payment" src="/images/payment/shopee.png">
-                                ShopeePay
-                            </label>
-                        </div>
-                        <div class="cart-page__content__header__checkbox">
-                            <input value="credit" class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                <img class="image-payment" src="/images/payment/card.png">
-                                Thẻ ngân hàng
-                            </label>
-                        </div>
+                        <?php
+                        switch ($params['order']->payment_method) {
+                            case 'cash':
+                                echo
+                                '<div class="order-page__content__header__checkbox">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <img class="image-payment" src="/images/payment/cash.jpeg">
+                                        Thanh toán khi nhận hàng (tiền mặt)
+                                    </label>
+                                </div>';
+                                break;
+                            case 'momo-pay':
+                                echo
+                                '<div class="order-page__content__header__checkbox">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <img class="image-payment" src="/images/payment/momo.png">
+                                        Momo
+                                    </label>
+                                </div>';
+                                break;
+                            case 'zalo-pay':
+                                echo '
+                                <div class="order-page__content__header__checkbox">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <img class="image-payment" src="/images/payment/zalo.png">
+                                        ZaloPay
+                                    </label>
+                                </div>';
+                                break;
+                            case 'shopee-pay':
+                                echo '
+                                <div class="order-page__content__header__checkbox">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <img class="image-payment" src="/images/payment/shopee.png">
+                                        ShopeePay
+                                    </label>
+                                </div>';
+                                break;
+                            case 'credit':
+                                echo '
+                                <div class="order-page__content__header__checkbox">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <img class="image-payment" src="/images/payment/card.png">
+                                        Thẻ ngân hàng
+                                    </label>
+                                </div>';
+                                break;
+                            default:
+                                break;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

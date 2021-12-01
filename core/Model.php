@@ -11,8 +11,15 @@ abstract class Model
     public const RULE_MATCH = 'match';
     public const RULE_UNIQUE = 'unique';
     public const RULE_NUMBER = 'number';
+    public const RULE_INVALID_EMAIL = 'invalid email';
+    public const RULE_WRONG_PASSWORD = 'wrong password';
 
     abstract public function rules(): array;
+
+    public function getLabel($attribute)
+    {
+        return '';
+    }
 
     public array $errors = [];
 
@@ -91,6 +98,8 @@ abstract class Model
             self::RULE_MAX => 'Nhiều nhất {max} ký tự.',
             self::RULE_MATCH => 'Trường dữ liệu này phải trùng với {match}.',
             self::RULE_NUMBER => 'Trường dữ liệu này phải là dạng số.',
+            self::RULE_INVALID_EMAIL => 'Email chưa được đăng ký.',
+            self::RULE_WRONG_PASSWORD => 'Mật khẩu không chính xác.',
         ];
     }
 
@@ -102,10 +111,5 @@ abstract class Model
     public function getFirstError($attribute)
     {
         return $this->errors[$attribute][0] ?? false;
-    }
-
-    public function getLabel($model)
-    {
-        
     }
 }
