@@ -20,10 +20,10 @@ use app\models\CartItem;
                 <div class="form-floating mb-3">
                     <input type="keyword" name="keyword" class="form-control" id="floatingInput" placeholder="Tìm kiếm theo tên sản phẩm bạn quan tâm">
                     <label for="floatingInput">Tìm kiếm theo tên sản phẩm bạn quan tâm</label>
-                </div>
-                <div class="col-md-3 col-lg-2">
-                        <button class="btn btn-outline-secondary search-button" type="submit"
-                            id="button-addon1">Tìm</button>
+                    <div class="col-md-3 col-lg-2">
+                            <button class="btn btn-outline-secondary search-button" type="submit"
+                                id="button-addon1">Tìm</button>
+                    </div>
                 </div>
             <?php app\core\form\Form::end() ?>
         </div>
@@ -121,61 +121,48 @@ use app\models\CartItem;
             <?php
             foreach ($params['items'] as $parameter) {
                 echo '<div class="cart-page-item">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-3 col-sm-3 col-2 img_sp">
-                                                <img class="cart-page__item-image"
-                                                    src="' . $parameter->image_url . '" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-5 col-sm-4 col-5 name">
-                                                <div class="name_sp">' . $parameter->name . '</div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-4 change_SL">
-                                                <div class="product-detail-footer">
-                                                    <div class="product-detail-footer-quantity">
-                                                        <button id="decrease-quantity-button" disabled
-                                                            class="item-button-disabled" onclick="decreaseQuantity()">
-                                                            <img class="item-button-image"
-                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMiIgdmlld0JveD0iMCAwIDE2IDIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
-                                                                alt="" />
-                                                        </button>
-                                                        <span id="product-quantity" class="product-quantity">
-                                                            ' . $parameter->quantity . '
-                                                        </span>
-                                                        <button id="increase-quantity-button"
-                                                            onclick="increaseQuantity()">
-                                                            <img class="item-button-image"
-                                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuODU3MTQgNi44NTcxNFYwSDkuMTQyODZWNi44NTcxNEgxNlY5LjE0Mjg2SDkuMTQyODZWMTZINi44NTcxNFY5LjE0Mjg2SDBWNi44NTcxNEg2Ljg1NzE0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
-                                                                alt="" />
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-2 col-1">
-                                                <a href="/menu/cart/delete?id=' . $parameter->product_id . '">
-                                                    <button>
-                                                        <img src="/images/delete.svg" class="cart-page__delete" />
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-sm-6 col-6">
-                                                ' . number_format($param->price, 0, ',', '.') . ' đ
-                                            </div>
-                                            <div class="col-lg-4 col-sm-6 col-6">
-                                                Size: ' . $parameter->size . '
-                                            </div>
-                                            <div class="col-lg-4 col-sm-12">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" id="cart-page__note" class="form-control"
-                                                        placeholder="Ghi chú" aria-label="note"
-                                                        aria-describedby="basic-addon1" value="' . $parameter->note . '">
-                                                </div>
-                                            </div>
+                    <form method="post" action="/update?order_detail_id=' . $parameter->order_detail_id . '">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-2 img_sp">
+                                    <img class="cart-page__item-image"
+                                        src="' . $parameter->image_url . '" />
+                                </div>
+                                <div class="col-lg-6 col-md-5 col-sm-4 col-5 name">
+                                    <div class="name_sp">
+                                        <h6>' . $parameter->name . ' </h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-8 col-8">
+                                    <div class="product-detail-footer">
+                                        <div class="product-detail-footer-quantity">
+                                            <h6> 
+                                                ' . $parameter->quantity . ' 
+                                            </h6>
                                         </div>
                                     </div>
-                                </div>';
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-2 col-1">
+                                    <a href="/cart?action=delete&id=' . $parameter->order_detail_id . '">
+                                        <img src="/images/delete.svg" class="cart-page__delete" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6 col-6">
+                                    <h6>
+                                        ' . number_format($parameter->price, 0, ',', '.') . ' đ 
+                                    </h6>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-6">
+                                    <h6>
+                                        ' . $parameter->size . ' 
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>';
             }
             ?>
         </div>
@@ -199,14 +186,14 @@ use app\models\CartItem;
             <?php
                 if(empty($cartItem)) {
                     echo '<div>0đ</div>';
-                } else echo '<div> ' . number_format($totalPrice) . 'đ' . ' </div>';
+                } else echo '<div><h6> ' . number_format($totalPrice) . 'đ' . ' </h6></div>';
             ?> 
         </div>
         <div class="cart-page__content__footer">
             <div>
                 <div>Thành tiền</div>
                 <?php
-                    echo '<div class="cart-page-total">' . number_format($totalPrice) . 'đ' . '</div>'
+                    echo '<div class="cart-page-total"><h6> ' . number_format($totalPrice) . 'đ' . ' </h6></div>'
                 ?>
             </div>
             <?php $form = app\core\Form\Form::begin('/cart', "") ?>    
@@ -214,4 +201,24 @@ use app\models\CartItem;
             <?php app\core\form\Form::end() ?>
         </div>
     </div>
+    <script>
+        <?php
+            if (isset($params['deletedItem'])) {
+                if ($params['deletedItem']) {
+                    echo "var toastLiveExample = document.getElementById('liveToast')
+                    var toast = new bootstrap.Toast(toastLiveExample)
+                    toast.show()";
+                }
+            }
+        ?>
+        <?php
+            if (isset($params['placedOrder'])) {
+                if ($params['placedOrder']) {
+                    echo "var toastLiveExample = document.getElementById('placeOrderToast')
+                    var toast = new bootstrap.Toast(toastLiveExample)
+                    toast.show()";
+                }
+            }
+        ?>
+    </script>
 </div>

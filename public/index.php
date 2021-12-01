@@ -59,8 +59,6 @@ $app->router->get('/orders', [OrdersController::class, 'orders']);
 
 $app->router->get('/order', [OrderDetailController::class, 'orderDetail']);
 
-
-// Admin nè Long, bắt trước rồi làm theo, mà nhớ xem kỹ giùm anh nha em
 // admin general
 $app->router->get('/admin', [AdminController::class, 'index']);
 $app->router->get('/admin/sales', [SaleController::class, 'index']);

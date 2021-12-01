@@ -6,18 +6,10 @@
 namespace app\controllers;
 
 use app\core\Controller;
-use app\core\Input;
-use app\core\Response;
-use app\core\Session;
 use app\core\Application;
-use app\core\CartSession;
-use app\core\Database;
-use app\core\Request;
 use app\models\Cart;
-use app\models\CartDetail;
 use app\models\CartItem;
 use app\models\Order;
-use app\models\OrderItem;
 use app\models\OrderDetail;
 
 class CartController extends Controller
@@ -28,7 +20,7 @@ class CartController extends Controller
         CartItem::deleteItem($id, $cart_id);
     }
 
-    public function cart()
+    public function cart($path)
     {
         $cart_id = Application::$app->cart->id;
         $deletedItem = false;
@@ -39,6 +31,10 @@ class CartController extends Controller
             if ($_GET['action'] == 'delete') {
                 $this->deleteItem($cart_id, $id);
                 $deletedItem = true;
+            }
+
+            if($path && strpos($path, 'menu')) {
+                Application::$app->response->redirect('menu');
             }
         }
 
@@ -120,13 +116,4 @@ class CartController extends Controller
         ]);
     }
 
-    // public function remove(Request $request)
-    // {
-    //     $itemId = Application::$app->request->getParam('id');
-    //     $cart_id = Application::$app->cart->id;
-    //     if ($request->getMethod() === 'get') {
-    //         CartItem::deleteItem($itemId);
-    //     }
-    //     Application::$app->response->redirect('/cart');
-    // }
 }

@@ -170,10 +170,6 @@ function total($params)
                                 <input name="phone_number" type="text" class="form-control" id="delivery-address"
                                     placeholder="Số điện thoại" value="<?php echo $params['user']->phone_number ?>">
                             </div>
-                            <!-- <div class="cart-page__content__header">
-                            <input type="text" class="form-control" id="delivery-note"
-                                placeholder="Ghi chú cho đơn hàng này">
-                            </div> -->
                             <div class="cart-page__content__header">
                                 <div>Phương thức thanh toán</div>
                             </div>
