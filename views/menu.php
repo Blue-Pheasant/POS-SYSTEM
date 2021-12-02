@@ -84,7 +84,7 @@ use app\models\CartItem;
                     <?php
                     foreach ($params['products'] as $param) {
                         echo '
-                        <div class="col-xl-3 col-md-6 col-xs-12 wrapper_product">
+                        <div class="col-xl-3 col-md-6 col-sm-4 col-12 wrapper_product">
                             <a href="/product?id=' . $param->id . '">
                                 <div class="item-card product">
                                     <img src="' . $param->image_url . '" alt=""

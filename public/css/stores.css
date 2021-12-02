@@ -1,3 +1,6 @@
+.menu_sp {
+    margin: 20px 0;
+}
 .menu {
     display: flex;
     flex-direction: column;
@@ -118,6 +121,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.wrapper_product {
+    padding: 0 15px;
 }
 
 .item-butotn-image {
