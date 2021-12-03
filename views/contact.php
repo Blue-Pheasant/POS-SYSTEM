@@ -12,7 +12,7 @@
             <p style="text-align:center">
                 <span style="font-size:22px">
                     <span style="color:#616161">
-                        <strong>KAFFEE STORE</strong>
+                        <strong>Buy me store</strong>
                     </span>
                 </span>
             </p>
@@ -37,7 +37,7 @@
                 <strong>Điện thoại: </strong>+84949 494 494
             </p>
             <p style="text-align:center">
-                <strong>Email: </strong> hi@kaffeestore.vn
+                <strong>Email: </strong> hi@Buy mestore.vn
             </p>
             <br><br><br><br>
         </div>

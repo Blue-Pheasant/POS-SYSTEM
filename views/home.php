@@ -47,13 +47,13 @@
                     </div>
                     <h3>Tinh thần tối giản</h3>
                     <p>
-                        Kaffee store được thiết kế với phong cách chủ đạo mang tinh thần tối giản, thể hiện qua
+                        Buy me store được thiết kế với phong cách chủ đạo mang tinh thần tối giản, thể hiện qua
                         cách
                         phân
                         chia không gian tinh tế với sự tinh giản cả trong đường nét, cách bày trí lẫn nguyên vật
                         liệu.<br><br>
 
-                        Sự gần gũi, sang trọng và tinh tế của Kaffee store được thể hiện với nhiều yếu tố. Việc sử dụng
+                        Sự gần gũi, sang trọng và tinh tế của Buy me store được thể hiện với nhiều yếu tố. Việc sử dụng
                         vật
                         liệu
                         chủ đạo là đá rửa cho tường, đá mài cho sàn nhà và sự kết hợp có tính toán tạo nên một thể thống
@@ -86,13 +86,13 @@
                     </div>
                     <h3>Nguyên liệu nhập khẩu cao cấp</h3>
                     <p>
-                        Kaffee store được thiết kế với phong cách chủ đạo mang tinh thần tối giản, thể hiện qua
+                        Buy me store được thiết kế với phong cách chủ đạo mang tinh thần tối giản, thể hiện qua
                         cách
                         phân
                         chia không gian tinh tế với sự tinh giản cả trong đường nét, cách bày trí lẫn nguyên vật
                         liệu.<br><br>
 
-                        Sự gần gũi, sang trọng và tinh tế của Kaffee store được thể hiện với nhiều yếu tố. Việc sử dụng
+                        Sự gần gũi, sang trọng và tinh tế của Buy me store được thể hiện với nhiều yếu tố. Việc sử dụng
                         vật
                         liệu
                         chủ đạo là đá rửa cho tường, đá mài cho sàn nhà và sự kết hợp có tính toán tạo nên một thể thống
@@ -117,7 +117,7 @@
                     </div>
                     <h3>Sản phẩm chính hãng </h3>
                     <p>
-                        Bộ sưu tập sản phẩm của Kaffee store xoay quanh các dòng sản phẩm gia dụng, được nhập khẩu chính
+                        Bộ sưu tập sản phẩm của Buy me store xoay quanh các dòng sản phẩm gia dụng, được nhập khẩu chính
                         hãng từ những thương hiệu danh tiếng của Nhật Bản, Vương Quốc Anh và New Zealand…<br><br>
 
                         Thương hiệu KINTO (Nhật Bản) với các sản phẩm gia dụng được tạo nên từ nguyên liệu cao cấp dưới
@@ -125,13 +125,13 @@
                         sứ.<br><br>
 
                         Thương hiệu MINOR FIGURES (Vương Quốc Anh) - Thức uống vị yến mạch (Oat milk)
-                        Kaffee store còn tạo nên sự khác biệt bằng việc nhập khẩu và phân phối chính hãng dòng sản phẩm
+                        Buy me store còn tạo nên sự khác biệt bằng việc nhập khẩu và phân phối chính hãng dòng sản phẩm
                         thức
                         uống vị yến mạch (Oat Milk) của thương hiệu Minor Figures (Vương Quốc Anh) phù hợp với người ăn
                         chay và đưa hương vị cà phê lên một một tầm cao mới.<br><br>
 
                         Thương hiệu J.Friends & Co. (New Zealand) – Mật ong Manuka
-                        Một trong những sản phẩm mới rất được ưu chuộng của Kaffee store là mật ong Manuka của thương
+                        Một trong những sản phẩm mới rất được ưu chuộng của Buy me store là mật ong Manuka của thương
                         hiệu
                         J.Friends & Co. (New Zealand). Mật ong Manuka là loại mật ong thượng hạng được sản xuất đặc biệt
                         ở Úc và New Zealand có độ kháng khuẩn (MGO) cao, có rất nhiều lợi ích cho sức khỏe như giảm đau

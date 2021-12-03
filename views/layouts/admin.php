@@ -104,7 +104,7 @@ if($userModel->getRole() != 'admin') {
             <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
               <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </a>
-            <a class="navbar-brand" href="/">The Kaffeehouse</a>
+            <a class="navbar-brand" href="/">The Buy mehouse</a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">

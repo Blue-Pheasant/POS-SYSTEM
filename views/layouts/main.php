@@ -30,7 +30,7 @@ header("Content-type: text/html; charset=utf-8");
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/order.css">
 
-    <title>Kaffee store</title>
+    <title>Buy me store</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -75,7 +75,7 @@ header("Content-type: text/html; charset=utf-8");
                         <a class="nav-link" href="/stores">Cửa hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Về KAFFEE STORE</a>
+                        <a class="nav-link" href="/about">Về Buy me store</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Liên hệ</a>
@@ -144,7 +144,7 @@ header("Content-type: text/html; charset=utf-8");
     </div>
     <div class="footer">
         <div class="footer__inner">
-            <h6>Copyright @ 2021 KAFFEE STORE. All rights reversed.</h6>
+            <h6>Copyright @ 2021 Buy me store. All rights reversed.</h6>
         </div>
     </div>
 

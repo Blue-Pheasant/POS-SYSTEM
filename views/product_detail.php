@@ -122,7 +122,7 @@ if (Application::isGuest()) {
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="/images/logo/logo-2.png" width="30px" class="rounded me-2" alt="logo-2">
-                <strong class="me-auto">Kaffee store</strong>
+                <strong class="me-auto">Buy me store</strong>
                 <small>Bây giờ</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>

@@ -22,7 +22,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Trở thành viên Kaffee store !<a href="/register">Đăng ký</a>
+                    Trở thành viên Buy me store !<a href="/register">Đăng ký</a>
                 </div>
                 <!-- <div class="d-flex justify-content-center">
                         <a href="#">Quên mật khẩu ?</a>
