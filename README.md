@@ -21,42 +21,22 @@ It's a simple php-mvc template version 1.0. We will maintain and develop in futu
 Đầu tiên, sử dụng DBMS của bạn tạo một connection mysql database với cấu hình sau:
 
 Server host : localhost
-Database : thecoffeehouse
+Database : buyme
 Port : 3306
 Username : root
 Password : (có hay không cũng được)
-
-### Cài đặt Composer (package manager của PHP)
-
-Bước 1: Vào https://getcomposer.org/ để tải Composer về rồi install tùy theo máy.
-
-Bước 2: Kiểm tra xem Composer đã đựoc cài chưa (phải cài được mới run được project)
-
-```bash
-composer --version
-```
-
-Note: Nếu đã có folder vender trên máy rồi thì hãy xóa nó đi rồi sang bước 3.
-
-Bước 3: Chạy install package theo composer.json :
-
-```bash
-composer install
-```
-
-Cách dùng composer giống với xài npm với NodeJS, đều là package manager thôi, có gì tham khảo.
 
 ### Tạo dotenv
 
 Vào folder project, tạo một file .env rồi bỏ vào config sau:
 
 ```bash
-DB_DSN=mysql:host=localhost;dbname=thecoffeehouse
+DB_DSN=mysql:host=localhost;dbname=buyme
 DB_USER=root
 DB_PASSWORD=
 ```
 
-trong đó, password của bạn là gì thì điền vô, khôn
+trong đó, password của bạn là gì thì điền vào
 
 ### Chay migration:
 
@@ -74,6 +54,9 @@ Terminal trả về như sau là bạn đã chạy migrate được rồi:
 ```
 
 Nếu không được như vậy thì hãy drop hết table trong database rồi chạy migrate lại.
+
+HOẶC:
+    Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM
 
 ## Run project
 
