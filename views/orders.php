@@ -20,7 +20,9 @@ function orderStatus($status)
 }
 
 ?>
-
+<form action="", method="post">
+    <button type="submit" class="password-button"><h6>Làm trống</h6></button>
+</form>
 <div class="order-page">
     <div class="menu__header">
         <img class="menu-image" src="/images/orders.png" alt="menu-image" />

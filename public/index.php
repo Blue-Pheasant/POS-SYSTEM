@@ -56,6 +56,7 @@ $app->router->post('/cart', [CartController::class, 'placeOrder']);
 
 
 $app->router->get('/orders', [OrdersController::class, 'orders']);
+$app->router->post('/orders', [OrdersController::class, 'clear']);
 
 $app->router->get('/order', [OrderDetailController::class, 'orderDetail']);
 

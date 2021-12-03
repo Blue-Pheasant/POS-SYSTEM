@@ -26,6 +26,12 @@ class OrdersController extends Controller
         $userId = Application::$app->user->id;
         $orders = Order::getOrders($userId);
 
+        foreach($orders as $key => $order) {
+            if($order->getDisplay() == 'none') {
+                unset($orders[$key]);
+            }
+        }
+
         return $this->render('orders', [
             'orders' => $orders,
         ]);
@@ -105,5 +111,19 @@ class OrdersController extends Controller
         return $this->render('/admin/orders/details_order',[
             'orders' => $orderModel
         ]);
+    }
+
+    public function clear()
+    {
+        $userId = Application::$app->user->id;
+        $orders = Order::getOrders($userId);
+        
+        foreach($orders as $order) {
+            if($order->getStatus() == 'done'|| $order->getStatus() == 'cancel') {
+                $order->setDisplay('none');
+                $order->update($order);
+            }
+        }
+        Application::$app->response->redirect('orders');
     }
 }

@@ -17,6 +17,7 @@ class Order extends DBModel
     public string $delivery_phone = '';
     public string $delivery_address = '';
     public string $created_at = '';
+    public string $display = '';
 
     public function __construct(
         $id,
@@ -26,7 +27,8 @@ class Order extends DBModel
         $delivery_name,
         $delivery_phone,
         $delivery_address,
-        $created_at = ''
+        $display = '',
+        $created_at = '',
     ) {
         $this->id = $id;
         $this->user_id = $user_id;
@@ -35,10 +37,11 @@ class Order extends DBModel
         $this->delivery_name = $delivery_name;
         $this->delivery_phone = $delivery_phone;
         $this->delivery_address = $delivery_address;
-
+        $this->display = $display;
         if ($created_at != '') {
             $this->created_at = $created_at;
         }
+        
     }
 
     public function getId () { return $this->id; }
@@ -50,6 +53,9 @@ class Order extends DBModel
     public function getDeliveryAddress() { return $this->delivery_address; }
     public function getDeliveryPhone() { return $this->delivery_phone; }
     public function getDateTime() { return $this->created_at; }
+    public function getDisplay() { return $this->display; }
+    public function setDisplay($display) { return $this->display = $display; }
+
 
     public static function tableName(): string
     {
@@ -66,6 +72,7 @@ class Order extends DBModel
             'delivery_name',
             'delivery_phone',
             'delivery_address',
+            'display',
         ];
     }
 
@@ -110,7 +117,8 @@ class Order extends DBModel
 
     public function update(Order $orderModel) 
     {
-        $sql = "UPDATE orders SET status='" . $orderModel->status . "' 
+        $sql = "UPDATE orders SET status='" . $orderModel->status . "' ,
+                                  display='" . $orderModel->display . "'
         WHERE id='" . $orderModel->id . "'";
         $statement = self::prepare($sql);
         $statement->execute();
@@ -160,7 +168,8 @@ class Order extends DBModel
                 $item['delivery_name'],
                 $item['delivery_phone'],
                 $item['delivery_address'],
-                $item['created_at']
+                $item['display'],
+                $item['created_at'],
             );
         };
 
@@ -182,6 +191,7 @@ class Order extends DBModel
                 $item['delivery_name'],
                 $item['delivery_phone'],
                 $item['delivery_address'],
+                $item['display'],
                 $item['created_at']
             );
         };
@@ -230,6 +240,7 @@ class Order extends DBModel
             $item['delivery_name'],
             $item['delivery_phone'],
             $item['delivery_address'],
+            $item['display'],
             $item['created_at']
         );
         return $order;

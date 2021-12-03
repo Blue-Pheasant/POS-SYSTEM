@@ -92,9 +92,9 @@ function total($params)
                                                             </div>
                                                             <div class="col-lg-3 col-md-3 col-sm-8 col-8">
                                                                 <div class="product-detail-footer">
-                                                                    <div class="product-detail-footer-quantity">
+                                                                    <div class="product-detail-footer-quantity"><h6>
                                                                         Số lượng: <input type="text" name="quantity" class="form-control quantity-input"
-                                                                            id="product-quantity" value="' . $param->quantity . '">
+                                                                            id="product-quantity" value="' . $param->quantity . '"></h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -114,7 +114,7 @@ function total($params)
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-sm-4 col-4">
-                                                                <button type="submit" class="update-btn">Cập nhật</button>
+                                                                <button type="submit" class="update-btn"><h6>Cập nhật</h6></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -216,7 +216,7 @@ function total($params)
                                 </label>
                             </div>
                             <div>
-                                <?php echo (count($params['items']) == 0 ? '' : '<button type="submit" class="checkout-button">Đặt hàng</button>') ?>
+                                <?php echo (count($params['items']) == 0 ? '' : '<button type="submit" class="password-button"><h6>Đặt hàng</h6></button>') ?>
                             </div>
                         </div>
                     </form>
