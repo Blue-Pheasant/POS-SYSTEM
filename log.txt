@@ -173,3 +173,5 @@ c3698be HEAD@{165}: commit: Process category and comment, in these folder i devi
 b07b718 HEAD@{172}: commit: Add fonts folder
 da2edc7 HEAD@{173}: commit: Add img migration js folers
 8ef5e90 HEAD@{174}: clone: from https://github.com/quentintheastronaut/thecoffehouse
+
+SET client_encoding TO 'UTF8'
