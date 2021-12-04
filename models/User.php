@@ -140,11 +140,11 @@ class User extends UserModel
         $statement = self::prepare(
             "UPDATE users 
             SET 
-                firstname = '" . $user->firstname . "', 
-                lastname = '" . $user->lastname . "',
-                phone_number = '" . $user->phone_number . "',
-                address = '" . $user->address . "'
-            WHERE id = '" . $user->id . "';
+                firstname = '$user->firstname', 
+                lastname = '$user->lastname',
+                phone_number = '$user->phone_number',
+                address = '$user->address'
+            WHERE id = '$user->id';
             "
         );
         $statement->execute();
@@ -156,14 +156,14 @@ class User extends UserModel
         $statement = self::prepare(
             "UPDATE users 
             SET 
-                firstname = '" . $user->firstname . "', 
-                lastname = '" . $user->lastname . "',
-                email = '" . $user->email . "',
-                password = '" . password_hash($user->password, PASSWORD_DEFAULT) . "',
-                phone_number = '" . $user->phone_number . "',
-                role = '" . $user->role . "',
-                address = '" . $user->address . "'
-            WHERE id = '" . $user->id . "';
+                firstname = '$user->firstname', 
+                lastname = '$user->lastname',
+                email = '$user->email',
+                password = 'password_hash($user->password, PASSWORD_DEFAULT)',
+                phone_number = '$user->phone_number',
+                role = '$user->role',
+                address = '$user->address'
+            WHERE id = '$user->id';
             "
         );
         $statement->execute();

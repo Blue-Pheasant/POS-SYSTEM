@@ -111,11 +111,11 @@ class Product extends DBModel
 
     public function update(Product $product)
     {
-        $sql = "UPDATE products SET category_id='" . $product->category_id . "',
-                                    name='" . $product->name . "', 
-                                    price='" . $product->price . "', 
-                                    description='" . $product->description . "' 
-                                    WHERE id='" . $product->id . "'";
+        $sql = "UPDATE products SET category_id='$product->category_id',
+                                    name='$product->name', 
+                                    price='$product->price', 
+                                    description='$product->description' 
+                                    WHERE id='$product->id'";
         $statement = self::prepare($sql);
         $statement->execute();
         return true;  
@@ -146,7 +146,7 @@ class Product extends DBModel
     public static function getProductDetail($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM products WHERE id = "' . $id . '"');
+        $req = $db->query("SELECT * FROM products WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $product = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
         return $product;
@@ -156,7 +156,7 @@ class Product extends DBModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM products WHERE category_id = "' . $category_id . '"');
+        $req = $db->query("SELECT * FROM products WHERE category_id = '$category_id'");
 
         foreach ($req->fetchAll() as $item) {
             $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);
@@ -168,7 +168,7 @@ class Product extends DBModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query("SELECT * FROM products WHERE name LIKE '%" . $keyword . "%';");
+        $req = $db->query("SELECT * FROM products WHERE name LIKE '%$keyword%';");
 
         foreach ($req->fetchAll() as $item) {
             $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description'], $item['image_url']);

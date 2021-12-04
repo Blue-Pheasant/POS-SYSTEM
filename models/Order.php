@@ -157,7 +157,7 @@ class Order extends DBModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query("SELECT * FROM orders where status = '" . $status . "' ORDER BY status DESC ,created_at DESC");
+        $req = $db->query("SELECT * FROM orders where status = '$status' ORDER BY status DESC ,created_at DESC");
 
         foreach ($req->fetchAll() as $item) {
             $list[] = new Order(
@@ -180,7 +180,7 @@ class Order extends DBModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query("SELECT * FROM orders WHERE user_id = '" . $id . "' ORDER BY status DESC ,created_at DESC");
+        $req = $db->query("SELECT * FROM orders WHERE user_id = '$id' ORDER BY status DESC ,created_at DESC");
 
         foreach ($req->fetchAll() as $item) {
             $list[] = new Order(
@@ -206,7 +206,7 @@ class Order extends DBModel
         $req = $db->query(
             "SELECT *
             FROM cart_detail JOIN products ON cart_detail.product_id = products.id 
-            WHERE cart_detail.cart_id = '" . $order_id . "';"
+            WHERE cart_detail.cart_id = '$order_id';"
         );
 
         foreach ($req->fetchAll() as $item) {
@@ -230,7 +230,7 @@ class Order extends DBModel
     public static function getOrderById($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM orders WHERE id = "' . $id . '"');
+        $req = $db->query("SELECT * FROM orders WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $order = new Order(
             $item['id'],

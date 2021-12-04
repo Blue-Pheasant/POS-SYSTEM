@@ -108,13 +108,13 @@ class Store extends DBModel
 
     public function update(Store $store)
     {
-        $sql = "UPDATE stores SET   id='" . $store->id . "',
-                                    status='" . $store->status . "', 
-                                    address='" . $store->address . "',
-                                    phone='" . $store->phone . "',  
-                                    image_url='" . $store->image_url . "',
-                                    open_time='" . $store->open_time . "'
-                                    WHERE id='" . $store->id . "'";
+        $sql = "UPDATE stores SET   id='$store->id',
+                                    status='$store->status', 
+                                    address='$store->address',
+                                    phone='$store->phone',  
+                                    image_url='$store->image_url',
+                                    open_time='$store->open_time'
+                                    WHERE id='$store->id'";
         $statement = self::prepare($sql);
         $statement->execute();
         return true;  
@@ -123,7 +123,7 @@ class Store extends DBModel
     public static function get($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM stores WHERE id = "' . $id . '"');
+        $req = $db->query("SELECT * FROM stores WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $store = new Store($item['id'], $item['address'], $item['phone'], $item['status'], $item['open_time'], $item['image_url']);
         return $store;

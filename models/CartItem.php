@@ -104,7 +104,7 @@ class CartItem extends DBModel
         $req = $db->query(
             "SELECT *
             FROM cart_detail JOIN products ON cart_detail.product_id = products.id 
-            WHERE cart_detail.cart_id = '" . $cart_id . "';"
+            WHERE cart_detail.cart_id = '$cart_id';"
         );
 
         foreach ($req->fetchAll() as $item) {
@@ -128,7 +128,7 @@ class CartItem extends DBModel
 
     public static function deleteItem($id)
     {
-        $sql = "DELETE FROM cart_detail WHERE order_detail_id ='" . $id . "'";
+        $sql = "DELETE FROM cart_detail WHERE order_detail_id ='$id'";
         $stmt = self::prepare($sql);
         $stmt->execute();
         return true;
@@ -136,7 +136,7 @@ class CartItem extends DBModel
 
     public static function update($id, $newNote, $newQuantity)
     {
-        $sql = "UPDATE cart_detail SET note = '" . $newNote . "' , quantity = '" . $newQuantity . "' WHERE order_detail_id ='" . $id . "'";
+        $sql = "UPDATE cart_detail SET note = '$newNote' , quantity = '$newQuantity' WHERE order_detail_id ='$id'";
         $stmt = self::prepare($sql);
         $stmt->execute();
         return true;
