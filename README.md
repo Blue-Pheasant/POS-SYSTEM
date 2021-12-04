@@ -57,6 +57,9 @@ Nếu không được như vậy thì hãy drop hết table trong database rồi
 
 HOẶC:
     Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM
+HOẶC:
+    Nếu bạn sử dụng POSTGRESQL như một giải pháp thay thế MYSQL thì hãy tạo 1 database rồi sau đó import 
+    file postgreSQL.sql
 
 ## Run project
 
