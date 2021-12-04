@@ -31,7 +31,7 @@ Password : (có hay không cũng được)
 Vào folder project, tạo một file .env rồi bỏ vào config sau:
 
 ```bash
-DB_DSN=mysql:host=localhost;dbname=buyme
+DB_DSN=mysql:host=localhost;dbname=buymee
 DB_USER=root
 DB_PASSWORD=
 ```
