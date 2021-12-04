@@ -107,7 +107,7 @@ class User extends UserModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM users');
+        $req = $db->query("SELECT * FROM users");
 
         foreach ($req->fetchAll() as $item) {
             $userModel = new User;
@@ -122,7 +122,7 @@ class User extends UserModel
     public static function getUserInfo($id)
     {
         $db = Database::getInstance();
-        $req = $db->query("SELECT * FROM users WHERE id = $id'");
+        $req = $db->query("SELECT * FROM users WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $user = new User();
         $user->id = $item['id'];
