@@ -13,9 +13,6 @@
             <div class="card-body">
                 <?php echo $form->field($model, 'email') ?>
                 <?php echo $form->field($model, 'password')->passwordField() ?>
-                <!-- <div class="row align-items-center remember">
-                        <input type="checkbox">Nhớ tài khoản
-                    </div> -->
                 <div class="form-group">
                     <button type="submit" class="btn float-right login_btn">Đăng nhập</button>
                 </div>
@@ -24,9 +21,6 @@
                 <div class="d-flex justify-content-center links">
                     Trở thành viên Buy me store !<a href="/register">Đăng ký</a>
                 </div>
-                <!-- <div class="d-flex justify-content-center">
-                        <a href="#">Quên mật khẩu ?</a>
-                    </div> -->
             </div>
         </div>
     </div>

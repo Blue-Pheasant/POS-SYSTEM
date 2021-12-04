@@ -77,7 +77,7 @@ class SiteController extends Controller
                 if ($userModel->getRole() === 'admin') {
                     Application::$app->response->redirect('/admin');
                 } else {
-                    Application::$app->response->redirect('/');
+                    Application::$app->response->redirect('/menu');
                 }
                 return;
             }
