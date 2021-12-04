@@ -81,7 +81,7 @@ class Cart extends DBModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query("SELECT * FROM cart WHERE user_id = '$id ' AND status = 'processing'");
+        $req = $db->query("SELECT * FROM cart WHERE user_id = '$id' AND status = 'processing'");
 
 
         foreach ($req->fetchAll() as $item) {
