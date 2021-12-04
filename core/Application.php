@@ -60,8 +60,6 @@ class Application
 
     public function login(UserModel $user)
     {
-
-
         $this->user = $user;
         $primaryKey = $user->primaryKey();
         $value = $user->{$primaryKey};
