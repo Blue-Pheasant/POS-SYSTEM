@@ -2,8 +2,6 @@
 
 use app\controllers\SiteController;
 use app\core\Application;
-use app\controllers\AuthController;
-use app\controllers\AboutController;
 use app\controllers\ProductController;
 use app\controllers\MenuController;
 use app\controllers\ProfileController;
