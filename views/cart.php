@@ -61,7 +61,7 @@ function total($params)
                     <div class="cart-page__content">
                         <div class="cart-page__content__header">
                             <div>Các món đã chọn</div>
-                            <a class="more-item-button" href="/menu">Thêm món</a>
+                            <a class="more-item-button" href="/menu"><h6>Thêm món</h6></a>
                         </div>
                         <div class="cart-page-divider"></div>
 
@@ -132,21 +132,21 @@ function total($params)
                         </div>
                         <div class="cart-page-divider"></div>
                         <div class="cart-page__content__total">
-                            <div>Tạm tính</div>
-                            <div><?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</div>
+                            <div><h6>Tạm tính</h6></div>
+                            <div><h6><?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</h6></div>
                         </div>
 
                         <div class="cart-page__content__footer">
                             <div>
-                                <div>Thành tiền</div>
+                                <div><h6>Thành tiền</h6></div>
                                 <div class="cart-page-total">
-                                    <?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</div>
+                                <h6><?php echo number_format(total($params['items']), 0, ',', '.') ?>đ</h6></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
-                    <form accept-charset="utf-8" action="/cart" method="post">
+                    <form accept-charset="utf-8" action="/cart/notice" method="post">
                         <div class="cart-page__info">
                             <div class="cart-page__content__header">
                                 <div>Địa chỉ giao hàng</div>
@@ -216,7 +216,9 @@ function total($params)
                                 </label>
                             </div>
                             <div>
-                                <?php echo (count($params['items']) == 0 ? '' : '<button type="submit" class="password-button"><h6>Đặt hàng</h6></button>') ?>
+                                <?php echo (count($params['items']) == 0 ? '' : '<button type="submit" class="checkout-button">
+                                                                                        <h6>Đặt hàng</h6>
+                                                                                 </button>') ?>
                             </div>
                         </div>
                     </form>

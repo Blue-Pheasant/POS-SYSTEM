@@ -33,7 +33,7 @@
                 </td>
                 <td><?=$productModel->getCategory()?></td>
                 <td><?=$productModel->getName()?></td>
-                <td><?=$productModel->getPrice()?></td>
+                <td><?=number_format($productModel->getPrice(), 0, ',', '.') . 'đ'?></td>
                 <td>
                   <a class="fa fa-eye btn btn-info btn-sm" href="/admin/products/details?id=<?=$productModel->getId()?>"></a>
                   <a class="fa fa-pencil btn btn-warning btn-sm" href="/admin/products/edit?id=<?=$productModel->getId()?>"></a>

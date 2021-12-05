@@ -120,4 +120,10 @@ class SiteController extends Controller
     {
         return $this->render('profile');
     }
+
+    public function notice()
+    {
+        $this->setLayout('auth');
+        return $this->render('payment_success');
+    }
 }

@@ -59,8 +59,16 @@ HOẶC:
     Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM
 HOẶC:
     Nếu bạn sử dụng POSTGRESQL như một giải pháp thay thế MYSQL thì hãy tạo 1 database rồi sau đó import 
-    file postgreSQL.sql
-
+    file postgreSQL.sql. Vì cú pháp của mysql và postgresql có khác biệt nhau nên ta sẽ sửa lại một ít 
+    trong file /core/database.php.
+    Nếu bạn dùng postgresql:
+```bash
+SET client_encoding TO 'UTF8'
+```
+    Nếu bạn dùng mysql:
+```bash
+SET NAMES utf8
+```
 ## Run project
 
 Để chạy project, chạy lệnh sau:

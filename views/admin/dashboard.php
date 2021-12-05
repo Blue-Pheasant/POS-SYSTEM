@@ -46,7 +46,7 @@
               <p class="card-category">Doanh thu</p>
             </a>
               <?php
-                  echo '<h4 class="card-title"> ' . $params['list'][0] . ' VNĐ' .' </h4>';
+                  echo '<h4 class="card-title"> ' . number_format($params['list'][0], 0, ',', '.') . ' VNĐ' .' </h4>';
               ?>
             </div>
           </div>
