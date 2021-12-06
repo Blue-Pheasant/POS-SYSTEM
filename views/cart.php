@@ -146,7 +146,7 @@ function total($params)
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
-                    <form accept-charset="utf-8" action="/cart/notice" method="post">
+                    <form accept-charset="utf-8" action="" method="post">
                         <div class="cart-page__info">
                             <div class="cart-page__content__header">
                                 <div>Địa chỉ giao hàng</div>

@@ -20,7 +20,7 @@ class CartController extends Controller
         CartItem::deleteItem($id, $cart_id);
     }
 
-    public function cart($path)
+    public function cart()
     {
         $cart_id = Application::$app->cart->id;
         $deletedItem = false;
@@ -104,16 +104,7 @@ class CartController extends Controller
 
         Cart::checkoutCart($cart_id);
 
-        $user = Application::$app->user;
-        $items = CartItem::getCartItem($cart_id);
-
-        $placedOrder = true;
-
-        return $this->render('cart', [
-            'items' => $items,
-            'user' => $user,
-            'placedOrder' => $placedOrder
-        ]);
+        Application::$app->response->redirect('/cart/notice');
     }
 
 }
