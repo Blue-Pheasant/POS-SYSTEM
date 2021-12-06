@@ -11,7 +11,7 @@
             <div class="content">
                <h1>Payment Success !</h1> <br><br>
                <p>Cảm ơn quý khách đã mua hàng trên hệ thống của chúng tôi, chúc quý khách ngon miệng</p><br><br>
-               <h5><a href="/">Go to Home</a></h5> 
+               <h5><a href="/orders">Xem đơn hàng</a></h5> 
             </div>
          </div>
       </div>
