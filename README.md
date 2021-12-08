@@ -53,22 +53,25 @@ Terminal trả về như sau là bạn đã chạy migrate được rồi:
 [2021-10-28 19:10:49] - Applyied migration m0001_initial.php
 ```
 
-Nếu không được như vậy thì hãy drop hết table trong database rồi chạy migrate lại.
+Nếu không được như vậy thì hãy drop hết table trong database rồi chạy migrate lại.<br />
 
-HOẶC:
-    Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM
-HOẶC:
+Hoặc:<br />
+    Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM<br />
+Hoặc:<br />
     Nếu bạn sử dụng POSTGRESQL như một giải pháp thay thế MYSQL thì hãy tạo 1 database rồi sau đó import 
     file postgreSQL.sql. Vì cú pháp của mysql và postgresql có khác biệt nhau nên ta sẽ sửa lại một ít 
-    trong file /core/database.php.
-    Nếu bạn dùng postgresql:
+    trong file /core/database.php.<br />
+    Nếu bạn dùng postgresql:<br />
 ```bash
 SET client_encoding TO 'UTF8'
 ```
-    Nếu bạn dùng mysql:
+<br />   
+ Nếu bạn dùng mysql:<br />
+
 ```bash
 SET NAMES utf8
 ```
+
 ## Run project
 
 Để chạy project, chạy lệnh sau:
