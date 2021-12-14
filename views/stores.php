@@ -14,12 +14,12 @@ document.title = 'Danh sách cửa hàng';
                                 class="item-image" />
                             <div class="item-info">
                                 <div class="item-store-info">
-                                    <p class="item-status">' . ($param->status ? "Đang hoạt động" : "Tạm đóng cửa") . '</p>
-                                    <p class="item-open_time">Giờ mở cửa: ' . $param->open_time . '</p>
+                                    <p class="item-status"><b>' . ($param->status ? "Đang hoạt động" : "Tạm đóng cửa") . '</b></p>
+                                    <p class="item-open_time"><b>Giờ mở cửa:</b> ' . $param->open_time . '</p>
                                 </div>
-                                <p class="item-phone"> Số điện thoại: ' . $param->phone . '</p>
+                                <p class="item-phone"><b>Số điện thoại:</b> ' . $param->phone . '</p>
                                 <div class="item-footer">
-                                    <p>Địa chỉ: ' . $param->address . '</p>
+                                    <p><b>Địa chỉ:</b> ' . $param->address . '</p>
                                 </div>
                             </div>
                         </div>

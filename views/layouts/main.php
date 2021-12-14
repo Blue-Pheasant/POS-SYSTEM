@@ -56,7 +56,7 @@ header("Content-type: text/html; charset=utf-8");
 
         <nav class="navbar navbar-expand-lg ">
             <a class="navbar-brand" href="/">
-                <img class="logo" alt="logo" src='/images/logo/logo-3.png'>
+                <img class="logo" alt="logo" src='/images/logo/logo-2.png'>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@ header("Content-type: text/html; charset=utf-8");
                         <a class="nav-link" href="/stores">Cửa hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Về Buy me store</a>
+                        <a class="nav-link" href="/about">Về Buy me</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Liên hệ</a>
