@@ -42,7 +42,7 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
-            <a href="/admin/orders">
+            <a href="/admin/orders/accepted">
               <p class="card-category">Doanh thu</p>
             </a>
               <?php
@@ -92,7 +92,7 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
-            <a href="/admin/orders/accpeted">
+            <a href="/admin/orders/accepted">
               <p class="card-category">Đã bán</p>
             </a>
                 <?php
