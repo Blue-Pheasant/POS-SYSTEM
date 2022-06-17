@@ -4,11 +4,11 @@ namespace app\middlewares;
 
 
 use app\core\Application;
-use app\exception\ForLoginException;
+use app\exception\ForbiddenException;
 
-class AuthMiddleware extends BaseMiddleware
+class AdminMiddleware extends BaseMiddleware
 {
-    protected array $actions;
+    public array $actions;
 
     public function __construct($actions = [])
     {
@@ -17,10 +17,10 @@ class AuthMiddleware extends BaseMiddleware
 
     public function execute()
     {
-        if (Application::isGuest()) {
+        if (Application::isAdmin() !== 'admin') {
             if (!empty($this->actions)) {
                     if(in_array(Application::$app->controller->action, $this->actions)) {
-                        throw new ForLoginException();
+                        throw new ForbiddenException();
                 }
             }
         }

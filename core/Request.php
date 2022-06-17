@@ -27,6 +27,12 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
+    public function getReqest() 
+    {
+        $request = "$_SERVER[REQUEST_URI]";
+        return $request;
+    }
+
     public function isGet()
     {
         return $this->getMethod() === 'get';

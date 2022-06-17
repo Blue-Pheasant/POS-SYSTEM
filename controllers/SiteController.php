@@ -5,12 +5,10 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\core\Response;
-
+use app\exception\ForbiddenException;
 use app\middlewares\AuthMiddleware;
 
 use app\models\LoginForm;
-use app\models\Product;
 use app\models\Store;
 use app\models\User;
 
@@ -18,6 +16,15 @@ class SiteController extends Controller
 {
     public function __construct()
     {
+        // Preprocess login with cookie
+        $loginForm = new LoginForm();
+        if(!Application::$app->session::exists('user')) {
+            if(isset($_COOKIE["member_login"])) {
+                $loginForm->userId = $_COOKIE["member_login"];
+                $loginForm->login('userId');
+                setcookie ("member_login", Application::$app->session->get('user'), time() + 3600 * 24 * 30);
+            }
+        }
         $this->registerMiddleware(new AuthMiddleware(['profile']));
     }
 
@@ -28,19 +35,20 @@ class SiteController extends Controller
         ]);
     }
 
+    public function error() {
+        $this->setLayout('auth');
+        return $this->render('permission');
+    }
+
     public function cart()
     {
         return $this->render('cart');
     }
 
-
-
     public function product()
     {
         return $this->render('product_detail');
     }
-
-
 
     public function menu()
     {
@@ -71,15 +79,16 @@ class SiteController extends Controller
         $loginForm = new LoginForm();
         if ($request->getMethod() === 'post') {
             $loginForm->loadData($request->getBody());
-            if ($loginForm->validate() && $loginForm->login()) {
+            if ($loginForm->validate() && $loginForm->login('email')) {
                 $userId = Application::$app->session->get('user');
                 $userModel = User::getUserInfo($userId);
+                setcookie("member_login", $userId, time() + 3600 * 24 * 30);
+
                 if ($userModel->getRole() === 'admin') {
-                    Application::$app->response->redirect('/admin');
+                    return Application::$app->router->intended('/admin');
                 } else {
-                    Application::$app->response->redirect('/');
+                    return Application::$app->router->intended('/');
                 }
-                return;
             }
         }
         $this->setLayout('auth');

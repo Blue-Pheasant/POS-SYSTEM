@@ -5,11 +5,16 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-
+use app\middlewares\AuthMiddleware;
 use app\models\User;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {   
+        $this->registerMiddleware(new AuthMiddleware(['profile']));
+    }
+    
     public function profile(Request $request)
     {
         $updateSuccess = false;

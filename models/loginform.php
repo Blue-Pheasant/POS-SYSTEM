@@ -9,6 +9,7 @@ class LoginForm extends Model
 {
     public string $email = '';
     public string $password = '';
+    public string $userId = '';
 
     public function rules(): array
     {
@@ -26,16 +27,24 @@ class LoginForm extends Model
         ];
     }
 
-    public function login()
+    public function login($input)
     {
-        $user = User::findOne(['email' => $this->email]);
-        if (!$user) {
-            $this->addError('email', self::RULE_INVALID_EMAIL);
-            return false;
-        }
-        if (!password_verify($this->password, $user->password)) {
-            $this->addError('password', self::RULE_WRONG_PASSWORD);
-            return false;
+        if($input == "email") {
+            $user = User::findOne(['email' => $this->email]);
+            if (!$user) {
+                $this->addError('email', self::RULE_INVALID_ID);
+                return false;
+            }
+            if (!password_verify($this->password, $user->password)) {
+                $this->addError('password', self::RULE_WRONG_PASSWORD);
+                return false;
+            }
+        } else {
+            $user = User::findOne(['id' => $this->userId]);
+            if (!$user) {
+                $this->addError('id', self::RULE_INVALID_EMAIL);
+                return false;
+            }
         }
 
         return Application::$app->login($user);

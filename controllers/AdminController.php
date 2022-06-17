@@ -5,15 +5,17 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\middlewares\AdminMiddleware;
 use app\models\Order;
-use app\models\OrderItem;
 use app\models\Product;
 use app\models\User;
 
 
 class AdminController extends Controller
 {
-    public function __construct() {}
+    public function __construct() {
+        Application::$app->controller->registerMiddleware(new AdminMiddleware(['index']));
+    }
 
     public function index()
     {

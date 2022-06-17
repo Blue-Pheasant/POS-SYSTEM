@@ -13,6 +13,7 @@ abstract class Model
     public const RULE_NUMBER = 'number';
     public const RULE_INVALID_EMAIL = 'invalid email';
     public const RULE_WRONG_PASSWORD = 'wrong password';
+    public const RULE_INVALID_ID = 'invalid id';
 
     abstract public function rules(): array;
 
@@ -99,6 +100,7 @@ abstract class Model
             self::RULE_MATCH => 'Trường dữ liệu này phải trùng với {match}.',
             self::RULE_NUMBER => 'Trường dữ liệu này phải là dạng số.',
             self::RULE_INVALID_EMAIL => 'Email chưa được đăng ký.',
+            self::RULE_INVALID_ID => 'Người dùng chưa được đăng ký.',
             self::RULE_WRONG_PASSWORD => 'Mật khẩu không chính xác.',
         ];
     }

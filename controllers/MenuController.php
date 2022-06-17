@@ -6,10 +6,15 @@ use app\controllers\SiteController;
 use app\models\Category;
 use app\models\Product;
 use app\core\Application;
+use app\middlewares\AuthMiddleware;
 use app\models\CartItem;
 
 class MenuController extends SiteController
 {
+    public function __construct()
+    {
+        $this->registerMiddleware(new AuthMiddleware(['menu']));
+    }
     public function menu()
     {
         $category_id = Application::$app->request->getParam('category_id');

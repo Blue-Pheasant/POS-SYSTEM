@@ -27,6 +27,20 @@ class Router
         $this->routers['post'][$path] = $callback;
     }
 
+    public function setIntendedUrl($url)
+    {
+        Application::$app->session->set('url.intended', $url);
+    }
+
+    public function intended($default = '/')
+    {
+        $path = Application::$app->session->get('url.intended');
+        if(isset($path) && strlen($path) > 0) {
+            return Application::$app->response->redirect($path);
+        }
+        return Application::$app->response->redirect($default);
+    }
+
     public function resolve()
     {
         $path = $this->request->getPath();
@@ -41,7 +55,9 @@ class Router
             return $this->renderView($callback);
         }
         if (is_array($callback)) {
+            Application::$app->controller->action = $callback[1];
             Application::$app->controller = new $callback[0]();
+
             $callback[0] = Application::$app->controller;
         }
         return call_user_func($callback, $this->request);
@@ -52,9 +68,7 @@ class Router
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderViewContent($view, $params);
-
         // param = [[],[]]
-
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 

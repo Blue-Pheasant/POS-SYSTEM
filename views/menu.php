@@ -6,9 +6,9 @@ use app\models\CartItem;
 ?>
 
 <?php
-    if(Application::isGuest()) {
-        Application::$app->response->redirect('/login');
-    }
+    // if(Application::isGuest()) {
+    //     Application::$app->response->redirect('/login');
+    // }
 ?>
 <script type="text/javascript">
   document.title = 'Menu';

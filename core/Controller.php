@@ -8,6 +8,8 @@ use app\middlewares\BaseMiddleware;
 class Controller
 {
     public string $layout = 'main';
+    public string $action = '';
+    public BaseMiddleware $middleware;
 
     public function render($view, $params = [])
     {
@@ -21,7 +23,8 @@ class Controller
 
     public function registerMiddleware(BaseMiddleware $middleware)
     {
-        $this->middlewares[] = $middleware;
+        $this->middleware = $middleware;
+        $this->middleware->execute();
     }
 
     public function getMiddlewares(): array

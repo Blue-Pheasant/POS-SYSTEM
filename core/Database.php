@@ -118,17 +118,7 @@ class Database
         return $this->pdo->prepare($sql);
     }
 
-    public function getAllProducts()
-    {
-        $statement = $this->pdo->prepare("SELECT * FROM products");
-        $statement->execute();
-        $result = $statement->fetch();
-        foreach ($result as $item) {
-            $list[] = new Product($item['id'], $item['category_id'], $item['name'], $item['price'], $item['description']);
-        }
-        return $result;
-    }
-
+   
     public function query($message)
     {
         return $this->pdo->query($message);

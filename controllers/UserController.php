@@ -7,11 +7,13 @@ namespace app\controllers;
 use app\core\Controller;
 use app\core\Application;
 use app\core\Request;
+use app\middlewares\AdminMiddleware;
 use app\models\User;
-use Dotenv\Util\Regex;
 
 class UserController extends Controller{
-    public function __construct() {}
+    public function __construct() {
+        Application::$app->controller->registerMiddleware(new AdminMiddleware(['index', 'create', 'delete', 'update', 'details']));
+    }
 
     public function index() 
     {
