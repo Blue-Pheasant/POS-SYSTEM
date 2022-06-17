@@ -1,8 +1,6 @@
 <?php
 
 namespace app\core;
-
-use app\middlewares\BaseMiddleware;
 use app\models\Cart;
 
 class Application
