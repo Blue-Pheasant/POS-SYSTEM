@@ -80,8 +80,8 @@ class Category extends DBModel
 
     public function update($category)
     {
-        $sql = "UPDATE categories SET name='" . $category->name . "' 
-                                    WHERE id='" . $category->id . "'";
+        $sql = "UPDATE categories SET name='$category->name' 
+                                    WHERE id='$category->id'";
         $statement = self::prepare($sql);
         $statement->execute();
         return true;         
@@ -102,7 +102,7 @@ class Category extends DBModel
     public static function get($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM categories WHERE id = "' . $id . '"');
+        $req = $db->query("SELECT * FROM categories WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $categories = new Category($item['id'], $item['name']);
         return $categories;

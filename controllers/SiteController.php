@@ -31,7 +31,7 @@ class SiteController extends Controller
     public function home()
     {
         return $this->render('home', [
-            'name' => 'Kaffee store'
+            'name' => 'Buy me store'
         ]);
     }
 
@@ -128,5 +128,11 @@ class SiteController extends Controller
     public function profile()
     {
         return $this->render('profile');
+    }
+
+    public function notice()
+    {
+        $this->setLayout('auth');
+        return $this->render('payment_success');
     }
 }

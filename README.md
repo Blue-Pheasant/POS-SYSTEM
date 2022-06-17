@@ -18,20 +18,20 @@ It's a simple php-mvc template version 1.0. We will maintain and develop in futu
 
 ### Tạo mysql database:
 
-Đầu tiên, sử dụng DBMS của bạn tạo một connection mysql database với cấu hình sau:
+Đầu tiên, sử dụng DBMS của bạn tạo một connection mysql database với cấu hình sau:<br />
 
-Server host : localhost
-Database : buyme
-Port : 3306
-Username : root
-Password : (có hay không cũng được)
+Server host : localhost<br />
+Database : buyme<br />
+Port : 3306<br />
+Username : root<br />
+Password : (có hay không cũng được)<br />
 
 ### Tạo dotenv
 
 Vào folder project, tạo một file .env rồi bỏ vào config sau:
 
 ```bash
-DB_DSN=mysql:host=localhost;dbname=buyme
+DB_DSN=mysql:host=localhost;dbname=buymee
 DB_USER=root
 DB_PASSWORD=
 ```
@@ -53,10 +53,24 @@ Terminal trả về như sau là bạn đã chạy migrate được rồi:
 [2021-10-28 19:10:49] - Applyied migration m0001_initial.php
 ```
 
-Nếu không được như vậy thì hãy drop hết table trong database rồi chạy migrate lại.
+Nếu không được như vậy thì hãy drop hết table trong database rồi chạy migrate lại.<br />
 
-HOẶC:
-    Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM
+Hoặc:<br />
+    Mở mysql và import file buyme.sql trong thư mục POS-SYSTEM<br />
+Hoặc:<br />
+    Nếu bạn sử dụng POSTGRESQL như một giải pháp thay thế MYSQL thì hãy tạo 1 database rồi sau đó import 
+    file postgreSQL.sql. Vì cú pháp của mysql và postgresql có khác biệt nhau nên ta sẽ sửa lại một ít 
+    trong file /core/database.php.<br />
+    Nếu bạn dùng postgresql:<br />
+```bash
+SET client_encoding TO 'UTF8'
+```
+<br />   
+ Nếu bạn dùng mysql:<br />
+
+```bash
+SET NAMES utf8
+```
 
 ## Run project
 

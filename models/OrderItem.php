@@ -92,7 +92,7 @@ class OrderItem extends DBModel
         $req = $db->query(
             "SELECT *
             FROM order_detail JOIN products ON order_detail.product_id = products.id 
-            WHERE order_detail.order_id = '" . $order_id . "';"
+            WHERE order_detail.order_id = '$order_id';"
         );
 
         foreach ($req->fetchAll() as $item) {

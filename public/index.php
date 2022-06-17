@@ -2,8 +2,6 @@
 
 use app\controllers\SiteController;
 use app\core\Application;
-use app\controllers\AuthController;
-use app\controllers\AboutController;
 use app\controllers\ProductController;
 use app\controllers\MenuController;
 use app\controllers\ProfileController;
@@ -46,14 +44,15 @@ $app->router->get('/collection', [SiteController::class, 'collection']);
 $app->router->get('/profile', [ProfileController::class, 'profile']);
 $app->router->post('/profile', [ProfileController::class, 'profile']);
 $app->router->get('/stores', [SiteController::class, 'stores']);
+$app->router->get('/cart/notice', [SiteController::class, 'notice']);
 
 $app->router->get('/product', [ProductController::class, 'product']);
 $app->router->post('/product', [ProductController::class, 'product']);
 
 $app->router->get('/cart', [CartController::class, 'cart']);
-$app->router->post('/update', [CartController::class, 'update']);
 $app->router->post('/cart', [CartController::class, 'placeOrder']);
 
+$app->router->post('/update', [CartController::class, 'update']);
 
 $app->router->get('/orders', [OrdersController::class, 'orders']);
 $app->router->get('/error', [SiteController::class, 'error']);

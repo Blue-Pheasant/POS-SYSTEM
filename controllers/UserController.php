@@ -83,7 +83,7 @@ class UserController extends Controller{
         $id = Application::$app->request->getParam('id');
         $userModel = User::getUserInfo($id);
         $this->setLayout('admin');
-        return $this->render('/admin/users/change_password', [
+        return $this->render('/admin/users/details_user', [
             'userModel' => $userModel
         ]);         
     }

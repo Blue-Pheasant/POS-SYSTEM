@@ -15,7 +15,9 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
-              <p class="card-category">Thành viên</p>
+              <a href="/admin/users">
+                <p class="card-category">Thành viên</p>
+              </a>
               <?php
                   $count = 0;
                   foreach($params['users'] as $user) {
@@ -40,9 +42,11 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
+            <a href="/admin/orders/accepted">
               <p class="card-category">Doanh thu</p>
+            </a>
               <?php
-                  echo '<h4 class="card-title"> ' . $params['list'][0] . ' VNĐ' .' </h4>';
+                  echo '<h4 class="card-title"> ' . number_format($params['list'][0], 0, ',', '.') . ' VNĐ' .' </h4>';
               ?>
             </div>
           </div>
@@ -61,7 +65,9 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
+            <a href="/admin/products">
               <p class="card-category">Sản phẩm</p>
+            </a>
                   <?php
                     $count = 0;
                     foreach($params['products'] as $product) {
@@ -86,7 +92,9 @@
           </div>
           <div class="col-7 d-flex align-items-center">
             <div class="numbers">
+            <a href="/admin/orders/accepted">
               <p class="card-category">Đã bán</p>
+            </a>
                 <?php
                     echo '<h4 class="card-title"> ' . $params['list'][1] .' </h4>';
                 ?>

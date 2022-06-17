@@ -6,6 +6,7 @@ use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\middlewares\AdminMiddleware;
+use app\middlewares\AuthMiddleware;
 use app\models\Order;
 use app\models\Product;
 use app\models\User;

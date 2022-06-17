@@ -32,7 +32,7 @@
                     ?>
                 </td>
                 <td><?=$orderModel->name?></td>
-                <td><?=$orderModel->price?></td>
+                <td><?=number_format($orderModel->price, 0, ',', '.') . 'đ'?></td>
                 <td><?=$orderModel->size?></td>
                 <td><?=$orderModel->quantity?></td>
                 <td><?=$orderModel->note?></td>   

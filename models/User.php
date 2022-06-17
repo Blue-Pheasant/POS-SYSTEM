@@ -107,7 +107,7 @@ class User extends UserModel
     {
         $list = [];
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM users');
+        $req = $db->query("SELECT * FROM users");
 
         foreach ($req->fetchAll() as $item) {
             $userModel = new User;
@@ -122,7 +122,7 @@ class User extends UserModel
     public static function getUserInfo($id)
     {
         $db = Database::getInstance();
-        $req = $db->query('SELECT * FROM users WHERE id = "' . $id . '"');
+        $req = $db->query("SELECT * FROM users WHERE id = '$id'");
         $item = $req->fetchAll()[0];
         $user = new User();
         $user->id = $item['id'];
@@ -140,11 +140,11 @@ class User extends UserModel
         $statement = self::prepare(
             "UPDATE users 
             SET 
-                firstname = '" . $user->firstname . "', 
-                lastname = '" . $user->lastname . "',
-                phone_number = '" . $user->phone_number . "',
-                address = '" . $user->address . "'
-            WHERE id = '" . $user->id . "';
+                firstname = '$user->firstname', 
+                lastname = '$user->lastname',
+                phone_number = '$user->phone_number',
+                address = '$user->address'
+            WHERE id = '$user->id';
             "
         );
         $statement->execute();
@@ -156,14 +156,14 @@ class User extends UserModel
         $statement = self::prepare(
             "UPDATE users 
             SET 
-                firstname = '" . $user->firstname . "', 
-                lastname = '" . $user->lastname . "',
-                email = '" . $user->email . "',
-                password = '" . password_hash($user->password, PASSWORD_DEFAULT) . "',
-                phone_number = '" . $user->phone_number . "',
-                role = '" . $user->role . "',
-                address = '" . $user->address . "'
-            WHERE id = '" . $user->id . "';
+                firstname = '$user->firstname', 
+                lastname = '$user->lastname',
+                email = '$user->email',
+                password = 'password_hash($user->password, PASSWORD_DEFAULT)',
+                phone_number = '$user->phone_number',
+                role = '$user->role',
+                address = '$user->address'
+            WHERE id = '$user->id';
             "
         );
         $statement->execute();

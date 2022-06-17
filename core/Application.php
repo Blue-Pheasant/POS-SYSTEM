@@ -62,25 +62,7 @@ class Application
 
     public static function isAdmin()
     {
-        return self::$app->user->role;
-    }
-
-    public function login(UserModel $user)
-    {
-        $this->user = $user;
-        $primaryKey = $user->primaryKey();
-        $value = $user->{$primaryKey};
-        Application::$app->session->set('user', $value);
-
-        $id = Application::$app->user->id;
-
-        if (!Cart::findCart($id)) {
-            Cart::create($id);
-        }
-        $cart = Cart::getCart($id)[0];
-
-        $this->cart = new Cart($cart->id, $cart->user_id, $cart->status);
-        return true;
+        return !self::$app->user->role === 'admin';
     }
 
     public function logout()
