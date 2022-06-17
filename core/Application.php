@@ -88,6 +88,17 @@ class Application
         }
     }
 
+    public function login(UserModel $user)
+    {
+        $this->user = $user;
+        $primaryKey = $user->primaryKey();
+        $value = $user->{$primaryKey};
+        $role = $user->role;
+        Application::$app->session->set('user', $value);
+        Application::$app->session->set('role', $role);
+        return true;
+    }
+
     public function triggerEvent($eventName)
     {
         $callbacks = $this->eventListeners[$eventName] ?? [];

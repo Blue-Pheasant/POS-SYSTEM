@@ -48,6 +48,7 @@ class Router
         $callback = $this->routers[$method][$path] ?? false;
         if ($callback === false) {
             $this->response->setStateCode(404);
+            Application::$app->controller->layout = 'auth';
             return $this->renderView('_404');
             exit;
         }
@@ -85,8 +86,6 @@ class Router
     protected function renderViewContent($view, $params = [])
     {
         foreach ($params as $key => $param) {
-
-            // $$key sẽ lấy giá trị của key làm tên biến và lưu value vào biến đó
             $$key = $param;
         }
         ob_start();
