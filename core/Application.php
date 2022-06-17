@@ -60,7 +60,7 @@ class Application
 
     public static function isAdmin()
     {
-        return !self::$app->user->role === 'admin';
+        return self::$app->user->role == 'admin';
     }
 
     public function logout()
