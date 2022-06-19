@@ -18,10 +18,10 @@ class SiteController extends Controller
         // Preprocess login with cookie
         if(!Application::$app->session::exists('user')) {
             $loginForm = new LoginForm();
-            if($this->cookie::exists($this->cookie::KEY_COOKIE)) {
-                $userId = $this->cookie->get($this->cookie::KEY_COOKIE);
+            if(Application::$app->cookie::exists(Application::$app->cookie::KEY_COOKIE)) {
+                $userId = Application::$app->cookie->get(Application::$app->cookie::KEY_COOKIE);
                 $loginForm->userId = $userId; 
-                $this->registerCookie(new Cookie($this->cookie::KEY_COOKIE, $userId, time() + $this->cookie::TIME_COOKIE, True));
+                Application::$app->registerCookie(new Cookie(Application::$app->cookie::KEY_COOKIE, $userId, time() + Application::$app->cookie::TIME_COOKIE, True));
                 $loginForm->login('userId');
             }
         }
@@ -82,7 +82,7 @@ class SiteController extends Controller
             if ($loginForm->validate() && $loginForm->login('email')) {
                 $userId = Application::$app->session->get('user');
                 $userModel = User::getUserInfo($userId);
-                $this->registerCookie(new Cookie($this->cookie::KEY_COOKIE, $userId, time() + $this->cookie::TIME_COOKIE, True));
+                Application::$app->registerCookie(new Cookie(Application::$app->cookie::KEY_COOKIE, $userId, time() + Application::$app->cookie::TIME_COOKIE, True));
 
                 if ($userModel->getRole() === 'admin') {
                     return Application::$app->router->intended('/admin');
