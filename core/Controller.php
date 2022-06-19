@@ -10,7 +10,9 @@ class Controller
     public string $layout = 'main';
     public string $action = '';
     public BaseMiddleware $middleware;
+    public Cookie $cookie;
 
+    
     public function render($view, $params = [])
     {
         return Application::$app->router->renderView($view, $params);
@@ -25,6 +27,17 @@ class Controller
     {
         $this->middleware = $middleware;
         $this->middleware->execute();
+    }
+
+    public function registerCookie(Cookie $cookie)
+    {
+        $this->cookie = $cookie;
+        $this->cookie->create();
+    }
+
+    public function destroyCookie(Cookie $cookie)
+    {
+        $this->cookie->destroy();
     }
 
     public function getMiddlewares(): array

@@ -5,9 +5,8 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\exception\ForbiddenException;
+use app\core\Cookie;
 use app\middlewares\AuthMiddleware;
-
 use app\models\LoginForm;
 use app\models\Store;
 use app\models\User;
@@ -17,15 +16,16 @@ class SiteController extends Controller
     public function __construct()
     {
         // Preprocess login with cookie
-        $loginForm = new LoginForm();
         if(!Application::$app->session::exists('user')) {
-            if(isset($_COOKIE["member_login"])) {
-                $loginForm->userId = $_COOKIE["member_login"];
+            $loginForm = new LoginForm();
+            if($this->cookie::exists($this->cookie::KEY_COOKIE)) {
+                $userId = $this->cookie->get($this->cookie::KEY_COOKIE);
+                $loginForm->userId = $userId; 
+                $this->registerCookie(new Cookie($this->cookie::KEY_COOKIE, $userId, time() + $this->cookie::TIME_COOKIE, True));
                 $loginForm->login('userId');
-                setcookie ("member_login", Application::$app->session->get('user'), time() + 3600 * 24 * 30);
             }
         }
-        $this->registerMiddleware(new AuthMiddleware(['profile']));
+        $this->registerMiddleware(new AuthMiddleware(['profile', 'cart', 'menu']));
     }
 
     public function home()
@@ -82,7 +82,7 @@ class SiteController extends Controller
             if ($loginForm->validate() && $loginForm->login('email')) {
                 $userId = Application::$app->session->get('user');
                 $userModel = User::getUserInfo($userId);
-                setcookie("member_login", $userId, time() + 3600 * 24 * 30);
+                $this->registerCookie(new Cookie($this->cookie::KEY_COOKIE, $userId, time() + $this->cookie::TIME_COOKIE, True));
 
                 if ($userModel->getRole() === 'admin') {
                     return Application::$app->router->intended('/admin');

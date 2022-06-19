@@ -14,7 +14,8 @@ use app\models\User;
 
 class AdminController extends Controller
 {
-    public function __construct() {
+    public function __construct() 
+    {
         Application::$app->controller->registerMiddleware(new AdminMiddleware(['index']));
     }
 
