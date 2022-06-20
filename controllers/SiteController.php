@@ -5,8 +5,9 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\core\Cookie;
+use app\exception\ForbiddenException;
 use app\middlewares\AuthMiddleware;
+
 use app\models\LoginForm;
 use app\models\Store;
 use app\models\User;
@@ -16,16 +17,15 @@ class SiteController extends Controller
     public function __construct()
     {
         // Preprocess login with cookie
+        $loginForm = new LoginForm();
         if(!Application::$app->session::exists('user')) {
-            $loginForm = new LoginForm();
-            if(Application::$app->cookie::exists(Application::$app->cookie::KEY_COOKIE)) {
-                $userId = Application::$app->cookie->get(Application::$app->cookie::KEY_COOKIE);
-                $loginForm->userId = $userId; 
-                Application::$app->registerCookie(new Cookie(Application::$app->cookie::KEY_COOKIE, $userId, time() + Application::$app->cookie::TIME_COOKIE, True));
+            if(isset($_COOKIE["member_login"])) {
+                $loginForm->userId = $_COOKIE["member_login"];
                 $loginForm->login('userId');
+                setcookie ("member_login", Application::$app->session->get('user'), time() + 3600 * 24 * 30);
             }
         }
-        $this->registerMiddleware(new AuthMiddleware(['profile', 'cart', 'menu']));
+        $this->registerMiddleware(new AuthMiddleware(['profile']));
     }
 
     public function home()
@@ -82,7 +82,7 @@ class SiteController extends Controller
             if ($loginForm->validate() && $loginForm->login('email')) {
                 $userId = Application::$app->session->get('user');
                 $userModel = User::getUserInfo($userId);
-                Application::$app->registerCookie(new Cookie(Application::$app->cookie::KEY_COOKIE, $userId, time() + Application::$app->cookie::TIME_COOKIE, True));
+                setcookie("member_login", $userId, time() + 3600 * 24 * 30);
 
                 if ($userModel->getRole() === 'admin') {
                     return Application::$app->router->intended('/admin');
