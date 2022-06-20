@@ -10,6 +10,7 @@ class ForbiddenException extends \Exception
 
     public function __construct()
     {
+        Application::$app->controller->layout = 'auth';
         Application::$app->response->redirect('/error');
     }
 }
