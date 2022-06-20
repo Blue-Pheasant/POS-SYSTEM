@@ -2,7 +2,6 @@
 
 namespace app\middlewares;
 
-
 use app\core\Application;
 use app\exception\ForLoginException;
 
