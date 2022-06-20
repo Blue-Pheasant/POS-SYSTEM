@@ -23,7 +23,6 @@ class Application
     public View $view;
     public ?UserModel $user;
     public ?Cart $cart;
-    public ?Cookie $cookie;
 
     public function __construct($rootDir, $config)
     {
@@ -40,7 +39,6 @@ class Application
         $this->db = new Database($config['db']);
         $this->session = new Session();
         $this->view = new View();
-        $this->cookie = new Cookie();
 
         $userId = Application::$app->session->get('user');
         if ($userId) {
@@ -62,7 +60,7 @@ class Application
 
     public static function isAdmin()
     {
-        return !self::$app->user->role === 'admin';
+        return self::$app->user->role == 'admin';
     }
 
     public function logout()
@@ -112,15 +110,5 @@ class Application
     public function on($eventName, $callback)
     {
         $this->eventListeners[$eventName][] = $callback;
-    }
-
-    public function registerCookie(Cookie $cookie)
-    {
-        $this->cookie->create($cookie->getName(), $cookie->getValue(), $cookie->getTime(), $cookie->getSecure());
-    }
-
-    public function destroyCookie()
-    {
-        $this->cookie->destroy();
     }
 }
